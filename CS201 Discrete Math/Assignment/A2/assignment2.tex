@@ -1,0 +1,285 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+
+\title{\textbf{Assignment\#2 CS201 Fall 2023}}
+\author{Ben Chen(12212231)}
+\date{\today}
+\linespread{1.3}
+\newcounter{problemname}
+\newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
+\newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
+\newenvironment{note}{\par\noindent\textsc{Note of Problem \arabic{problemname}. }}{\\\par}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+    Suppose that $A$, $B$ and $C$ are finite sets, determine whether the following statements are true of false and explain.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} True. Because
+    \begin{align*}
+        A\cap B \neq\emptyset &\equiv \exists x,\ x\in A\cap B &(\text{Premise}) \\
+        A - B &\equiv A \cap \bar{B} &(\text{Difference Definition}) \\
+        A \cap \bar{B} \subseteq A &\equiv A - B \subseteq A&(\text{Equivalence}) \\
+        A\cap B \neq\emptyset &\equiv \exists x,\ (x\in A)\wedge(x \not\in A\cap\bar{B}) &(\text{Derived from Premise}) \\
+        \text{Thus, } A\cap B \neq\emptyset &\rightarrow (A - B \subset A) &(\text{Proper Subset Definition})
+    \end{align*}
+    \textbf{b)} False. Counterexample: since $A\subseteq B$, if $A = B$ then $|A\cup B| = |B| = |A| \not\ge 2|A|$, which is contrary to $(A\subseteq B) \rightarrow (|A\cup B| \ge |A|)$.\newline
+    \textbf{c)} False. Since
+    \begin{align*}
+        \overline{(A-B)} \cap \overline{(B-A)} 
+        &= \overline{(A\cap\bar{B})}\cap\overline{(B\cap\bar{A})} \\
+        &= (\bar{A}\cup B)\cap(\bar{B}\cup A) \\
+        &= \big((\bar{A}\cup B)\cap\bar{B}\big)\cup\big((\bar{A}\cup B)\cap A\big) \\
+        &= \big((\bar{A}\cap\bar{B})\cup(\bar{B}\cap B)\big)\cup\big((\bar{A}\cap A)\cup(A\cap B)\big) \\
+        &= (\bar{A}\cap\bar{B})\cup(A\cap B) \\
+        &= \overline{(A\cup B)} \cup (A\cap B) \neq \overline{(A\cup B)}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Let $A$, $B$ and $C$ be sets, and prove the following set identities.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Proof
+    \begin{align*}
+        \overline{A\cap(B\cup C)} &= \bar{A}\cup\overline{(B\cup C)} &\text{De Morgan}\\
+                                  &= \bar{A}\cup(\bar{B}\cap \bar{C}) &\text{De Morgan}\\
+                                  &= \bar{A}\cup(\bar{C}\cap \bar{B}) &\text{Commutative}\\
+                                  &= (\bar{C}\cap \bar{B})\cup\bar{A} &\text{Commutative}
+    \end{align*}
+    \textbf{b)} Proof
+    \begin{align*}
+        (A-B)\cap(B-A) &= (A\cap\bar{B})\cap(B\cap\bar{A}) &\text{Difference}\\
+                       &= A\cap\bar{B}\cap(B\cap\bar{A}) &\text{Associative}\\
+                       &= A\cap\bar{B}\cap B\cap\bar{A} &\text{Associative}\\
+                       &= (\bar{B}\cap B)\cap(A\cap\bar{A}) &\text{Commutative}\\
+                       &= \emptyset \cap \emptyset &\text{Complement}\\
+                       &= \emptyset &\text{Identity}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Proof the following statements.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Suppose $A_n$ is a set of subsets of $A$ with $n$ elements.
+    And let $B = \{(k_1,k_2,\cdots,k_n)\big|k_i\in \mathbb{N}\}$, which means $B$ is the set includes finite cartesian products of the $\mathbb{N}$, so $B$ is countable.
+    Thus, there exists a bijective function $f: A_n\rightarrow B$, and since $B$ is countable set, $A_n$ is also countable set and $F = \bigcup_{n=0}^{\infty}A_n$ is countable set. $F$ is the set of all subsets of $A$.
+    \newline\textbf{b)} Since there's a surjective function from $A$ to $B$,let $A_s$ be the subset of $A$ that satisfy there exists a bijective function $f:B\rightarrow A_s$. From (a), since $A$ is countable, $A_i$ is also countable. Thus, $B$ is also countable.
+\end{solution}
+
+\begin{problem}
+    The \textit{symmetric difference} of $A$ and $B$, denoted as $A\ \Delta\ B$, is the set containing those elements in $A$ or $B$ (not in both $A$ and $B$). Answer the following questions.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Yes. Explanation
+    \begin{align*}
+        A\ \Delta\ B &= (A\cap\bar{B})\cup(B\cap\bar{A}) \\
+        A\ \Delta\ (B\ \Delta\ C) &= \left(A\ \Delta\ (B\cap\bar{C})\cup(C\cap\bar{B})\right) \\
+        &= \left(A\cap\overline{(B\cap\bar{C})\cup(C\cap\bar{B}})\right)\cup\left(\left((B\cap\bar{C})\cup(C\cap\bar{B})\right)\cap\bar{A}\right) \\
+        &= \left(A\cap\overline{(B\cap\bar{C})}\cap\overline{(C\cap\bar{B}})\right)\cup\left(\left((B\cap\bar{C})\cup(C\cap\bar{B})\right)\cap\bar{A}\right) \\
+        &= \left(A\cap(\bar{B}\cup C)\cap(\bar{C}\cup B)\right)\cup\left(\left((B\cap\bar{C})\cup(C\cap\bar{B})\right)\cap\bar{A}\right) \\
+        &= \left(A\cap(\bar{B}\cup C)\cap(\bar{C}\cup B)\right)\cup\left((B\cap\bar{C}\cap\bar{A})\cup(C\cap\bar{B}\cap\bar{A})\right) \\
+        &= \left(A\cap\left(\left(C\cap(\bar{C}\cup B)\right)\cup\left(\bar{B}\cap(\bar{C}\cup B)\right)\right)\right)\cup\left((B\cap\bar{C}\cap\bar{A})\cup(C\cap\bar{B}\cap\bar{A})\right) \\
+        &= (A\cap B\cap C)\cup(A\cap\bar{B}\cap\bar{C})\cup(\bar{A}\cap B\cap\bar{C})\cup(\bar{A}\cap\bar{B}\cap C)\\ 
+        (A\ \Delta\ B)\ \Delta\ C &= \left((A\cap\bar{B})\cup(B\cap\bar{A})\right)\ \Delta\ C \\
+        &= \left(C\cap\overline{(A\cap\bar{B})\cup(B\cap\bar{A}})\right)\cup\left(\left((A\cap\bar{B})\cup(B\cap\bar{A})\right)\cap\bar{C}\right) \\
+        &= \left(C\cap\overline{(A\cap\bar{B})}\cap\overline{(B\cap\bar{A}})\right)\cup\left(\left((A\cap\bar{B})\cup(B\cap\bar{A})\right)\cap\bar{C}\right) \\
+        &= \left(C\cap(A\cup\bar{B})\cap(B\cup\bar{A})\right)\cup\left(\left((A\cap\bar{B})\cup(B\cap\bar{A})\right)\cap\bar{C}\right) \\
+        &= \left(C\cap(A\cup\bar{B})\cap(B\cup\bar{A})\right)\cup\left((A\cap\bar{B}\cap\bar{C})\cup(B\cap\bar{A}\cap\bar{C})\right) \\
+        &= \left(C\cap\left(\left(A\cap(B\cup\bar{A})\right)\cup\left(\bar{B}\cap(\bar{A}\cup B)\right)\right)\right)\cup\left((A\cap\bar{B}\cap\bar{C})\cup(B\cap\bar{A}\cap\bar{C})\right) \\
+        &= (A\cap B\cap C)\cup(A\cap\bar{B}\cap\bar{C})\cup(\bar{A}\cap B\cap\bar{C})\cup(\bar{A}\cap\bar{B}\cap C)
+    \end{align*}
+    Thus, $A\ \Delta\ (B\ \Delta\ C) = (A\ \Delta\ B)\ \Delta\ C$.
+    \newline\textbf{b)} True. Proof
+    \begin{align*}
+        A\ \Delta\ C &= B\ \Delta\ C\\
+        \Rightarrow (A\ \Delta\ C)\ \Delta\ C &= (B\ \Delta\ C)\ \Delta\ C \\
+        \Rightarrow A\ \Delta\ (C\ \Delta\ C) &= B\ \Delta\ (C\ \Delta\ C) \\
+    \end{align*}
+    \begin{align*}
+        \Rightarrow A\ \Delta\ \emptyset &= B\ \Delta\ \emptyset \\
+        \Rightarrow A &= B
+    \end{align*}
+    \textbf{c)} Example: $A = \mathbb{R}$, $B = \mathbb{\overline{Q}}$, meaning A is the set of real number and B is the set of irrational number. From class, we've proved that $\mathbb{R}$ and $\mathbb{\overline{Q}}$ are uncountable. We got $A\ \Delta\ B = \ \mathbb{Q}$ and we've proved that $\mathbb{Q}$ is countable set.
+\end{solution}
+
+\begin{problem}
+    For finite sets $A$, $B$ and $C$, explain why the following inclusion-exclusion formula is true.
+    $|A\cup B\cup C| = |A| + |B| + |C| - |A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\cap C|$
+\end{problem}
+
+\begin{solution}
+    Proof
+    \begin{align*}
+        |A\cup B\cup C| &= |A\cup (B\cup C)| \\
+                        &= |A| + |(B\cup C)| - |A\cap((B\cup C))| \\
+                        &= |A| + |B| + |C| - |B\cap C| - |A\cap((B\cup C))| \\
+                        &= |A| + |B| + |C| - |B\cap C| - |(A\cap B)\cup (A\cap C)| \\
+                        &= |A| + |B| + |C| - |B\cap C| - |A\cap B| - |A\cap C| + |A\cap B\cap C|
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Show that if $A$, $B$, $C$ and $D$ are (probably infinite) sets with $|A| = |B|$ and $|C| = |D|$, then $|A\times C| = |B\times D|$.
+\end{problem}
+
+\begin{solution}
+    Since $|A| = |B|$ and $|C| = |D|$, we are given bijections $f:A\rightarrow B$ and $g:C\rightarrow D$. Then there must exist a bijection that $F:(a,c)\rightarrow\left(f(a),g(c)\right)$ where $a\in A$ and $c\in C$, which is also $F:A\times C\rightarrow B\times D$. Thus, we have $|A\times C| = |B\times D|$.
+\end{solution}
+
+\begin{problem}
+    Consider two functions $g:A\rightarrow B$ and $f:B\rightarrow C$ and its composition function $f\circ g$. Answer the following questions.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} No. Counterexample: let $A=C=\{1,2\},\ B=\{a,b,c\}$ and define the functions $f:a\mapsto 1,b\mapsto 2,c\mapsto 2$ and $g:1\mapsto a,2\mapsto b$. Then it's obvious that $f\circ g$ and $g$ is one-to-one, but $f$ is not one-to-one.
+    \newline\textbf{b)} Yes. Similar to (c) and the condition $f$ is one-to-one is unnecessary.
+    \newline\textbf{c)} Yes. Suppose $x,y\in A$ and $g(x)=g(y)$, then $f\big(g(x)\big) = f\big(g(y)\big)$. Since $f\circ g$ is one-to-one and $(f\circ g)(x) = (f\circ g)(y)$, we have $x=y$, which means $g$ is one-to-one.
+    \newline\textbf{d)} Yes. Since $f\circ g$ is onto, for any $c\in C$ there exists $a\in A$ such that $c=(f\circ g)(a)=f\big(g(a)\big)$. Let $b=g(a)\in B$, then $c=f(b)$. Because $c$ is arbitary elements in $C$, $f$ is onto.
+    \newline\textbf{e)} No. Counterexample: let $A=C=\{1,2\},\ B=\{a,b,c\}$ and define the functions $f:a\mapsto 1,b\mapsto 2,c\mapsto 2$ and $g:1\mapsto a,2\mapsto b$. It can be verified that $f\circ g$ and $f$ is onto, but $g$ is not onto.
+\end{solution}
+
+\begin{problem}
+    Let $x$ be a real number, prove that \[\lfloor 3x \rfloor = \lfloor x \rfloor + \lfloor x  + \frac{1}{3} \rfloor + \lfloor x+\frac{2}{3} \rfloor\]
+\end{problem}
+
+\begin{solution}
+    By definition, $x = \lfloor x \rfloor + y$ where $0\le y < 1$
+    \newline\textbf{Case 1:} If $0\le y < \frac{1}{3}$ then $0\le 3y < 1,\quad 0\le y + \frac{1}{3} < \frac{2}{3},\quad 0\le y + \frac{2}{3} < 1$
+    \begin{align*}
+        \lfloor 3x \rfloor &= \lfloor 3\lfloor x \rfloor + 3y\rfloor= 3\lfloor x \rfloor + 3\lfloor y \rfloor = 3\lfloor x \rfloor \\
+        \lfloor x + \frac{1}{3} \rfloor  &= \lfloor \lfloor x \rfloor + y + \frac{1}{3}\rfloor= \lfloor x \rfloor + \lfloor y + \frac{1}{3} \rfloor = \lfloor x \rfloor\\
+        \lfloor x + \frac{2}{3} \rfloor  &= \lfloor \lfloor x \rfloor + y + \frac{2}{3}\rfloor= \lfloor x \rfloor + \lfloor y + \frac{2}{3} \rfloor = \lfloor x \rfloor
+    \end{align*}
+    \textbf{Case 2:} If $\frac{1}{3} \le y < \frac{2}{3}$ then $1\le 3y < 2,\quad 0\le y + \frac{1}{3} < 1,\quad 1\le y + \frac{2}{3} < \frac{4}{3}$
+    \begin{align*}
+        \lfloor 3x \rfloor &= \lfloor 3\lfloor x \rfloor + 3y\rfloor= 3\lfloor x \rfloor + 3\lfloor y \rfloor = 3\lfloor x \rfloor + 1\\
+        \lfloor x + \frac{1}{3} \rfloor  &= \lfloor \lfloor x \rfloor + y + \frac{1}{3}\rfloor= \lfloor x \rfloor + \lfloor y +\frac{1}{3} \rfloor = \lfloor x \rfloor\\
+        \lfloor x + \frac{2}{3} \rfloor  &= \lfloor \lfloor x \rfloor + y + \frac{2}{3}\rfloor= \lfloor x \rfloor + \lfloor y + \frac{2}{3}\rfloor = \lfloor x \rfloor + 1
+    \end{align*}
+    \textbf{Case 3:} If $\frac{2}{3}\le y < 1$ then $2\le 3y < 3,\quad 1\le y + \frac{1}{3} < \frac{4}{3},\quad 1\le y + \frac{2}{3} < \frac{5}{3}$
+    \begin{align*}
+        \lfloor 3x \rfloor &= \lfloor 3\lfloor x \rfloor + 3y\rfloor= 3\lfloor x \rfloor + 3\lfloor y \rfloor = 3\lfloor x \rfloor + 2\\
+        \lfloor x + \frac{1}{3} \rfloor  &= \lfloor \lfloor x \rfloor + y + \frac{1}{3}\rfloor= 3\lfloor x \rfloor + \lfloor y + \frac{1}{3} \rfloor = \lfloor x \rfloor + 1\\
+        \lfloor x + \frac{2}{3} \rfloor  &= \lfloor \lfloor x \rfloor + y + \frac{2}{3}\rfloor= 3\lfloor x \rfloor + \lfloor y + \frac{2}{3} \rfloor = \lfloor x \rfloor + 1
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Derive the \textit{closed formula} for $\sum_{k=0}^m\lfloor \sqrt{k} \rfloor$.
+\end{problem}
+
+\begin{solution}
+    We have
+    \begin{equation*}
+        \lfloor k\rfloor = p \Rightarrow p\le \sqrt{k} < p + 1 \Rightarrow p^2 \le k < (p+1)^2
+    \end{equation*}
+    so
+    \begin{equation*}
+        \sum_{k=0}^m\lfloor \sqrt{k} \rfloor = \sum^{\lfloor\sqrt{m+1}\rfloor-1}_{p=0} \sum_{k=p^2}^{(p+1)^2-1}\lfloor \sqrt{k} \rfloor =  \sum^{\lfloor\sqrt{m+1}\rfloor-1}_{p=0} p(2p+1)
+    \end{equation*}
+    Thus, the closed formula will be
+    \begin{align*}
+        \sum_{k=0}^m\lfloor \sqrt{k} \rfloor &= \sum^{\lfloor\sqrt{m+1}\rfloor-1}_{p=0} p(2p+1) \\
+        &= \sum^{\lfloor\sqrt{m+1}\rfloor-1}_{p=0} 2p^2 + \sum^{\lfloor\sqrt{m+1}\rfloor-1}_{p=0} p \\
+        &= \frac{\lfloor\sqrt{m+1}\rfloor(\lfloor\sqrt{m+1}\rfloor-1)(2\lfloor\sqrt{m+1}\rfloor-1)}{3} + \frac{\lfloor\sqrt{m+1}\rfloor(\lfloor\sqrt{m+1}\rfloor-1)}{2}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Apply the Schr\"oder-Bernstein theorem to prove $(0,1)$ and $[0,2]$ have the same cardinality.
+\end{problem}
+
+\begin{solution}
+    Construct two one-to-one functions $f$ and $g$
+    \begin{align*}
+        f&:(0,1)\rightarrow[0,2]\quad f(x) = 2x \\
+        g&:[0,2]\rightarrow(0,1)\quad g(x) = \frac{x}{4} + \frac{1}{3}
+    \end{align*}
+    Thus, there exists a bijective function between $(0,1)$ and $[0,2]$ so as $\big|(0,1)\big| = \big|[0,2]\big|$.
+\end{solution}
+
+\begin{problem}
+    Show that when Hilbert's Grand Hotel is fully occupied one can still accommodate countably infinite new guests in it.
+\end{problem}
+
+\begin{solution}
+    As the hotel has countably infinite number of rooms, we can define two functions $f:\mathbb{Z^+}\rightarrow\mathbb{Z^+}$ and $g:\mathbb{Z^+}\rightarrow\mathbb{Z^+}$ that $f(x) = 2x-1$ and $g(x) = 4x-2$. It's guarantee that there doesn't exist $i,j\in \mathbb{Z^+}$ that makes $f(i)=g(j)$ because the solution $i = 2j - \frac{1}{2}$ is invalid. Thus, we can move the $i$-th current guest to the room No.$f(i)$ and accommodate the $j$-th new guest to the room No.$g(j)$. Thus, we can always accommodate countably infinite new guests without evicting any current guests.
+\end{solution}
+
+\begin{problem}
+    To show that there exists uncomputable funcions, it suffices to prove the following two parts: \textbf{a)}The set of all computer programs in all existing programming languages is countable \textbf{b)}The set of all functions from $\mathbb{Z}^+$ to the set of digits $\{0,1,\cdots,9\}$ is uncountable.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Let $S$ be the set of \textit{finite strings} constructed from the the \textit{finite alphabet} consisting of the characters used in all computer programs. The order is defined by ASCII (excluding the control characters). As the theorem ``the set of finite strings $S$ over a finite alphabet $A$ is countable'', we enumerate the strings in $S$ and do as follows,
+    \begin{align*}
+        &\text{1. feed}\ s\ \text{into the the corresponding compiler} \\
+        &\text{2. if the compiler accpets the string, add}\ s\ \text{to the list; otherwise, skip} \\
+        &\text{3. move on to the next string}\ s
+    \end{align*}
+    Thus, we got a bijection $f:\mathbb{Z^+}\rightarrow S$
+    \newline\textbf{b)} Assume that the set of all functions from $\mathbb{Z}^+$ to the set of digits $\{0,1,\cdots,9\}$ is countable. Then, denote the set as $F=\{f_1,f_2,\cdots,f_n\}$. And we have
+    \begin{align*}
+        f_1&:\mathbb{Z^+}\rightarrow \{d_{11}d_{12}d_{13}\cdots\} \\
+        f_2&:\mathbb{Z^+}\rightarrow \{d_{21}d_{22}d_{23}\cdots\} \\
+        f_3&:\mathbb{Z^+}\rightarrow \{d_{31}d_{32}d_{33}\cdots\} \\
+        \cdots \\
+        d_{ij} &\in \{0,1,2,\cdots,9\}
+    \end{align*}
+    And we can construct a function such that
+    \begin{align*}
+        g:\mathbb{Z^+}&\rightarrow \{d_1d_2d_3\cdots\} \\
+        \text{where}\quad d_i &\neq d_{ii}
+    \end{align*}
+    the function is valid but not included in $F$. Thus, the set is uncountable.
+\end{solution}
+
+\begin{problem}
+    Prove that for any $a > 1$, $\Theta(\log_an)=\Theta(\log_2n)$.
+\end{problem}
+
+\begin{solution}
+    Since
+    \begin{align*}
+        \log_an = \frac{\log_2n}{log_2a}
+    \end{align*}
+    there exists a constant $c_1 = \frac{1}{log_2a} > 0$ and $c_2 = log_2a > 0$ such that
+    \begin{align*}
+        \log_an\le c_1\log_2n\quad&\text{and}\quad c_2\log_an\ge\log_2n \\
+        \log_2n\le c_2\log_an\quad&\text{and}\quad c_1\log_2n\ge\log_an
+    \end{align*}
+    Thus, we have
+    \begin{align*}
+        \log_an = O(\log_2n)\quad&\text{and}\quad \log_an = \Omega(\log_2n) \\
+        \log_2n = O(\log_an)\quad&\text{and}\quad \log_2n = \Omega(\log_an) \\
+    \end{align*}
+    That is,
+    \begin{equation*}
+        \Theta(\log_an)=\Theta(\log_2n)
+    \end{equation*}
+\end{solution}
+
+\begin{problem}
+    Given a pseudocode of the Binary Search Algorithm with a increasing sequence of \textit{n} distinct integers $a_1,a_2,\cdots,a_n$ and answer the questions.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} $\Theta(\log n)$. The while loop takes $\log_2n$ comparison operations and the rest takes $1$ operations.
+    \newline\textbf{b)} Add one line of code between 4th and 5th line that
+    \begin{equation*}
+        \textbf{if}\ x = a_m\ \textbf{then}\ \textbf{return}\ m
+    \end{equation*}
+    \textbf{c)} $\Theta(n)$. The input take $\Theta(n)$ memory and algorithm takes $\Theta(1)$ memory.
+    \newline\textbf{d)} If the computer uses \textit{size\_t} as integer, then each integer takes $8$ \textit{bytes} and the input takes $8(n+1)$ \textit{bytes}.
+\end{solution}
+
+\end{document}

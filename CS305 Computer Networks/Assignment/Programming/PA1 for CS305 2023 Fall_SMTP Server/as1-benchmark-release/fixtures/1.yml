@@ -1,0 +1,16 @@
+scenario: POP3 USER, PASS and QUIT
+credit: 15
+
+servers:
+  - domain: 'exmail.qq.com'
+    type: student
+  - domain: 'gmail.com'
+    type: student
+
+steps:
+  - name: Login the account in different domain
+    uses: login
+    args:
+      user: 'usr2@mail.sustech.edu.cn'
+      pass: 'password2'
+  - uses: quit

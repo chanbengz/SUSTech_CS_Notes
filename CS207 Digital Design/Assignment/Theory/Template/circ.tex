@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{circuitikz}
+\ctikzset{logic ports=ieee}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{table}[!htbp]
+  \centering
+  \begin{circuitikz}[scale=0.7, transform shape]
+    \draw (3,5.5) node[and port, anchor=out] (and1) {};
+    \draw (3.5,4) node[xnor port, anchor=out] (xor1) {};
+    \draw (3,2.5) node[and port, anchor=out] (and2) {};
+    \draw (and1.bin 1) node[notcirc,left] {};
+    \draw (and2.bin 1) node[notcirc,left] {};
+    \draw (and2.in 1) |- (and1.in 2);
+    \draw (and1.in 1) -- ++(-0.5,0) |- (and2.in 2);
+    \draw let \p1=(xor1.in 1),\p2=(and1.in 1) in (\x1,\y1) to[short,-*] (\x2,\y1) node (a) {};
+    \draw let \p1=(xor1.in 2),\p2=(and2.in 1) in (\x1,\y1) to[short,-*] ({\x2-0.5cm},\y1) node (b) {};
+    \draw let \p1=(a) in (\x1,\y1) -- (-1,\y1) node[left,scale={1/0.7}] {$A$};
+    \draw let \p1=(b) in (\x1,\y1) -- (-1,\y1) node[left,scale={1/0.7}] {$B$};
+    \draw let \p1=(and1.out) in (\x1,\y1) -- (4,\y1) node[right,scale={1/0.7}] {$Y_{A>B}$};
+    \draw let \p1=(xor1.out) in (\x1,\y1) -- (4,\y1) node[right,scale={1/0.7}] {$Y_{A=B}$};
+    \draw let \p1=(and2.out) in (\x1,\y1) -- (4,\y1) node[right,scale={1/0.7}] {$Y_{A<B}$};
+\end{circuitikz}
+\end{table}
+\end{document}

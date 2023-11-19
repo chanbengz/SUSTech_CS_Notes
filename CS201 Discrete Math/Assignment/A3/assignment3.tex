@@ -1,0 +1,395 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+
+\title{\textbf{Assignment\#3 CS201 Fall 2023}}
+\author{Ben Chen(12212231)}
+\date{\today}
+\linespread{1.45}
+\newcounter{problemname}
+\newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
+\newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
+\newenvironment{note}{\par\noindent\textsc{Note of Problem \arabic{problemname}. }}{\\\par}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+    Show that if $a,b$ and $c$ are integers such that $ac\ \big|\ bc$, where $a\neq 0$ and $c\neq 0$
+, then $a\ \big|\ b$.
+\end{problem}
+
+\begin{solution}
+    Proof
+    \begin{align*}
+        ac\ \big|\ bc &\equiv \exists k,\ bc = k\cdot ac \\
+                      &\equiv b = k\cdot a &\text{since}\ c\neq0 \\
+                      &\equiv a \big| b &\text{Divisibility}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Evaluate the following quantities
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} $-2023 = -62\times 33 + 23$ so $-2023$ div $33$ equals 23.
+    \newline\textbf{b)} Since
+    \begin{align*}
+        (20234-2023)\ \text{mod}\ 25 &= (20234\ \text{mod}\ 25 - 2023\ \text{mod}\ 25)\ \text{mod}\ 25 \\
+                                     &= (9 - 23)\ \text{mod}\ 25 = 11
+    \end{align*}
+    So the answer is $11$.
+    \newline\textbf{c)} Since
+    \begin{align*}
+        94232\cdot 2982\ \text{mod}\ 7 &= \big((94323\ \text{mod}\ 7)\cdot(2982)\ \text{mod}\ 7\big)\ \text{mod}\ 7 \\
+                                       &= (9 \cdot 0)\ \text{mod}\ 7 = 0
+    \end{align*}
+    So the answer is $0$.
+\end{solution}
+
+\begin{problem}
+    Transfer the following integer into another base.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The binary number can be expressed in
+    \begin{align*}
+        (11011)_2 = 1\cdot 2^4 + 1\cdot 2^4 + 1\cdot 2^3 + 0\cdot 2^2 + 1\cdot 2^1 + 1\cdot 2^0 = 27
+    \end{align*}
+    \textbf{b)} The binary number can be expressed in three digits per group form
+    \begin{align*}
+        (101100)_2 = 101\ 100 = 5\ 4 = (54)_8
+    \end{align*}
+    \textbf{c)} The digits of hexadecimal can be expressed in four digits of binary each
+    \begin{align*}
+        (AE01F)_{16} &= A\ E\ 0\ 1\ F \\
+        &= 1010\ 1110\ 0000\ 0001\ 1111 \\
+        &= (10101110000000011111)_2
+    \end{align*}
+    \textbf{d)} The octal can be expressed in binary and then in hexadecimal
+    \begin{align*}
+        (720235)_8 &= 7\ 2\ 0\ 2\ 3\ 5 \\
+                   &= 111\ 010\ 000\ 010\ 011\ 101 \\
+                   &= 0011\ 1010\ 0000\ 1001\ 1101 \\
+                   &= 3\ A\ 0\ 9\ D = (3A09D)_{16}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Find the prime factorization of the following integers.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Iterate from 2 to $\sqrt{8085} = 90$ and test if the factors are prime, we got
+    \begin{equation*}
+        8085 = 3 \times 5\times 7^2\times 11
+    \end{equation*}
+    \textbf{b)} Since $12!$ is factorial, we have
+    \begin{align*}
+        12! &= 12 \times 11 \times\cdots \times 1 \\
+            &= 2^{10}\times 3^5\times 5^2\times 7\times 11
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Apply the (Extended) Euclidean algorithm.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The steps are shown below
+    \begin{align*}
+        &\text{Step1: } 267 = 3\cdot 79 + 30 \\
+        &\text{Step2: } 79 = 2\cdot 30 + 19 \\
+        &\text{Step3: } 30 = 19 + 11 \\
+        &\text{Step4: } 19 = 11 + 7 \\
+        &\text{Step5: } 11 = 7 + 4 \\
+        &\text{Step6: } 7 = 4 + 3 \\
+        &\text{Step7: } 4 = 3 + 1 \\
+        &\text{Step8: } 3 = 3\cdot 1
+    \end{align*}
+    the value of $\text{gcd}(267,79)$ is $1$.
+    \newline\textbf{b)} Find the coefficients using the extended gcd algorithm to solve
+    \begin{equation*}
+        s\cdot 267 + t\cdot 79 = \text{gcd}(267,79)
+    \end{equation*}
+    and we got $s = 29$, $t = -98$, which is the solution.
+    \newline\textbf{c)} From the previous solution we could know that
+    \begin{equation*}
+        3\cdot (29\cdot 267 + -98\cdot 79) = 3\cdot 1
+    \end{equation*}
+    thus, we got the solution of this congruence, $x = 3\cdot 29 = 87$
+    \newline\textbf{d)} The extended gcd algorithm can be used to find the B\'{e}zout coefficients, that is
+    \begin{align*}
+        252x + 356y = \text{gcd}(252,356)
+    \end{align*}
+    And the steps are
+    \begin{align*}
+        &\text{Step1: } 252x + 356y = \text{gcd}(252,356) \\
+        &\text{Step2: } 252x_0 + 104y_0 = \text{gcd}(252,104) \\
+        &\text{Step3: } 104x_1 + 44y_1 = \text{gcd}(104,44) \\
+        &\text{Step4: } 44x_2 + 16y_2 = \text{gcd}(44,16) \\
+        &\text{Step5: } 16x_3 + 12y_3 = \text{gcd}(16,12)\\
+        &\text{Step6: } 12x_4 + 4y_4 = \text{gcd}(12,4) \\
+        &\text{Step8: } 4x_5 + 0y_5 = 0
+    \end{align*}
+    where the solutions of each equations are
+    \[x_i = y_{i+1}\quad y_i = x_{i+1} - (a\ \text{div}\ b)\cdot y_{i+1}\]
+    and we got the solution
+    \begin{align*}
+        x = -24 \quad y = 17\quad \text{gcd}(252,356) = 4
+    \end{align*}
+    Thus, the combination is
+    \begin{align*}
+        \text{gcd}(252,356) = -24\cdot 252 + 17\cdot 356
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Prove that if $c\ \big|\ ab$ then $c\ \big|\ a\cdot \text{gcd}(b,c)$.
+\end{problem}
+
+\begin{solution}
+    According to the B\'{e}zout's Theorem, we have
+    \begin{align*}
+        bx + cy = \text{gcd}(b,c)
+    \end{align*}
+    And from the premise,
+    \begin{align*}
+        ab = ck,\ k\in\mathbb{Z}
+    \end{align*}
+    So,
+    \begin{align*}
+        a\cdot \text{gcd}(b,c) &= a\cdot(bx + cy) \\
+        &= abx + acy \\
+        &= kcx + acy \\
+        &= c\cdot(kx+ay)
+    \end{align*}
+    which can obvious be divided by $c$.
+\end{solution}
+
+\begin{problem}
+    Prove the following statements using the fact that if $a$ and $m$ are coprime, then there exists an inverse of a modulo $m$.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Suppose that $x$ and $y$ are arbitary two inverses of $a$ modulo $m$, then we have
+    \begin{align*}
+        ax \equiv 1\mod m\quad\text{and}\quad ay \equiv 1\mod m
+    \end{align*}
+    and the difference of them is
+    \begin{align*}
+        ax\ \text{mod}\ m -  ay\ \text{mod}\ m &= 0\ \text{mod}\ m \\
+        ax - ay\ \text{mod}\ m &=  0\ \text{mod}\ m \\
+        a(x-y)\ \text{mod}\ m &=  0\ \text{mod}\ m
+    \end{align*}
+    since $\text{gcd}(a,m) = 1$, we can derive that $x - y = 0$.
+    Thus, $x = y$, which means the inverse is unique.
+    \newline\textbf{b)} Suppose that there exists an inverse $k$, then
+    \begin{align*}
+        ak + my = 1
+    \end{align*}
+    since
+    \begin{align*}
+        \text{gcd}(a,m)\ \big|\ a,m
+    \end{align*}
+    we got
+    \begin{align*}
+        \text{gcd}(a,m)\ &\big|\ ak + my \\
+        \Rightarrow \text{gcd}(a,m)\ &\big|\ 1 \\
+    \end{align*}
+    which is contradict to the premise.
+    Thus, by contradiction, the inverse does not exist for $\text{gcd}(a,m)$
+\end{solution}
+
+\begin{problem}
+    Prove the uniqueness of the solution of system of linear congruences.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} At first, we shall prove that if $m,n$ are coprime then
+    \begin{equation*}
+        \begin{cases}
+            a\equiv b\mod n \\
+            a\equiv b\mod m
+        \end{cases} \Rightarrow 
+        a\equiv b\mod mn
+    \end{equation*}
+    Proof: Since
+    \begin{equation*}
+        \begin{cases}
+            a\equiv b\mod n \\
+            a\equiv b\mod m
+        \end{cases} 
+    \end{equation*}
+    we have
+    \begin{equation*}
+        \begin{cases}
+            a - b &= k_1m \\
+            a - b &= k_2n
+        \end{cases} \Rightarrow
+        k_1m = k_2n
+    \end{equation*}
+    and therefore, $n\ \big|\ k_1m$ and since $m,n$ are coprime, $n\ \big|\ k_1$. 
+    \newline Let $k_1 = qn$, we have
+    \begin{align*}
+        a - b = q\cdot mn \Rightarrow a \equiv b \mod mn
+    \end{align*}
+    Therefore, if
+    \begin{align*}
+        a\equiv b \mod m_i \quad i\in[1,n]
+    \end{align*}
+    it's obvious that
+    \begin{align*}
+        a\equiv b \mod m_1m_2\cdots m_n
+    \end{align*}
+    which is
+    \begin{align*}
+        a\equiv b \mod m
+    \end{align*}
+    \textbf{b)} Suppose there exists another solution $x^{\prime}$, then
+    \begin{align*}
+        x &\equiv x^{\prime} \mod m_1 \\
+        x &\equiv x^{\prime} \mod m_1 \\
+          &\cdots \\
+        x &\equiv x^{\prime} \mod m_n
+    \end{align*}
+    from (a) we can derive that
+    \begin{align*}
+        x \equiv x^{\prime} \mod m
+    \end{align*}
+    which means $x^{\prime}$ does not exist under the modulo $m$. So the solution is unique.
+\end{solution}
+
+\begin{problem}
+    Solve the system of linear congruences.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} At first, we can prove that if $m$ has factors $m_1, m_2$ then
+    \begin{align*}
+        a\equiv b\ (\text{mod}\ m) \rightarrow a \equiv b \ (\text{mod}\  m_1)\ \text{and}\  a \equiv b \ (\text{mod}\  m_2)
+    \end{align*}
+    Proof
+    \begin{align*}
+        &\quad\ \ a - b = km \\
+        &\rightarrow a - b = km_1m_2 \\
+        &\rightarrow a \equiv b \mod m_1 \\
+        &\rightarrow a \equiv b \mod m_2 
+    \end{align*}
+    So the system can be tranformed into
+    \begin{equation*}
+        \begin{cases}
+            \quad x \equiv 5\ (\text{mod}\ 2) \\
+            \quad x \equiv 3\ (\text{mod}\ 5) \\
+            \quad x \equiv 8\ (\text{mod}\ 7)
+        \end{cases}
+    \end{equation*}
+    \textbf{b)} Find the solution using Chinese Remainder Theroem
+    \begin{align*}
+        m &= 2\cdot 5\cdot 7 = 70 \\
+        M_1 &= 5\cdot 7 = 35 \\
+        M_2 &= 2\cdot 7 = 14 \\
+        M_3 &= 2\cdot 5 = 10
+    \end{align*}
+    the inverses are
+    \begin{align*}
+        y_1 &= 1 \\
+        y_2 &= 4 \\
+        y_3 &= 5
+    \end{align*}
+    so the solution is
+    \begin{align*}
+        x = 5\cdot35\cdot1 + 3\cdot14\cdot4 + 8\cdot10\cdot5 = 743
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Prove the Fermat's little theorem.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Suppose there exists $i,j\in\{1,2,\cdots, p-1\}$ and $i\neq j$, such that \[ai \equiv aj\mod p\]
+    then we have \[ p\ \big|\ (ai - aj) \]
+    since $a$ is not divisible by $p$ and $i - j < p$ and $p$ is prime, it's impossible. Thus, by contradiction, $i$ and $j$ do not exist
+    and no two of the integers $1\cdot a, 2\cdot a, \cdots, (p-1)\cdot a$ are congruent modulo $p$.
+    \newline\textbf{b)} Since $p$ is prime and $\phi(p) = p - 1$, the set
+    \[ A = \{i\ \text{mod}\ p \big| i\in [1,p-1]\} \]
+    has cardinality $|A| = p-1$ and from (a) we know that the set
+    \[ B = \{a\cdot i\ \text{mod}\ p \big| i\in [1,p-1]\} \] has the same cardinality $p-1$.
+    \newline So, there exists a bijection between $A$ and $B$, which is
+    \[ ai \equiv j \mod p \]
+    where $i,j \in [1,p-1]$ and $i \neq j$.
+    Thus, the product of them is
+    \begin{align*}
+        1\cdot2\cdots p - 1 &\equiv 1\cdot a\cdot 2\cdot a \cdots p-1\cdot a \mod p \\
+        \Rightarrow\qquad (p-1)! &\equiv a^{p-1}(p-1)! \mod p
+    \end{align*}
+    \textbf{c)} Since $p \nmid (p-1)!$ the result of (b) can be transfered into
+    \begin{align*}
+        a^{p-1} \equiv 1 \mod p
+    \end{align*}
+    by dividing both side with $(p-1)!$.
+    \newline\textbf{d)} Since $p\nmid a$, we could multiply both side by $a$, that is
+    \begin{align*}
+        a^p \equiv a \mod p
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Evaluate the following quantities with indicated method.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} From the Fermat's little theorem,
+    \begin{align*}
+        5^6 \equiv 1 \mod 7
+    \end{align*}
+    and we have
+    \begin{align*}
+        5^{2023}\ \text{mod}\ 7 &= ((5^6\ \text{mod}\ 7)^{337}\cdot 5)\ \text{mod}\ 7 \\
+                            &= 5\ \text{mod}\ 7 = 5
+    \end{align*}
+    So the answer is 5.
+    \newline\textbf{b)} According to Euler's theorem,
+    \begin{align*}
+        8^{\phi(15)} = 8^{10} \equiv 1 \mod 15
+    \end{align*}
+    and we have
+    \begin{align*}
+        8^{2023}\ \text{mod}\ 15 &= \big((8^10\ \text{mod}\ 15)^{202}\cdot (8^3\ \text{mod}\ 15)\big)\ \text{mod}\ 15 \\
+                            &= 512\ \text{mod}\ 15 = 2
+    \end{align*}
+    So the answer is 2.
+\end{solution}
+
+\begin{problem}
+    Consider a situation where we use RSA encryption with $(n,e) = (65,7)$, explain the whole process.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The encrypted message of $M$ is
+    \begin{align*}
+        C &= M^e\mod n \\
+        \Rightarrow C &= 57
+    \end{align*}
+    \textbf{b)} Get the Euler's\ $\phi$ of $n$ first, it's obvious that $n$ is prime
+    \begin{align*}
+        \phi = n - 1 = 64
+    \end{align*}
+    and solving the linear congruence equation
+    \begin{align*}
+        ed \equiv 1\mod 64
+    \end{align*}
+    could get
+    \begin{align*}
+        d = 55
+    \end{align*}
+    \textbf{c)} The decryption of the ciphertext is
+    \begin{align*}
+        D &= C^d\mod n \\
+        \Rightarrow D &= 8 \\ &= M
+    \end{align*}
+\end{solution}
+
+\end{document}

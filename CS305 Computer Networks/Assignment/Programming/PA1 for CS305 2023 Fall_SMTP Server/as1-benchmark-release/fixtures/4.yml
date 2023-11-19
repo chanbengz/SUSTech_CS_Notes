@@ -1,0 +1,48 @@
+scenario: Send an email to another user in the same domain and test RETR, DELE, RSET and NOOP
+credit: 5
+
+servers:
+  - domain: 'exmail.qq.com'
+    type: student
+  - domain: 'gmail.com'
+    type: student
+
+steps:
+  - name: Send email
+    uses: sendmail
+    args:
+      from: 'usr1@mail.sustech.edu.cn'
+      to:
+        - 'usr2@mail.sustech.edu.cn'
+      subject: 'Test Subject2'
+      body: 'Test Body2'
+  - uses: wait
+    args:
+      seconds: 3
+  - name: Login the account in different domain
+    uses: login
+    args:
+      user: 'usr2@mail.sustech.edu.cn'
+      pass: 'password2'
+  - name: Retrieve the email
+    uses: retr
+    args:
+      which: 1
+    expect:
+      from: 'usr1@mail.sustech.edu.cn'
+      subject: 'Test Subject2'
+  - name: Delete the email
+    uses: dele
+    args:
+      which: 1
+    expect:
+      resp: "b'+OK"
+  - name: Reset the deletion
+    uses: rset
+    expect:
+      resp: "b'+OK"
+  - name: Cmd Noop
+    uses: noop
+    expect:
+      resp: "b'+OK"
+  - uses: quit

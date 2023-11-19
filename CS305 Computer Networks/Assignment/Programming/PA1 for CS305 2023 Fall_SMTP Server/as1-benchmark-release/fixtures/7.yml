@@ -1,0 +1,33 @@
+scenario: Send an email to another user from a non-existing email address
+credit: 5
+
+servers:
+  - domain: 'exmail.qq.com'
+    type: student
+  - domain: 'gmail.com'
+    type: student
+
+steps:
+  - name: Send email
+    uses: sendmail
+    args:
+      from: 'error@mail.sustech.edu.cn'
+      to:
+        - 'usr1@gmail.com'
+      subject: 'Test Subject7'
+      body: 'Test Body7'
+    excepted_error:
+      'SMTPSenderRefused': 5
+  - uses: wait
+    args:
+      seconds: 3
+  - name: Login the account in different domain
+    uses: login
+    args:
+      user: 'usr1@gmail.com'
+      pass: 'password1'
+  - name: Show the status
+    uses: stat
+    expect:
+      - count: 0
+  - uses: quit

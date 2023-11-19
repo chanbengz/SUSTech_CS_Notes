@@ -1,0 +1,11 @@
+[MX]
+"mail.sustech.edu.cn." = "mxbiz1.qq.com."
+"gmail.com." = "gmail-smtp-in.l.google.com."
+
+[P]
+"smtp.exmail.qq.com." = "1125"
+"smtp.gmail.com." = "2125"
+"pop.exmail.qq.com." = "1210"
+"pop.gmail.com." = "2210"
+"mxbiz1.qq.com." = "1125"
+"gmail-smtp-in.l.google.com." = "2125"

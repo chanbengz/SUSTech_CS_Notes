@@ -1,0 +1,347 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+\usepackage{karnaugh-map}\usepackage{circuitikz}
+\ctikzset{logic ports=ieee}
+\usetikzlibrary{calc}
+
+\title{\textbf{Assignment\#1 CS207 Fall 2023}}
+\author{Ben Chen(12212231)}
+\date{\today}
+\linespread{1.25}
+\newcounter{problemname}
+\newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
+\newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
+\newenvironment{note}{\par\noindent\textsc{Note of Problem \arabic{problemname}. }}{\\\par}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+    Convert the following numbers with different bases.
+\end{problem}
+
+\begin{solution} \textbf{a)} $(22200.11)_3$ \quad \textbf{b)} $(176.6)_{12}$ \quad \textbf{c)} $(167)_{10}$ \quad \textbf{d)} $(26.24)_{8}$
+    \begin{table}[!htbp]
+    \centering
+    \caption{Process of (a)}
+    \begin{tabular}{c|cc|c}
+        \textbf{Integer} & \textbf{Remainder} &\textbf{Decimal}  & \textbf{Remainder}  \\
+        $234$ &     & $.5$ &     \\
+        $78$  & $0$ & $.5$ & $1$ \\
+        $26$  & $0$ & $.5$ & $1$ \\
+        $8$   & $2$ & $\vdots$ & $\vdots$\\
+        $2$   & $2$ & $\vdots$ & $\vdots$\\
+        $0$   & $2$ &  \text{answer} & $(22200.11)_3$ \\
+    \end{tabular}
+    \end{table}
+    \begin{table}[!htbp]
+    \centering
+    \caption{Process of (b)}
+    \begin{tabular}{c|cc|c}
+        \textbf{Integer} & \textbf{Remainder} &\textbf{Decimal}  & \textbf{Remainder}  \\
+        $234$ &     & $.5$ &     \\
+        $19$  & $6$ & $0$  & $6$ \\
+        $1$   & $7$ &      &     \\
+        $0$   & $1$ & \text{answer} & $(176.6)_{12}$ \\
+    \end{tabular}
+    \end{table}
+    \newpage
+    \noindent Process of (c): $5\times6^0 + 3\times6^1 + 4\times6^2 = (167)_{10}$
+    \newline Process of (d):
+    \begin{align*}
+        (26.24)_8 =\ &(\underline{010} \ \underline{110}\ .\ \underline{010}\ \underline{100})_2 \\
+                     &\quad 2 \quad\  6 \ \ \ \quad2 \quad \ 4
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Determine the possible radices of the numbers in each operation.
+\end{problem}
+
+\begin{solution}
+    \newline \textbf{a)} Suppose the radix to be $x$, and we have,
+    \begin{align*}
+          1\cdot x^3 + 2\cdot x^2 + 3\cdot x^1 + 4\cdot x^0 \\
+        + 5\cdot x^3 + 4\cdot x^2 + 3\cdot x^1 + 2\cdot x^0 &= 6\cdot x^3 + 6\cdot x^2 + 6\cdot x^1 + 6\cdot x^0 \\
+        &= 6\cdot x^3 + 6\cdot x^2 + 6\cdot x^1 + 6\cdot x^0
+    \end{align*}
+    without any carry operation. Therefore, the radix barely need to be over than the biggest number, say $6$.
+    \newline Thus, $x > 6$, and radices could be $7, 8, 9, 10, \cdots$.
+
+    \noindent \textbf{b)} Same as (a) and we have
+    \begin{align*}
+          3\cdot x^2 + 2\cdot x^0 &= (1\cdot x^1 + 2\cdot x^0 + 1\cdot x^{-1})(2\cdot x^1) \\
+          &= (2\cdot x^2 + 4\cdot x^1 + 2\cdot x^{0} \\
+          \Rightarrow x^2 - 4x &= 0\quad \text{Solution: }x = 4 \text{ or } 0
+    \end{align*}
+    Radix cannot be zero or one, so the radix is $4$.
+\end{solution}
+
+\begin{problem}
+    Simplify the following Boolean expressions to the \textbf{indicated} number of literals algebraically.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The simplification is as follow
+    \begin{align*}
+        &\quad\ (a^{\prime} + c)(a^{\prime} + c^{\prime})(a+b+c^{\prime}d)\\
+        &=(a^{\prime}+c\cdot c^{\prime})(a+b+c^{\prime}d) \\
+        &=a^{\prime}\cdot(a+b+c^{\prime}d) \\
+        &=a\cdot a^{\prime} + ab^{\prime} +a^{\prime}c^{\prime}d \\
+        &=ab^{\prime} +a^{\prime}c^{\prime}d \\
+        &=a^{\prime}\cdot(b+c^{\prime}d) \quad\quad\quad\text{4 literals}
+    \end{align*}
+    \textbf{b)} Simplify the expression and got
+    \begin{align*}
+        &\quad\ abc^{\prime}d+a^{\prime}bd+abcd \\
+        &=abd\cdot(c+c^{\prime}) + a^{\prime}bd \\
+        &=abd + a^{\prime}bd \\
+        &=bd\cdot(a+a^{\prime}) \\
+        &=bd\quad\quad\quad\text{2 literals}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Simplify the following Boolean expressions to a \textbf{minimum} number of literals algebraically.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Conbining terms using \textit{Distributive Law}
+    \begin{align*}
+        &\quad\ (a+c)(a^{\prime}+b+c)(a^{\prime}+b^{\prime}+c) \\
+        &=(a+c)(a^{\prime}+c+bb^{\prime}) \\
+        &=(a+c)(a^{\prime}+c) \\
+        &=c+aa^{\prime} \\
+        &=c \quad\quad\quad\text{1 literals}
+    \end{align*}
+    \textbf{b)} Conbining the terms
+    \begin{align*}
+        F(a,b,c) &= a^{\prime}b^{\prime}c^{\prime} + a^{\prime}b^{\prime}c + a^{\prime}bc^{\prime} + a^{\prime}bc + ab^{\prime}c \\
+                 &= a^{\prime}b^{\prime}\cdot(c+c^{\prime}) + a^{\prime}b(c+c^{\prime})+(a+a^{\prime})b^{\prime}c \\
+                 &= a^{\prime}b^{\prime} + a^{\prime}b + b^{\prime}c \\
+                 &= a^{\prime}(b+b^{\prime}) + b^{\prime}c \\
+                 &= a^{\prime} + b^{\prime}c\quad\quad\quad\text{3 literals}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Convert the expressions into sum of minterms and product of maxterms.
+\end{problem}
+
+\begin{solution}
+     \textbf{a)} Transfer the expression into SOP terms with 4 literals each
+    \begin{align*}
+        F(a,b,c,d) &=acd^{\prime} + ab^{\prime}c + bd^{\prime} + a^{\prime}c^{\prime} \\
+                   &=acd^{\prime}(b+b^{\prime}) + ab^{\prime}c(d+d^{\prime}) + (a+a^{\prime})b(c+c^{\prime})d^{\prime} + a^{\prime}(b+b^{\prime})c^{\prime}(d+d^{\prime}) \\
+                   &=abcd^{\prime} + ab^{\prime}cd^{\prime} + ab^{\prime}cd + abc^{\prime}d^{\prime} + a^{\prime}bcd^{\prime} + a^{\prime}bc^{\prime}d^{\prime} + a^{\prime}b^{\prime}c^{\prime}d + a^{\prime}b^{\prime}c^{\prime}d^{\prime} + a^{\prime}bc^{\prime}d \\
+    \end{align*}
+    Thus, Minterms: $F(a,b,c,d) = \Sigma(0,1,4,5,6,10,11,12,14)$ \newline
+    \quad\ Maxterms: $F(a,b,c,d) = \Pi(2,3,7,8,9,13,15)$ \newline\newline
+     \textbf{b)} Same procedure as (a)
+     \begin{align*}
+         F(x,y,z) &=(x^{\prime}+y)(x^{\prime}+z) \\
+                  &=x^{\prime}+yz \\
+                  &=x^{\prime}(y+y^{\prime})(z+z^{\prime}) + (x+x^{\prime})yz \\
+                  &=xyz + x^{\prime}yz + x^{\prime}yz^{\prime} + x^{\prime}y^{\prime}z + x^{\prime}y^{\prime}z^{\prime}
+     \end{align*}
+    Thus, Minterms: $F(a,b,c,d) = \Sigma(0,1,2,3,7)$ \newline
+    \quad\ Maxterms: $F(a,b,c,d) = \Pi(4,5,6)$ \newline
+\end{solution}
+
+\begin{problem}
+    Simplify the functions $F_1(A, B, C)$ and $F_2(A,B,C)$ to
+    \newline a) expressions with 3 literals($F_1$) and 2 literals($F_2$) using algebraic method
+    \newline b) by K map in sum of product form.
+\end{problem}
+
+\begin{solution}
+     \textbf{a)} Got the expression using minterms and simplify them algebraically
+     \begin{align*}
+        F_1(A,B,C) &=\Sigma(2,3,7) \\
+                   &=A^{\prime}BC^{\prime} + A^{\prime}BC + ABC\\
+                   &=A^{\prime}B + BC \\
+                   &=B(A^{\prime}+C)\quad\quad\quad\text{3 literals} \\\\
+        F_2(A,B,C) &=\Sigma(0,2,5,7) \\
+                   &=A^{\prime}B^{\prime}C^{\prime} + A^{\prime}BC^{\prime} + AB^{\prime}C + ABC \\
+                   &=A^{\prime}C^{\prime} + AC \\
+                   &=(A\oplus C)^{\prime} \quad\quad\quad\text{2 literals}
+    \end{align*}
+    \newline
+    \textbf{b)} $F_1$\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad $F_2$
+    \begin{table}[!htbp]
+    \centering
+  \begin{karnaugh-map}(label=corner)[4][2][1][$C$][$B$][$A$]
+    \minterms{2,3,7}
+    \autoterms[0]
+    \implicant{3}{2}
+    \implicant{3}{7}
+  \end{karnaugh-map}
+  \begin{karnaugh-map}(label=corner)[4][2][1][$C$][$B$][$A$]
+    \minterms{0,2,5,7}
+    \autoterms[0]
+    \implicantedge{0}{0}{2}{2}
+    \implicant{5}{7}
+  \end{karnaugh-map}
+\end{table}
+\begin{align*}
+    F_1(A,B,C) &= A^{\prime}B + BC &F_2(A,B,C) = AC + A^{\prime}C^{\prime} \\
+               &= B(A^{\prime}+C) &= (A\oplus C)^{\prime}\quad
+\end{align*}
+\end{solution}
+
+\newpage
+\begin{problem}
+    Using K maps to find a simplest sum-of-products expression for the following Boolean functions.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Draw the K map and box the cells
+    \begin{table}[!htbp]
+    \centering
+  \begin{karnaugh-map}(label=corner)[4][4][1][$Z$][$Y$][$X$][$W$]
+    \minterms{0,2,3,6,7,10,11,12,13,15}
+    \autoterms[0]
+    \implicant{3}{11}
+    \implicant{3}{6}
+    \implicant{11}{10}
+    \implicant{12}{13}
+    \implicantedge{0}{0}{2}{2}
+  \end{karnaugh-map}
+  \begin{align*}
+      \text{Answer: }\boxed{F(W,X,Y,Z) = WXY^{\prime} + WX^{\prime}Y + W^{\prime}X^{\prime}Z^{\prime} + YZ + W^{\prime}Y}
+  \end{align*}
+\end{table}
+\newline \textbf{b)} Same as (a)
+    \begin{table}[!htbp]
+    \centering
+  \begin{karnaugh-map}(label=corner)[4][4][1][$D$][$C$][$B$][$A$]
+    \minterms{0,2,8,10,11,15}
+    \autoterms[0]
+    \implicant{15}{11}
+    \implicantcorner
+  \end{karnaugh-map}
+  \begin{align*}
+      \text{Answer: }\boxed{F(A,B,C,D) = B^{\prime}D^{\prime} + ACD}
+  \end{align*}
+\end{table}
+\end{solution}
+
+\begin{problem}
+    With K maps, find the simplest sum-of-products form of the function $F = fg$, where $f = abd^{\prime}+c^{\prime}d + a^{\prime}cd^{\prime} + b^{\prime}cd^{\prime}$ and $g = (a+b+d^{\prime})(b^{\prime}+c^{\prime}+d)(a^{\prime}+c+d^{\prime})$.
+\end{problem}
+
+\begin{solution}
+    From the expression $F = fg$ we can derive that \[ \text{maxterms of } F = \text{maxterms of } f + \text{maxterms of } g \]
+    \newline\noindent So we got
+    \begin{align*}
+        f(a,b,c,d) &= \Sigma(1,2,5,6,9,10,12,13,14) \\
+                   &= \Pi(0,3,4,7,8,11,15) \\\\
+        g(a,b,c,d) &= \Pi(1,3,6,9,13,14) \\\\
+        \Rightarrow F(a,b,c,d) &= \Pi(0,1,3,4,6,7,8,9,11,13,14,15) \\
+                   &= \Sigma(2,5,10,12)
+    \end{align*}
+    \begin{table}[!htbp]
+    \centering
+  \begin{karnaugh-map}(label=corner)[4][4][1][$d$][$c$][$b$][$a$]
+    \minterms{2,5,10,12}
+    \autoterms[0]
+    \implicantedge{2}{2}{10}{10}
+  \end{karnaugh-map}
+  \begin{align*}
+      \text{Answer: }\boxed{F = b^{\prime}cd^{\prime}+a^{\prime}bc^{\prime}d+abc^{\prime}d^{\prime}}
+  \end{align*}
+\end{table}
+\end{solution}
+
+\begin{problem}
+    Obtain the simplest sum-of-products expression for $F(A,B,C,D) = \Sigma (1,2,4,7,8,9,11) + d(0,3,5)$ and implement it with \textbf{a)} NAND gates only, \textbf{b)} AND NOR gates only and then draw the two logic diagrams.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Simplify the expression into SOP form
+    \begin{figure}[!htbp]
+    \centering
+    \begin{karnaugh-map}(label=corner)[4][4][1][$D$][$C$][$B$][$A$]
+    \minterms{1,2,4,7,8,9,11}
+    \terms{0,3,5}{X}
+    \autoterms[0]
+    \implicant{0}{5}
+    \implicant{1}{7}
+    \implicant{0}{2}
+    \implicantedge{0}{1}{8}{9}
+    \implicantedge{1}{3}{9}{11}
+    \end{karnaugh-map}
+    \begin{align*}
+        F(A,B,C,D) &= A^{\prime}B^{\prime} + A^{\prime}C^{\prime} + A^{\prime}D + B^{\prime}C^{\prime} + B^{\prime}D \\
+                   &= \big((A^{\prime}B^{\prime})^{\prime} \cdot (A^{\prime}C^{\prime})^{\prime} \cdot (A^{\prime}D)^{\prime} \cdot (B^{\prime}C^{\prime})^{\prime} \cdot (B^{\prime}D)^{\prime}\big)^{\prime}
+    \end{align*}
+\end{figure}
+    \newline So, the expression is implemented by NAND-NAND form.
+    \newline\newline \textbf{b)} Got the simplified expression of $F$ from (a)
+    \begin{align*}
+        F(A,B,C,D) &= A^{\prime}B^{\prime} + A^{\prime}C^{\prime} + A^{\prime}D + B^{\prime}C^{\prime} + B^{\prime}D \\
+        F^{\prime}(A,B,C,D) &= \big[A^{\prime}(B^{\prime} + C^{\prime} + D) + B^{\prime}(C^{\prime} + D) \big]^{\prime} \\
+                            &= \big[A^{\prime}(B^{\prime} + C^{\prime} + D)\big]^{\prime} \cdot \big[B^{\prime}(C^{\prime} + D) \big]^{\prime} \\
+                            &= (A+(BCD^{\prime}) \cdot (B+CD^{\prime}) \\
+                            &= AB + ACD^{\prime} + BCD^{\prime} \\
+        \Rightarrow F(A,B,C,D)  &= (AB + ACD^{\prime} + BCD^{\prime})^{\prime}
+    \end{align*}
+    \newline Thus, the function is implemented by AND-NOR form.
+
+    \newpage\noindent\textbf{c)} The diagrams are drawn below
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \caption{NAND only diagram}
+    \begin{circuitikz}
+    \draw (3, 2.5) node[nand port, anchor=out] (nand5) {};
+    \draw (3, 4) node[nand port, anchor=out] (nand4) {};
+    \draw (3, 5.5) node[nand port, anchor=out] (nand3) {};
+    \draw (3, 7) node[nand port, anchor=out] (nand2) {};
+    \draw (3, 8.5) node[nand port, anchor=out] (nand1) {};
+    \draw (8, 5.5) node[nand port, number inputs=5, anchor=out] (nandout) {};
+    \draw (nand1.in 1) -- ++(-0.5,0)node[left](in1) {$A^{\prime}$};
+    \draw (nand1.in 2) -- ++(-0.5,0)node[left](in2) {$B^{\prime}$};
+    \draw (nand2.in 1) -- ++(-0.5,0)node[left](in3) {$A^{\prime}$};
+    \draw (nand2.in 2) -- ++(-0.5,0)node[left](in4) {$C^{\prime}$};
+    \draw (nand3.in 1) -- ++(-0.5,0)node[left](in5) {$A^{\prime}$};
+    \draw (nand3.in 2) -- ++(-0.5,0)node[left](in6) {$D\ $};
+    \draw (nand4.in 1) -- ++(-0.5,0)node[left](in7) {$B^{\prime}$};
+    \draw (nand4.in 2) -- ++(-0.5,0)node[left](in8) {$C^{\prime}$};
+    \draw (nand5.in 1) -- ++(-0.5,0)node[left](in9) {$B^{\prime}$};
+    \draw (nand5.in 2) -- ++(-0.5,0)node[left](in10) {$D\ $};
+    \draw (nand1.out) -| (nandout.in 1)node[left](mid1) {};
+    \draw (nand2.out) |- (nandout.in 2)node[left](mid2) {};
+    \draw (nand3.out) -- (nandout.in 3)node[left](mid3) {};
+    \draw (nand4.out) |- (nandout.in 4)node[left](mid4) {};
+    \draw (nand5.out) -| (nandout.in 5)node[left](mid5) {};
+    \draw (nandout.out) -- ++(0.5,0)node[right](out) {$F$};
+    \end{circuitikz}
+\end{figure}
+\begin{figure}[!htbp]
+  \centering
+  \setlength{\belowcaptionskip}{+0.4cm}
+  \caption{AND NOR only diagram}
+  \begin{circuitikz}
+    \draw (3, 2.5) node[and port, number inputs=3,anchor=out] (and3) {};
+    \draw (3, 4) node[and port, number inputs=3, anchor=out] (and2) {};
+    \draw (3, 5.5) node[and port, anchor=out] (and1) {};
+    \draw (8, 4) node[nor port, number inputs=3, anchor=out] (nor) {};
+    \draw (and1.in 1) -- ++(-0.5,0)node[left](in1) {$A\ $};
+    \draw (and1.in 2) -- ++(-0.5,0)node[left](in2) {$B\ $};
+    \draw (and2.in 1) -- ++(-0.5,0)node[left](in3) {$A\ $};
+    \draw (and2.in 2) -- ++(-0.5,0)node[left](in4) {$C\ $};
+    \draw (and2.in 3) -- ++(-0.5,0)node[left](in5) {$D^{\prime}$};
+    \draw (and3.in 1) -- ++(-0.5,0)node[left](in6) {$B\ $};
+    \draw (and3.in 2) -- ++(-0.5,0)node[left](in7) {$C\ $};
+    \draw (and3.in 3) -- ++(-0.5,0)node[left](in8) {$D^{\prime}$};
+    \draw (and1.out) |- (nor.in 1)node[left](mid1) {};
+    \draw (and2.out) -- (nor.in 2)node[left](mid2) {};
+    \draw (and3.out) |- (nor.in 3)node[left](mid3) {};
+    \draw (nor.out) -- ++(0.5,0)node[right](out) {$F$};
+    \end{circuitikz}
+\end{figure}
+\end{solution}
+
+\end{document}

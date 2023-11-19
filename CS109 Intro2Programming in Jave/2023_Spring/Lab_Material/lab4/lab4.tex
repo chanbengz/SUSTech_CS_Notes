@@ -1,0 +1,247 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{green}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+% init
+
+\usetheme{Madrid}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+\lstset{
+    frame=none,
+    language=Java,
+    showstringspaces=false,
+    columns=fullflexible,
+    basicstyle = \ttfamily\small,
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    morekeywords={String,in,out,mv,cp,mkdir,rm,touch,vi},
+    breakatwhitespace=true,
+    tabsize=4
+}
+% appearance setup
+
+\title{CS109 Lab 4}
+\author{Ben Chen}
+\institute{SUSTech}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[fragile]
+    \frametitle{Loop - do while}
+\textit{Do while} will execute the code at hand without checking the condition.
+\newline
+\newline
+\begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+        \item check the condition at the end of each repetition
+    \end{itemize}
+    \column{0.5\textwidth}
+    \begin{lstlisting}
+do {
+    inputNum = sc.nextInt();
+    ...
+} while(inputNum != guess);
+    \end{lstlisting}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Compared to \textit{while}}
+\begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+        \item less elegant
+        \item redundant
+    \end{itemize}
+    \column{0.5\textwidth}
+    \begin{lstlisting}
+inputNum = sc.nextInt();
+
+while(inputNum != guess) {
+    ...
+    inputNum = sc.nextInt();
+}
+    \end{lstlisting}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Loop - for}
+\textit{For} is used in countable repetition, written as, 
+\begin{lstlisting}
+    for(<init>;<condition>;<step>) { // optional
+        <code>
+    }
+\end{lstlisting}
+
+And writing like this is also allowed,
+\begin{lstlisting}
+    for(;;) { // DON'T forget semi-colon
+        <code> // never stop
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Loop - for}
+For example, output 9 times of the message
+\begin{lstlisting}
+    for(int i = 1; i < 10; i++) {
+        System.out.println("This is for loop");
+    } // counting from 1 to 9
+\end{lstlisting}
+
+\verb|i++| is executed after output, and then $i < 10$ will be checked;
+\newline
+\newline
+Since when $i = 10$, condition is not satisfied, break the loop.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Break and Continue}
+    Break and continue both terminate the present period of loop.
+\begin{itemize}
+    \item \textbf{break} will end the loop
+\end{itemize}
+\begin{lstlisting}
+    while(true) {
+        ...
+        if(i == 9) break;
+    }
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{continue} will execute the next period, skipping the rest.
+\end{itemize}
+\begin{lstlisting}
+    for(int i = 1; i < 10; i++) {
+        if(i == 5) continue;
+        System.out.println("I am %d", i);
+    } // skip "I am 5"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Tips for OJ}
+    To deal with multiple cases, you mustn't store the input in arrays.
+\begin{lstlisting}
+    int n = input.nextInt(); // number of cases
+    for(int i = 0; i < n; i++) {
+        <initialize variables>
+        <input>
+        ... // solve each single case
+        <output>
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Switch Case}
+    Another form of if-else, but notice that,
+    \begin{itemize}
+        \item \textbf{break} at the end of each Case
+        \item Otherwise, other cases of code will be executed until \textbf{break}.
+        \item \textbf{default} is not neccessary.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why we need Command Line?}
+    At restaurant, the experienced with command line is like:
+    \begin{itemize}
+        \item Customer: I'd like a bottle of coke, hambergur and chip.
+        \item Waiter: OK, right away!
+    \end{itemize}
+    With Graphic Interface:
+    \begin{itemize}
+        \item Customer: Menu please.
+        \item Waiter: Here's the menu.
+        \newline (minutes later)
+        \item Customer: I want this(point to menu), this, and this.
+        \item Waiter: OK, right away!
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Command Line Interface}
+CLI is a software that renders your command.
+\begin{itemize}
+    \item In macOS\&Linux, it's Bash.
+    \item In Windows, it's PowerShell or cmd.
+\end{itemize}
+When people talk about command line, people usually talk about Bash.
+\begin{block}{Windows Subsystem for Linux}
+    To install WSL, please follow \url{https://learn.microsoft.com/en-us/windows/wsl/install}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Path}
+Computer finds specific files by path.
+\begin{itemize}
+    \item Absolute path: Originating from root folder, for example, \textit{/Users/chenben/Desktop/CS/baby.java}
+    \item Relative path: Originating from current folder, for example,\newline
+    if I'm in \textit{/Users/chenben} , then, the path is \textit{Desktop/CS/baby.java}
+    \item \verb|../| refers to parent folder, \verb|/| refers to root folder, \verb|~| refers to user folder.
+\end{itemize}
+Some commands about path,
+\begin{itemize}
+    \item \verb|pwd| checks the current path
+    \item \verb|ls| shows files and folders in the current path
+    \item \verb|cd| changes the current path
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Execute program}
+There're three ways of executing program in command line,
+\begin{itemize}
+    \item \verb|./<program>| executes external program.
+    \item \verb|<command>| executes internal program.
+    If you added the path of your program to PATH, you can directly use the name of it as command.
+    \item \verb|curl| executes remote program.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Flag}
+Flag is options for the command, present like \verb|-<flag>|.
+\begin{lstlisting}[language=bash]
+    ls -al # -al is a flag asking to show full list
+\end{lstlisting}
+Flag might need arguments, a full pattern of command is like, 
+\begin{lstlisting}[language=bash]
+    <command> arg1 arg2 -flag arg3 --Flag=arg4
+    # arg1 and arg2 are required by command
+    # arg3 is for -flag and arg4 can also be written like this.
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Basic Command}
+You may need these commands,
+\begin{lstlisting}[language=bash,morekeywords={mv,cp,mkdir,rm,touch,vim,man}]
+    mv <file> <path>   # move file to path
+    cp <file> <path>   # make a copy of file to path
+    mkdir <name>       # create a folder
+    rm <file>          # remove file
+    rm -rf <folder>    # remove folder and its files
+    touch <file>       # create a new file
+    cat <file>         # show the content of file
+    vim <file>          # modify the content of file
+    man <cmd>          # show manual of command
+\end{lstlisting}
+\end{frame}
+\end{document}

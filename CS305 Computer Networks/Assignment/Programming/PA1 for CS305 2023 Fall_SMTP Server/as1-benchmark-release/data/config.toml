@@ -1,0 +1,14 @@
+[agent]
+"mail.sustech.edu.cn" = { smtp = "smtp.exmail.qq.com", pop = "pop.exmail.qq.com" }
+"gmail.com" = { smtp = "smtp.gmail.com", pop = "pop.gmail.com" }
+
+[server]
+"exmail.qq.com" = { smtp = 1125, pop = 1210 }
+"gmail.com" = { smtp = 2125, pop = 2210 }
+
+[accounts."exmail.qq.com"]
+"usr1@mail.sustech.edu.cn" = "password1"
+"usr2@mail.sustech.edu.cn" = "password2"
+
+[accounts."gmail.com"]
+"usr1@gmail.com" = "password1"

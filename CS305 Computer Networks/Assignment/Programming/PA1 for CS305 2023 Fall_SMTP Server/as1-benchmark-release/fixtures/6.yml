@@ -1,0 +1,34 @@
+scenario: Send an email to another user non-exist in different domain
+credit: 5
+
+servers:
+  - domain: 'exmail.qq.com'
+    type: student
+  - domain: 'gmail.com'
+    type: student
+
+steps:
+  - name: Send email
+    uses: sendmail
+    args:
+      from: 'usr1@mail.sustech.edu.cn'
+      to:
+        - 'error@gmail.com'
+      subject: 'Test Subject6'
+      body: 'Test Body6'
+    excepted_error:
+      'SMTPRecipientsRefused': 5
+      'SMTPDataError': 5
+  - uses: wait
+    args:
+      seconds: 5
+  - name: Login the account in different domain
+    uses: login
+    args:
+      user: 'usr1@mail.sustech.edu.cn'
+      pass: 'password1'
+  - name: List the email
+    uses: list
+    expect:
+      - mesg_num: 1
+  - uses: quit

@@ -1,0 +1,358 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+
+\title{\textbf{Assignment \#1 CS201 Fall 2023}}
+\author{Ben Chen(12212231)}
+\date{\today}
+\linespread{1.5}
+\newcounter{problemname}
+\newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
+\newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
+\newenvironment{note}{\par\noindent\textsc{Note of Problem \arabic{problemname}. }}{\\\par}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+    Propositions: \textit{p}: You get an A on the final, \textit{q}: You do all the assignments, \textit{r}: You get an A in this course.
+\end{problem}
+
+\begin{solution}
+    The formulae are as follows
+    \newline(a) $p \vee q$ \quad \newline (b) $q \rightarrow r$ \quad \newline (c) $ \left( q\wedge \neg p\right) \rightarrow r$ \quad 
+    \newline(d) $\neg r \rightarrow \left( \neg p \vee \neg q\right) $ \quad \newline (e) $\left( p \wedge q \right) \rightarrow r$
+\end{solution}
+
+\begin{problem}
+    Construct a truth table for each of the formulae.
+\end{problem}
+
+\begin{solution}
+\newline(a)
+\begin{table}[!htbp]
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $\neg p$ & $p\oplus \neg p$ \\ \hline
+0 & 1 & 1 \\ \hline
+1 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+\newpage\noindent(b)
+\begin{table}[!htbp]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $\neg p$ & $p \rightarrow q$ & $\neg p \leftrightarrow q$ & $\left( p \rightarrow q \right) \wedge \left( \neg p \leftrightarrow q \right)$\\ \hline
+0 & 0 & 1 & 1 & 0 & 0 \\ \hline
+0 & 1 & 1 & 1 & 1 & 1 \\ \hline
+1 & 0 & 0 & 0 & 1 & 0 \\ \hline
+1 & 1 & 0 & 1 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+\newline(c)
+\begin{table}[!htbp]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $\neg q$ & $p \oplus q$ & $p \vee \neg q$ & $\left( p \oplus q \right) \rightarrow \left( p \vee \neg q \right)$ \\ 
+\hline
+0 & 0 & 1 & 0 & 1 & 1 \\ \hline
+0 & 1 & 0 & 1 & 0 & 0 \\ \hline
+1 & 0 & 1 & 1 & 1 & 1 \\ \hline
+1 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+\newline(d)
+\begin{table}[!htbp]
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & $\neg q$ & $p \rightarrow \neg q$ & $p \vee \neg q$ & $r \rightarrow \left( p \vee \neg q \right)$
+& $\left( p \rightarrow \neg q \right) \leftrightarrow \left( r \rightarrow \left( p \vee \neg q \right) \right)$\\ \hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\ \hline
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+0 & 1 & 0 & 0 & 1 & 0 & 1 & 1 \\ \hline
+0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 \\ \hline
+1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\ \hline
+1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 \\ \hline
+1 & 1 & 1 & 0 & 0 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+\end{solution}
+\newpage
+
+\begin{problem}
+Use logical equivalences to prove the following statements.
+\end{problem}
+
+\begin{solution}
+\newline(a) $\neg\left( p \rightarrow q \right) \rightarrow p$ is a tautology.
+\newline\noindent \textbf{Proof:}
+\begin{align*}
+    \neg\left( p \rightarrow q \right) \rightarrow p &\equiv \neg \neg \left(p \rightarrow q \right) \vee p \quad &\text{Implies Definition} \\
+    &\equiv \left(p \rightarrow q \right) \vee p &\text{Double Negation} \\
+    &\equiv \left(\neg p \vee q \right) \vee p &\text{Implies Definition} \\
+    &\equiv \left(\neg p \vee p \right) \vee q &\text{OR Distributive} \\
+    &\equiv \top \vee q &\text{Negation Law} \\
+    &\equiv \top &\text{Domination Law}
+\end{align*}
+\newline(b) $\left(p \wedge \neg q\right) \rightarrow r$ and $p \rightarrow \left(q \vee r\right)$ are equivalent.
+\newline\noindent \textbf{Proof:}
+\begin{align*}
+    p \rightarrow \left(q \vee r\right) &\equiv \neg p \vee \left(q \vee r\right) \quad &\text{Implies Definition} \\
+    &\equiv \left( q \vee \neg p \right) \vee r &\text{OR Distributive} \\
+    &\equiv \neg \neg \left( q \vee \neg p \right) \vee r  &\text{Double Negation} \\
+    &\equiv \neg \left(\neg q \wedge\neg \neg p \right) \vee r  &\text{De Morgan's Law} \\
+    &\equiv \neg \left(\neg q \wedge p \right) \vee r  &\text{Double Negation} \\
+    &\equiv \left(\neg q \wedge p \right) \rightarrow r  &\text{Implies Definition}
+\end{align*}
+\newline(c) $\left( p \rightarrow q \right) \rightarrow \left( \left( r \rightarrow p \right) \rightarrow \left( r \rightarrow q \right) \right)$ is a tautology.
+\newline\noindent \textbf{Proof:}
+\newline Suppose that $\neg\left( \left( p \rightarrow q \right) \rightarrow \left( \left( r \rightarrow p \right) \rightarrow \left( r \rightarrow q \right) \right) \right)$ is true
+\newpage
+\begin{equation*}
+  \neg \left( \left( p \rightarrow q \right) \rightarrow \left( \left( r \rightarrow p \right) \rightarrow \left( r \rightarrow q \right) \right) \right)
+\end{equation*}
+\begin{align*}
+    &\equiv \neg \left( \neg \left( p \rightarrow q \right) \vee \left( \left( r \rightarrow p \right) \rightarrow \left( r \rightarrow q \right) \right) \right) &\text{Implies Definition} \\
+    &\equiv \neg \left( \neg \left( p \rightarrow q \right) \vee \left(\neg \left( r \rightarrow p \right) \vee \left( r \rightarrow q \right) \right) \right) &\text{Implies Definition} \\
+    &\equiv \neg \left( \neg \left( \neg p \vee q \right) \vee \left(\neg \left( r \rightarrow p \right) \vee \left( r \rightarrow q \right) \right) \right) &\text{Implies Definition} \\
+    &\equiv \neg \left( \neg \left( \neg p \vee q \right) \vee \left(\neg \left(\neg r \vee p \right) \vee \left( r \rightarrow q \right) \right) \right) &\text{Implies Definition} \\
+    &\equiv \neg \left( \neg \left( \neg p \vee q \right) \vee \left(\neg \left(\neg r \vee p \right) \vee \left( \neg r \vee q \right) \right) \right) &\text{Implies Definition} \\
+    &\equiv \neg \left( \left(\neg \neg p \wedge \neg q \right) \vee \left(\neg \left(\neg r \vee p \right) \vee \left( \neg r \vee q \right) \right) \right) &\text{De Morgan's Law} \\
+    &\equiv \neg \left( \left(\neg \neg p \wedge \neg q \right) \vee \left(\left(\neg\neg r \wedge \neg p \right) \vee \left( \neg r \vee q \right) \right) \right) &\text{De Morgan's Law} \\
+    &\equiv \neg \left( \left(p \wedge \neg q \right) \vee \left(r \wedge \neg p \right) \vee \left( \neg r \vee q \right) \right)  &\text{(Double Negation)} \\
+    &\equiv \neg \left(p \wedge \neg q \right) \wedge \neg \left(r \wedge \neg p \right) \wedge \neg \left( \neg r \vee q \right) &\text{(De Morgan's Law)} \\
+    &\equiv \left( \neg p \vee \neg \neg q \right) \wedge \left( \neg r \vee \neg \neg p \right) \wedge \left( \neg \neg r \wedge \neg q \right) &\text{De Morgan's Law} \\
+    &\equiv \left( \neg p \vee q \right) \wedge \left( \neg r \vee p \right) \wedge \left(r \wedge \neg q \right) &\text{Double Negation} \\
+    &\equiv \left( \neg p \vee q \right) \wedge \left( \neg r \vee p \right) \wedge r \wedge \neg q &\text{AND Distributive} \\
+    &\equiv \left( \left( \neg p \vee q \right)\wedge \neg q \right) \wedge \left(
+    \left( \neg r \vee p \right) \wedge r \right) &\text{AND Distributive} \\
+    &\equiv \neg p \wedge p &\text{Modus Ponens} \\
+    &\equiv \bot &\text{Contradiction}
+\end{align*}
+Thus, the assumption is false and therefore, by the proof of contradiction, the formula $\left( p \rightarrow q \right) \rightarrow \left( \left( r \rightarrow p \right) \rightarrow \left( r \rightarrow q \right) \right)$ always holds.
+\end{solution}
+
+\begin{problem}
+    Determine whether the following pairs of statements are logically equivalent and explain why.
+\end{problem}
+
+\newpage
+\begin{solution}
+    \newline (a) $p \oplus q$ and $\neg p \vee \neg q$ are \textbf{not} logical equivalent. 
+\begin{align*}
+    \neg p \vee \neg q &\equiv \neg \neg \left( \neg p \vee \neg q\right) &\text{Double Negation} \\
+                       &\equiv \neg \left(\neg \neg p \wedge \neg \neg q\right) &\text{De Morgan} \\
+                       &\equiv \neg \left(p \wedge q\right) &\text{Double Negation} 
+\end{align*}
+So, $\neg p \vee \neg q$ is zero if and only if $p$ and $q$ are zero. Otherwise it's one and therefore
+\begin{align*}
+    p \oplus q &\equiv \left( \neg p \wedge q \right) \vee \left( p \wedge \neg q \right) \\
+               &\not\equiv \neg p \vee \neg q
+\end{align*}
+\newline (b) $\neg q \wedge \left( p \leftrightarrow q \right)$ and $\neg p$ are \textbf{not} logical equivalent.
+\begin{table}[!htbp]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $\neg p$ & $\neg q$ & $p \leftrightarrow q$ & $\neg q\wedge \left(p \leftrightarrow q\right)$ \\ 
+\hline
+0 & 0 & 1 & 1 & 1 & 1 \\ \hline
+0 & 1 & 1 & 0 & 0 & 0 \\ \hline
+1 & 0 & 0 & 1 & 0 & 0 \\ \hline
+1 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+\newline(c) $\left( p \rightarrow q\right) \vee \left( p \rightarrow r\right)$ and $p \rightarrow \left( q \vee r\right)$ are logically equivalent.
+\begin{align*}
+    \left( p \rightarrow q\right) \vee \left( p \rightarrow r\right) &\equiv \left(\neg p \vee q\right)
+    \vee \left(p \rightarrow r \right) &\text{Implies Definition} \\
+    &\equiv \left(\neg p \vee q\right) \vee \left(\neg p \vee r \right)&\text{Implies Definition} \\
+    &\equiv \left(\neg p \vee \neg p\right) \vee \left(q \vee r \right)&\text{OR Distributive} \\
+    &\equiv \neg p \vee \left(q \vee r \right)&\text{Idempotene Law} \\
+    &\equiv p \rightarrow \left(q \vee r \right)&\text{Implies Definition}
+\end{align*}
+\newline\noindent(d) $\left( p \rightarrow q\right) \rightarrow r$ and $p \rightarrow \left( q \rightarrow r \right)$ are \textbf{not} logically equivalent.
+\begin{align*}
+    \left( p \rightarrow q\right) \rightarrow r &\equiv \neg \left(p \rightarrow q\right) \vee r &\text{Implies Definition} \\
+    &\equiv \neg \left(\neg p \vee q\right) \vee r &\text{Implies Definition} \\
+    &\equiv \left(\neg \neg p \wedge \neg q\right) \vee r &\text{De Morgan's Law} \\
+    &\equiv \left(p \wedge \neg q\right) \vee r &\text{Double Negation} \\
+\end{align*}
+And we got
+\begin{align*}
+    p \rightarrow \left(q \rightarrow r \right)&\equiv \neg p \vee \left(q \rightarrow r \right)&\text{Implies Definition} \\
+    &\equiv \neg p \vee \left(\neg q \vee r \right)&\text{Implies Definition} \\
+    &\equiv \left(\neg p \vee \neg q\right) \vee r &\text{OR Distributive}
+\end{align*}
+It's obvious that $p \wedge \neg q$ and $\neg p \vee \neg q$ are not equivalent.
+\end{solution}
+
+\begin{problem}
+    Determine for which values of $p, q, r$ the statement $\left(p \vee q \vee r\right) \wedge \left(\neg p \vee \neg q \vee \neg r\right)$ is true and false.
+    Try to explain without the truth table.
+\end{problem}
+
+\begin{solution}
+    If the statement is true, it's known that $p \vee q \vee r$ and $\neg p \vee \neg q \vee \neg r$ are true at the same place. Only when $p,q,r$ have different values can both of the terms be true and the statement will be true, say,
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{ccccccc}
+    $p=$ & 0 & 0 & 1 & 0 & 1 & 1 \\
+    $q=$ & 0 & 1 & 0 & 1 & 0 & 1 \\
+    $r=$ & 1 & 0 & 0 & 1 & 1 & 0 \\
+\end{tabular}
+\end{table}
+\newline
+    If the statement is false, it's known that $p \vee q \vee r$ and $\neg p \vee \neg q \vee \neg r$ are false at the same place. In that case, $p,q,r$ have the same value, which means they are zeros or ones. And such that one of the two terms will be false, making the statement false.
+\end{solution}
+
+\begin{problem}
+  Prove that if $p \rightarrow q, \neg p\rightarrow \neg r, s \vee r$,then $q \vee s$.
+\end{problem}
+
+\begin{solution}
+    Premises are $p \rightarrow q, \neg p\rightarrow \neg r, s \vee r$
+    \newline \textbf{Proof}
+    \begin{align*}
+      1.&\:\neg p \rightarrow \neg r &\text{Premise} \\
+      2.&\:\neg r \vee \neg \neg p &\text{Implies Definition using (1)} \\
+      3.&\:\neg r \vee p &\text{Double Negation using (2)} \\
+      4.&\:r \rightarrow p &\text{Implies Definition using (3)} \\
+      5.&\:p \rightarrow q &\text{Premise} \\
+      6.&\:r \rightarrow q &\text{Hypothetical syllogism using (4) (5)} \\
+      7.&\:\neg r \vee q &\text{Implies Definition using (7)} \\
+      8.&\:s \vee r &\text{Premise} \\
+      9.&\:q \vee s &\text{Resolution using (7) (8)}
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+  Prove that if $p \wedge q, q\rightarrow \neg \left( p \wedge r\right), s\rightarrow r$ then $\neg s$.
+\end{problem}
+
+\begin{solution}
+  Premises are $p \wedge q, q\rightarrow \neg \left( p \wedge r\right), s\rightarrow r$.
+  \newline\textbf{Proof}
+  \begin{align*}
+    1.&\:p \wedge q &\text{Premise} \\
+    2.&\:q &\text{Simplification using (1)} \\
+    3.&\:q \rightarrow \neg \left( p \wedge r\right) &\text{Premise} \\
+    4.&\:\neg \left( p \wedge r\right) &\text{Modus Ponens using (2) (3)} \\
+    5.&\:\neg p \vee \neg r &\text{De Morgan using (4)} \\
+    6.&\:p &\text{Simplification using (1)} \\
+    7.&\:\neg r &\text{Disjunctive syllogism using (5) (6)} \\
+    8.&\:s\rightarrow r &\text{Premise} \\
+    9.&\:\neg s &\text{Modus Tollens using (7) (8)} \\
+  \end{align*}
+\end{solution}
+
+\begin{problem}
+  Let $P(x)$ be the statement ``$x$ can speak Russian'' and $Q(x)$ be the statement ``$x$ knows the C Plus Plus''. The domain consists of all students at SUSTech. Translate the statements into predicates logic.
+\end{problem}
+
+\begin{solution}
+  \newline(a) $\exists x\ P(x) \vee Q(x)$
+  \newline(b) $\exists x\ P(x) \wedge \neg Q(x)$
+  \newline(c) $\forall x\ P(x) \wedge Q(x)$
+  \newline(d) $\neg \exists x\ P(x) \vee Q(x)$
+  \newline(e) $\exists x\ P(x)\rightarrow Q(x)$
+\end{solution}
+
+\newpage
+\begin{problem}
+  Let $L(x,y)$ be the statement ``$x$ loves $y$'', where the domain consists of all people in the world.
+\end{problem}
+
+\begin{solution}
+  \newline(a) $\forall x \exists y\ L(x,y)\wedge(x \not= y)$
+  \newline(b) $\exists x\ L(x,x)$
+  \newline(c) $\exists x\exists y\ L(\text{Lynn}, x)\wedge L(\text{Lynn}, y)\wedge\left(x\not=y\right)$
+\end{solution}
+
+\begin{problem}
+  Express the negations of the following statements with negation ahead of predicates.
+\end{problem}
+
+\begin{solution}
+  \newline(a) $\forall z\exists y\exists x\ \neg T(x, y, z)$
+  \newline(b) $\forall x\forall y\ \neg P(x,y) \vee \exists x\exists y\ \neg Q(x,y)$
+  \newline(c) $\exists x \forall y\ \neg Q(x,y) \rightarrow \neg P(x,y)$
+\end{solution}
+
+\begin{problem}
+  Consider the argument ``All movies produced by John Sayles are wonderful. John Sayles produced a movie about coal miners. Therefore, there is a wonderful movie about coal miners.'' and answer the questions.
+\end{problem}
+
+\begin{solution}
+  \newline(a) Let predicate $W(x)$ stand for ``The movie $x$ is wonderful'' and $P(x, y)$ be ``The movie $x$ is produced by $y$''.
+  Let $C$ be ``A movie about coal miners'', and $S$ be ``John Sayles''. Thus, the sentences are
+    \newline\indent All movies produced by John Sayles are wonderful: $\forall x\ W(x)\wedge P(x, S)$
+    \newline\indent John Sayles produced a movie about coal miners: $P(C, S)$
+    \newline\indent There is a wonderful movie about coal miners: $\exists x\ W(C)\wedge P(C, x)$
+  \newline(b) Premises are $\forall x\ W(x)\wedge P(x, S)$ and $P(C, S)$
+  \newline \textbf{Proof}
+  \begin{align*}
+    1.&\:\forall x\ W(x)\wedge P(x, S) &\text{Premise} \\
+    2.&\:P(C, S) &\text{Premise} \\
+    3.&\:W(C)\wedge P(C, S)  &\text{UI using (1)(2)} \\
+    4.&\:\exists x\ W(C) \wedge P(C, x) &\text{EG using (3)} \\
+  \end{align*}
+\end{solution}
+
+\begin{problem}
+  Prove that $\sqrt[3]{2}$ is irrational
+\end{problem}
+
+\begin{solution}
+    \newline Suppose $\sqrt[3]{2}$ is rational, thus we got $\sqrt[3]{2} = \frac{p}{q}(p,q\in \mathbb{N},\ gcd(p, q) = 1)$
+    \newline Then $p^3 = 2q^3 \implies p^3 = 0(mod\ 2)$ so let $p = 2k(k\in \mathbb{N})$,
+    \newline Then $p^3 = 8k^3 = 2q^3 \implies q^3 = 4k^3 \implies q^3 = 0(mod\ 2)$,
+    \newline Thus $p$ and $q$ has a cofactor $2$, which is contrary to the assumption that $gcd(p, q) = 1$.
+    \newline Therefore, $\sqrt[3]{2}$ is irrational.
+\end{solution}
+
+\begin{problem}
+  Prove that there is an irrational number between every two distinct rational numbers.
+\end{problem}
+
+\begin{solution}
+    \newline Suppose $\frac{p}{q}$ and $\frac{m}{n}$ are arbitrary distinct rational number and $\frac{p}{q} < \frac{m}{n}$
+    \newline Then $\frac{m}{n} - \frac{p}{q} = \frac{mq - np}{nq}$ is also a rational number.
+    \newline Let $Q$ be a positive rational number and $\sqrt{2} < Q\times \frac{mq - np}{nq}$.
+    \newline Thus, $0 < \frac{\sqrt{2}}{Q} < \frac{mq - np}{nq}$.
+    \newline And we got, $\frac{p}{q} < \frac{\sqrt{2}}{Q} + \frac{p}{q} < \frac{mq - np}{nq} + \frac{p}{q}$,
+    that is, $\frac{p}{q} < \frac{\sqrt{2}}{Q} + \frac{p}{q} < \frac{m}{n}$.
+    \newline Thus, $\frac{p}{q}$ and $\frac{m}{n}$ are rational number and $\frac{\sqrt{2}}{Q} + \frac{p}{q}$ is irrational number between $\frac{p}{q}$ and $\frac{m}{n}$.
+    \newline Therefore, there must be an irrational number between every distinct rational number.
+\end{solution}
+
+\begin{problem}
+  Prove that all integral solutions to the equation that satisfies $m,n \ge 3$ and $e > 0$ are in the table.
+  \begin{equation*}
+    \frac{1}{m} + \frac{1}{n} = \frac{1}{e} + \frac{1}{2}
+  \end{equation*}
+\end{problem}
+
+\begin{solution}
+    The proof can be divided into 4 parts. Since $m$ and $n$ are symmetric, we only need to discuss one of them. Firstly, ensure\newline
+    \begin{equation*}
+        e = \frac{2mn}{2(m+n)-mn} > 0 \implies 2m + 2n > mn
+    \end{equation*}
+    \textbf{Case 1: } $n = 3$ \newline
+    If $n = 3$, then we have $m < 6$ so $m$ can barely be $3, 4, 5$, and all of the values statisfy the condition that $e$ is an integral.\newline
+    \textbf{Case 2: } $n = 4$ \newline
+    If $n = 4$, then $m < 4$. So $m$ can only be 3 and $e$ is an integral.\newline
+    \textbf{Case 3: } $n = 5$ \newline
+    $n = 5$ makes $m < \frac{10}{3}$, so $m$ is 3 and $e$ is an integral.\newline
+    \textbf{Case 4: } $n = 6$ \newline
+    In that case, $m$ will be less than 3, which is contradiction. And by solving the inequality we got $n < 6$.\newline
+    From the cases above, we know that $m, n \le 5$ and there are only 5 combinations of $m$ and $n$, which fits the cases in the table.
+    Therefore, all integral solutions to the equation are in the table.
+\end{solution}
+
+\end{document}

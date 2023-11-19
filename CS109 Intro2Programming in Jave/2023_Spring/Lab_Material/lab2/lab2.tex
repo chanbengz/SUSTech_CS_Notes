@@ -1,0 +1,196 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{green}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+% init
+
+\usetheme{Madrid}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+\lstset{
+    frame=none,
+    language=Java,
+    showstringspaces=false,
+    columns=fullflexible,
+    basicstyle = \ttfamily\small,
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    morekeywords={String,in,out},
+    breakatwhitespace=true,
+    tabsize=4
+}
+% appearance setup
+
+\title{CS109 Lab 2}
+\author{Ben Chen}
+\institute{SUSTech}
+\date{Febr 20, 2023}
+
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}[fragile]
+    \frametitle{What is an IDE?}
+    A modern IDE typically consists of,
+    \begin{itemize}
+        \item Source code editor: assists you in writing code with features such as highlighting syntax,
+        providing auto-completion, and controlling version, etc
+        \item Build automation: automatically compiles multiple source code files so that you can build
+        your program with just ONE click
+        \item Debugger: tests your program graphically for you to find bugs
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Intellj IDEA Setup}
+    Intellj IDEA is a great option for you.
+    \newline
+    \begin{enumerate}
+        \item Download from \url{https://www.jetbrains.com/idea/download}
+        \item Run the excutable (Windows)
+        \item Follow the instructions.
+        \begin{block}{For Mac users}
+            Open the \textit{.dmg} file, and in the following window, drag the icon into the \textit{Application} folder
+        \end{block}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Project Configuration}
+    Since program is considered as a project in IDEA, you may follow these steps before writing code:
+    \begin{enumerate}
+        \item Create a new project, name it and choose its location
+        \item Select JDK and other options
+        \newline (in this lab, we'll leave them aside)
+        \item Create new \textit{Java Class} files at \textit{src} folder.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{I/O}
+    Java program input and output the data by System I/O
+    \begin{itemize}
+        \item Input: create a \textit{Scanner} object, pass \textit{System.in} to it, and call its methods
+        \begin{lstlisting}
+    Scanner input = new Scanner(System.in);
+    int a = input.nextInt();
+    String b = input.next();
+        \end{lstlisting}
+        \item Output: simply call the methods of \textit{System.out}
+        \begin{lstlisting}
+    System.out.println("CS109 is easy!");
+        \end{lstlisting}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{More about input}
+    Scanner has these methods below:
+    \begin{itemize}
+        \item nextByte(), nextShort, nextInt(), nextLong(): read integer
+        \item nextFload() \& nextDouble(): read decimal
+        \item next() \& nextLine(): read String, but nextLine() will read the entire line of String, including blank character
+    \end{itemize}
+    Each data is separated by blank space.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{More about input}
+    Scanner can also check whether the user's input is legal
+    \begin{lstlisting}
+    if(input.hasNextInt()) {
+        int a = input.nextInt();
+    }
+    \end{lstlisting}
+    Similarly, other methods are hasNextFload(), hasNext(), and so on.
+\end{frame}
+
+\begin{frame}
+    \frametitle{More about output}
+    System.out has these methods below:
+    \begin{itemize}
+        \item print(): display information without outputting new line
+        \item println(): with outputting a new line
+        \item printf(): display formatted information
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Format String}
+    Format specifiers are present in the following sequence,
+    \begin{lstlisting}
+    %<flag><width><.precision><conversion-character>
+    \end{lstlisting}
+    For example,
+    \begin{lstlisting}
+        String name = "Bob";
+        float weight = 114.514;
+        String.format("I am %-5s, weigh %.1f kg", name, weight);
+        //I am Bob  , weigh 114.5 kg
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Expression}
+    What does expression mean?
+    \begin{itemize}
+        \item \textbf{Math}: figures, formulae and equations \dots \newline
+        0xdeadbeef, $1+1$, $f(x) = x^2$ , $e^{i\theta} = i\sin\theta + \cos\theta$
+        \item \textbf{CS}: completed instructions composed by operators
+        \begin{lstlisting}
+    int a = 2; //variable declaration
+    a++; //a increases by 1 and return previous value 2
+    System.out.println(a = 4); //assign 4 to a and output 4
+        \end{lstlisting}
+        Thus, expression can operate variables besides evaluation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Runtime Error}
+    RE usually occurs when your program encounters unexpected input,
+    \begin{lstlisting}
+    int a = input.nextInt();
+    int b = input.nextInt();
+    System.out.println(a / b);//input: 1 0
+    //java.lang.ArithmeticException: / by zero
+    \end{lstlisting}
+    Since we can't divide anything by zero, the JVM will raise a RE.\newline\newline
+    Before learning try/catch, seek to avoid RE by checking the input.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Debugging with IDEA}
+    \begin{enumerate}
+        \item Add breakpoint (where the program stops)
+        \item Click bug-shaped button at toolbar
+        \item Run it step by step
+        \begin{itemize}
+            \item Step Into means jumping into the method called
+            \item Step Over means not getting inside
+        \end{itemize}
+        \item Check the variables if necessary,
+        pay attention to how they change
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tips for Lab Exercise}
+    \begin{itemize}
+        \item Exercise 1:
+        Try to type the code yourself, instead of copying.
+        \item Exercise 3-4:
+        Test your program with various data.\newline
+        Debug it when fails, don't fake the result.
+        \item Submit \textbf{screenshots} of the execution results to \href{https://bb.sustech.edu.cn}{bb}.
+    \end{itemize}
+    
+\end{frame}
+\end{document}

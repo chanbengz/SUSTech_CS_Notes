@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{karnaugh-map}
+
+\begin{document}
+\begin{table}[!htbp]
+\centering
+  \begin{karnaugh-map}(label=corner)[4][4][1][$A$][$B$][$C$][$D$]
+    \minterms{0,1,2,3,7,8,13} % Maxterm
+    \terms{5}{X} % Don't Care Condition
+    \autoterms[0] % Fill the rest cells
+    \implicantcorner
+    \implicant{1}{3}
+    \implicantedge{4}{12}{6}{14}
+  \end{karnaugh-map}
+\end{table}
+\end{document}

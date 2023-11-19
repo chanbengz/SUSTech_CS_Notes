@@ -1,0 +1,536 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+\usepackage{karnaugh-map}\usepackage{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,arrows.meta}
+\ctikzset{logic ports=ieee}
+\usetikzlibrary{circuits.logic.IEC,calc}
+
+\title{\textbf{Assignment\#2 CS207 Fall 2023}}
+\author{Ben Chen(12212231)}
+\date{\today}
+\linespread{1.32}
+\newcounter{problemname}
+\newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
+\newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
+\newenvironment{note}{\par\noindent\textsc{Note of Problem \arabic{problemname}. }}{\\\par}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+    Obtain the simplified boolean expressions for the output $F$ and $G$ in terms of the input variables in the given circuit.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} Considering the dependency of each function, we obtain T2 and T3 first, then T1 and finally F and G.
+    \begin{align*}
+        T2(A,B,C,D) &= (A^{\prime}D)^{\prime} \\
+        T3(A,B,C,D) &= A^{\prime} + BC \\
+        T1(A,B,C,D) &=(A^{\prime}\cdot T2)^{\prime} =  (A^{\prime}(A^{\prime}D)^{\prime})^{\prime} \\
+        F(A,B,C,D) &= T1\cdot T3 = (A^{\prime} + BC)((A^{\prime}(A^{\prime}D)^{\prime})^{\prime}) \\
+        G(A,B,C,D) &= (T2\cdot T3)^{\prime} = ((A^{\prime} + BC)(A^{\prime}D)^{\prime})^{\prime}
+    \end{align*}
+    \textbf{b)} Simplify the outputs of $F$ and $G$
+    \begin{align*}
+        F(A,B,C,D) &= (A^{\prime} + BC)((A^{\prime}(A^{\prime}D)^{\prime})^{\prime}) \\
+                   &= (A^{\prime} + BC)(A+A^{\prime}D) = \boxed{A^{\prime}D + ABC} \\\\
+        G(A,B,C,D) &= ((A^{\prime} + BC)(A^{\prime}D)^{\prime})^{\prime} \\
+                   &= (A^{\prime} + BC)^{\prime}+A^{\prime}D = A(BC)^{\prime} + A^{\prime}D \\
+                   &= \boxed{AB^{\prime} + AC^{\prime} + A^{\prime}D}
+    \end{align*}
+    \newpage\textbf{c)} The truth table of $F$ and $G$
+    \begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $\ A\ $ & $\ B\ $ & $\ C\ $ & $\ D\ $ & $F(A,B,C,D)$ & $G(A,B,C,D)$\\ \hline
+    0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 0 & 1 & 1 & 1 \\ \hline
+    0 & 0 & 1 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 1 & 1 & 1 \\ \hline
+    0 & 1 & 0 & 0 & 0 & 0 \\ \hline
+    0 & 1 & 0 & 1 & 1 & 1 \\ \hline
+    0 & 1 & 1 & 0 & 0 & 0 \\ \hline
+    0 & 1 & 1 & 1 & 1 & 1 \\ \hline
+    1 & 0 & 0 & 0 & 0 & 1 \\ \hline
+    1 & 0 & 0 & 1 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 0 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 1 & 0 & 1 \\ \hline
+    1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+    1 & 1 & 0 & 1 & 0 & 1 \\ \hline
+    1 & 1 & 1 & 0 & 1 & 0 \\ \hline
+    1 & 1 & 1 & 1 & 1 & 0 \\
+    \hline
+    \end{tabular}
+    \end{table}
+\end{solution}
+
+\begin{problem}
+    A circuit with four inputs $A_3A_2A_1A_0$ and two output $P$ and $D$, where the former one is TRUE when the number is prime number and the lattar one is TRUE if the number is a multiple of 3.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} It's obvious that
+    \begin{align*}
+        P &= \Sigma(2,3,5,7,11,13) \\
+        D &= \Sigma(0,3,6,9,12,15)
+    \end{align*}
+    so the truth table of the circuit is\newpage
+    \begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $\ A_3\ $ & $\ A_2\ $ & $\ A_1\ $ & $\ A_0\ $ & $\quad P\quad$ & $\quad D\quad$\\ \hline
+    0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 0 & 1 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 0 & 1 & 0 \\ \hline
+    0 & 0 & 1 & 1 & 1 & 1 \\ \hline
+    0 & 1 & 0 & 0 & 0 & 0 \\ \hline
+    0 & 1 & 0 & 1 & 1 & 0 \\ \hline
+    0 & 1 & 1 & 0 & 0 & 1 \\ \hline
+    0 & 1 & 1 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+    1 & 0 & 0 & 1 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 0 & 0 & 0 \\ \hline
+    1 & 0 & 1 & 1 & 1 & 0 \\ \hline
+    1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+    1 & 1 & 0 & 1 & 1 & 0 \\ \hline
+    1 & 1 & 1 & 0 & 0 & 0 \\ \hline
+    1 & 1 & 1 & 1 & 0 & 1 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \textbf{b)} The K-map of $P$ and $D$ are
+    \begin{table}[!htbp]
+    \centering
+    \begin{karnaugh-map}(label=corner)[4][4][1][$A_0$][$A_1$][$A_2$][$A_3$]
+    \minterms{2,3,5,7,11,13}
+    \autoterms[0]
+    \implicant{3}{2}
+    \implicant{5}{7}
+    \implicant{5}{13}
+    \implicantedge{3}{3}{11}{11}
+  \end{karnaugh-map}
+  \begin{karnaugh-map}(label=corner)[4][4][1][$A_0$][$A_1$][$A_2$][$A_3$]
+    \minterms{0,3,6,9,12,15}
+    \autoterms[0]
+    \implicant{0}{0}
+    \implicant{3}{3}
+    \implicant{6}{6}
+    \implicant{9}{9}
+    \implicant{12}{12}
+    \implicant{15}{15}
+  \end{karnaugh-map}
+\end{table}
+\end{solution}
+
+\begin{problem}
+    Design a circuit to implement the three functions with decoder and NAND gates, and draw the diagram.
+\end{problem}
+
+\begin{solution}
+    Convert the equations into sum of minterms
+    \begin{align*}
+        F1 &= \Sigma(0,6,7) \\
+        F2 &= \Sigma(1,2,3,4,5,6,7) \\
+        F3 &= \Sigma(2,3,4,5)
+    \end{align*}
+    and then design the circuit
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \begin{circuitikz}[circuit logic IEC]
+    \node[and gate, inputs={nnn}, and gate IEC symbol={Decoder}, text height=6cm,text width=2cm, very thick] (A) {};
+    \foreach \V/\X in {1/A,2/B,3/C} {
+        \draw  ([xshift=-20pt]A.input \V) node[left] {$\X$} -- (A.input  \V);
+    }
+    \draw ( $ (A.south east)!.111!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {7};
+    \draw ( $ (A.south east)!.111!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not7) {};    
+    \draw ( $ (A.south east)!.222!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {6};
+    \draw ( $ (A.south east)!.222!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not6) {};    
+    \draw ( $ (A.south east)!.333!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {5};
+    \draw ( $ (A.south east)!.333!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not5) {};    
+    \draw ( $ (A.south east)!.444!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {4};
+    \draw ( $ (A.south east)!.444!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not4) {};    
+    \draw ( $ (A.south east)!.555!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {3};
+    \draw ( $ (A.south east)!.555!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not3) {};    
+    \draw ( $ (A.south east)!.666!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {2};
+    \draw ( $ (A.south east)!.666!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not2) {};    
+    \draw ( $ (A.south east)!.777!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {1};
+    \draw ( $ (A.south east)!.777!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not1) {};    
+    \draw ( $ (A.south east)!.888!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {0};
+    \draw ( $ (A.south east)!.888!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not0) {};    
+    \draw (6,2.05) node[nand port, number inputs=3] (nand1) {};
+    \draw (6,-0.05) node[nand port, number inputs=7] (nand2) {};
+    \draw (6,-2.05) node[nand port, number inputs=4] (nand3) {};
+    \draw (nand1.out) -- ++(0.5,0)node[right](out) {$F1$};
+    \draw (nand2.out) -- ++(0.5,0)node[right](out) {$F2$};
+    \draw (nand3.out) -- ++(0.5,0)node[right](out) {$F3$};
+    \draw (not0) -- (nand1.in 1) {};
+    \draw (not6) -- ++(50pt,0) |- (nand1.in 2)++(-0.3,0) {};
+    \draw (not7) -- ++(60pt,0) |- (nand1.in 3)++(-0.2,0) {};
+    \draw (not1) -- ++(40pt,0) |- (nand2.in 1) {};
+    \draw (not2) -- ++(30pt,0) |- (nand2.in 2) {};
+    \draw (not3) -- ++(20pt,0) |- (nand2.in 3) {};
+    \draw (not4) -- ++(20pt,0) |- (nand2.in 4) {};
+    \draw (not5) -- ++(30pt,0) |- (nand2.in 5) {};
+    \draw let \p1=(nand2.in 6),\p2=(nand2.in 6) in (\x1,\y1) to[short,-*] ({\x2-55.7pt},\y1) node (a) {};
+    \draw let \p1=(nand2.in 7),\p2=(nand2.in 7) in (\x1,\y1) to[short,-*] ({\x2-45.7pt},\y1) node (a) {};
+    \draw (nand3.in 1) -- ++(-15pt,0) -- ++(0,55pt) {};
+    \draw let \p1=(nand2.in 2),\p2=(nand2.in 2) in (\x1,\y1) to[short,-*] ({\x2-15pt},\y1) node (a) {};
+    \draw (nand3.in 2) -- ++(-20pt,0) -- ++(0,56pt) {};
+    \draw let \p1=(nand2.in 3),\p2=(nand2.in 3) in (\x1,\y1) to[short,-*] ({\x2-20pt},\y1) node (a) {};
+    \draw (nand3.in 3) -- ++(-25pt,0) -- ++(0,60pt) {};
+    \draw let \p1=(nand2.in 4),\p2=(nand2.in 4) in (\x1,\y1) to[short,-*] ({\x2-25pt},\y1) node (a) {};
+    \draw (nand3.in 4) -- ++(-30pt,0) -- ++(0,65pt) {};
+    \draw let \p1=(nand2.in 5),\p2=(nand2.in 5) in (\x1,\y1) to[short,-*] ({\x2-30pt},\y1) node (a) {};
+    \end{circuitikz}
+\end{figure}
+\end{solution}
+
+\begin{problem}
+    Develop a 3-to-8 line decoder using NOR gates only, and draw its logic diagram.
+\end{problem}
+
+\begin{solution}
+    To implement a 3-to-8 decoder with nor gates only, we can come up with a method similar to the method using AND gates only.\newline For example,
+    \begin{align*}
+        &(x^{\prime} + y^{\prime} + z^{\prime})^{\prime} = xyz \\
+        &(x + y + z)^{\prime} = x^{\prime}y^{\prime}z^{\prime} = 0
+    \end{align*}\newline\newline
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \begin{circuitikz}
+    \draw (1, 7.2) node[not port, anchor=out] (not1) {};
+    \draw (1, 10.2) node[not port, anchor=out] (not2) {};
+    \draw (1, 13.2) node[not port, anchor=out] (not3) {};
+    \draw (6.5, 1) node[nor port, anchor=out, number inputs=3] (nor8) {};
+    \draw (6.5, 3) node[nor port, anchor=out, number inputs=3] (nor7) {};
+    \draw (6.5, 5) node[nor port, anchor=out, number inputs=3] (nor6) {};
+    \draw (6.5, 7) node[nor port, anchor=out, number inputs=3] (nor5) {};
+    \draw (6.5, 9) node[nor port, anchor=out, number inputs=3] (nor4) {};
+    \draw (6.5, 11) node[nor port, anchor=out, number inputs=3] (nor3) {};
+    \draw (6.5, 13) node[nor port, anchor=out, number inputs=3] (nor2) {};
+    \draw (6.5, 15) node[nor port, anchor=out, number inputs=3] (nor1) {};
+    \draw (nor1.out) -- ++(0.5,0)node[right](out) {$D_0=x^{\prime}y^{\prime}z^{\prime}$};
+    \draw (nor2.out) -- ++(0.5,0)node[right](out) {$D_1=x^{\prime}y^{\prime}z$};
+    \draw (nor3.out) -- ++(0.5,0)node[right](out) {$D_2=x^{\prime}yz^{\prime}$};
+    \draw (nor4.out) -- ++(0.5,0)node[right](out) {$D_3=x^{\prime}yz$};
+    \draw (nor5.out) -- ++(0.5,0)node[right](out) {$D_4=xy^{\prime}z^{\prime}$};
+    \draw (nor6.out) -- ++(0.5,0)node[right](out) {$D_5=xy^{\prime}z$};
+    \draw (nor7.out) -- ++(0.5,0)node[right](out) {$D_6=xyz^{\prime}$};
+    \draw (nor8.out) -- ++(0.5,0)node[right](out) {$D_7=xyz$};
+    \draw (not1.in) -- ++(-1.5,0)node[left](in1) {$x$};
+    \draw (not2.in) -- ++(-1.5,0)node[left](in2) {$y$};
+    \draw (not3.in) -- ++(-1.5,0)node[left](in3) {$z$};
+    \draw let \p1=(not1.in),\p2=(not1.in) in (\x1,\y1) to[short,-*] ({\x1},\y1) node (x) {};
+    \draw let \p1=(not2.in),\p2=(not2.in) in (\x1,\y1) to[short,-*] ({\x1},\y1) node (y) {};
+    \draw let \p1=(not3.in),\p2=(not3.in) in (\x1,\y1) to[short,-*] ({\x1},\y1) node (z) {};
+    \draw (not1.in) -- ++(0,-1) -- ++(4.4,0) |- (nor1.in 3)[thin]{};
+    \draw let \p1=(nor2.in 3),\p2=(nor2.in 3) in (\x1,\y1) to[short,-*] ({\x1-0.7cm},\y1) node (x1) {};
+    \draw let \p1=(nor3.in 3),\p2=(nor3.in 3) in (\x1,\y1) to[short,-*] ({\x1-0.7cm},\y1) node (x2) {};
+    \draw let \p1=(nor4.in 3),\p2=(nor4.in 3) in (\x1,\y1) to[short,-*] ({\x1-0.7cm},\y1) node (x3) {};
+    \draw (not1.out) -- ++(3,0) |- (nor8.in 3)[thin]{};
+    \draw let \p1=(nor5.in 3),\p2=(nor5.in 3) in (\x1,\y1) to[short,-*] ({\x1-0.35cm},\y1) node (x4) {};
+    \draw let \p1=(nor6.in 3),\p2=(nor6.in 3) in (\x1,\y1) to[short,-*] ({\x1-0.35cm},\y1) node (x5) {};
+    \draw let \p1=(nor7.in 3),\p2=(nor7.in 3) in (\x1,\y1) to[short,-*] ({\x1-0.35cm},\y1) node (x6) {};
+    \draw (nor7.in 1) -- ++(-2.8,0) -- ++(0,12) -- (nor1.in 1) {};
+    \draw (nor8.in 1) -- ++(-2.2,0) -- ++(0,12) -- (nor2.in 1) {};
+    \draw (nor6.in 2) -- ++(-1.8,0) -- ++(0,10) -- (nor1.in 2) {};
+    \draw (nor8.in 2) -- ++(-1.4,0) -- ++(0,10) -- (nor3.in 2) {};
+    \draw (not2.in) -- ++(0,-1) -- ++(3.3,0)[thin]{} node[fill=black,shape=circle,scale=0.3] (zi1) {};
+    \draw (not3.in) -- ++(0,-1) -- ++(2.3,0)[thin]{} node[fill=black,shape=circle,scale=0.3] (yi2) {};
+    \draw let \p1=(not3.out),\p2=(not3.out) in (\x1,\y1) to[short,-*] ({\x1+1.12cm},\y1) node (z1) {};
+    \draw let \p1=(not2.out),\p2=(not2.out) in (\x1,\y1) to[short,-*] ({\x1+1.94cm},\y1) node (y1) {};
+    \draw let \p1=(nor5.in 2),\p2=(nor5.in 2) in (\x1,\y1) to[short,-*] ({\x1-1.8cm},\y1) node (y5) {};
+    \draw let \p1=(nor2.in 2),\p2=(nor2.in 2) in (\x1,\y1) to[short,-*] ({\x1-1.8cm},\y1) node (y2) {};
+    \draw let \p1=(nor4.in 2),\p2=(nor4.in 2) in (\x1,\y1) to[short,-*] ({\x1-1.4cm},\y1) node (y4) {};
+    \draw let \p1=(nor7.in 2),\p2=(nor7.in 2) in (\x1,\y1) to[short,-*] ({\x1-1.4cm},\y1) node (y7) {};
+    \draw let \p1=(nor3.in 1),\p2=(nor3.in 1) in (\x1,\y1) to[short,-*] ({\x1-2.8cm},\y1) node (z3) {};
+    \draw let \p1=(nor5.in 1),\p2=(nor5.in 1) in (\x1,\y1) to[short,-*] ({\x1-2.8cm},\y1) node (z5) {};
+    \draw let \p1=(nor4.in 1),\p2=(nor4.in 1) in (\x1,\y1) to[short,-*] ({\x1-2.2cm},\y1) node (z4) {};
+    \draw let \p1=(nor6.in 1),\p2=(nor6.in 1) in (\x1,\y1) to[short,-*] ({\x1-2.2cm},\y1) node (z6) {};
+    \end{circuitikz}
+\end{figure}
+\end{solution}
+
+\begin{problem}
+    An 8:1 multiplexer has inputs $A$, $B$, and $C$ connected to the selection inputs $S_2$, $S_1$, and $S_0$, respectively. The data inputs $I_0$ through $I_7$ are as follows: $I_1=I_2=0$; $I_3=I_5=I_7=1$; $I_0=I_4=D$; and $I_6=D’$. Determine the Boolean function $F(A, B, C, D)$ that the multiplexer implements.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The truth table of $F$ is
+    \begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $\ A\ $ & $\ B\ $ & $\ C\ $ & $\ D\ $ & $F(A,B,C,D)$ \\ \hline
+    0 & 0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 0 & 1 & 1 \\ \hline
+    0 & 0 & 1 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 1 & 0 \\ \hline
+    0 & 1 & 0 & 0 & 0 \\ \hline
+    0 & 1 & 0 & 1 & 0 \\ \hline
+    0 & 1 & 1 & 0 & 1 \\ \hline
+    0 & 1 & 1 & 1 & 1 \\ \hline
+    1 & 0 & 0 & 0 & 0 \\ \hline
+    1 & 0 & 0 & 1 & 1 \\ \hline
+    1 & 0 & 1 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 1 & 1 \\ \hline
+    1 & 1 & 0 & 0 & 1 \\ \hline
+    1 & 1 & 0 & 1 & 0 \\ \hline
+    1 & 1 & 1 & 0 & 1 \\ \hline
+    1 & 1 & 1 & 1 & 1 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \newline\textbf{b)} And the K-map is
+    \begin{table}[!htbp]
+    \centering
+    \begin{karnaugh-map}(label=corner)[4][4][1][$A$][$B$][$C$][$D$]
+    \minterms{1,6,7,9,10,11,12,14,15}
+    \autoterms[0]
+    \implicantedge{12}{12}{14}{14}
+    \implicantedge{1}{1}{9}{9}
+    \implicant{7}{14}
+    \implicant{15}{10}
+    \end{karnaugh-map}
+    \end{table}
+    \newline Thus, we got the sum of products from the K-map
+    \begin{align*}
+        F(A,B,C,D) = BC + BD + AB^{\prime}C^{\prime} + A^{\prime}CD
+    \end{align*}
+\end{solution}
+
+\begin{problem}
+    Implement the boolean function $F(A,B,C,D) = \Sigma(1,9,10,12,13,14) + d(4,5,8)$ using the following component.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The truth table is shown below, which is obtained from the midterms and the don't care terms are denoted by X.
+    \begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $\ A\ $ & $\ B\ $ & $\ C\ $ & $\ D\ $ & $F(A,B,C,D)$ \\ \hline
+    0 & 0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 0 & 1 & 1 \\ \hline
+    0 & 0 & 1 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 1 & 0 \\ \hline
+    0 & 1 & 0 & 0 & X \\ \hline
+    0 & 1 & 0 & 1 & X \\ \hline
+    0 & 1 & 1 & 0 & 0 \\ \hline
+    0 & 1 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 0 & X \\ \hline
+    1 & 0 & 0 & 1 & 1 \\ \hline
+    1 & 0 & 1 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 1 & 0 \\ \hline
+    1 & 1 & 0 & 0 & 1 \\ \hline
+    1 & 1 & 0 & 1 & 1 \\ \hline
+    1 & 1 & 1 & 0 & 1 \\ \hline
+    1 & 1 & 1 & 1 & 0 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage\textbf{b)} Simplify the boolean function using K-map first
+    \begin{table}[!htbp]
+    \centering
+    \begin{karnaugh-map}(label=corner)[4][4][1][$A$][$B$][$C$][$D$]
+    \minterms{1,9,10,12,13,14}
+    \terms{4,5,8}{X}
+    \autoterms[0]
+    \implicantedge{12}{8}{14}{10}
+    \implicant{1}{9}
+    \implicant{4}{13}
+    \implicant{12}{9}
+    \end{karnaugh-map}
+    \end{table}
+    \newline we got the terms
+    \begin{align*}
+        F(A,B,C,D) = B^{\prime}C + B^{\prime}D + A^{\prime}D + AB^{\prime}
+    \end{align*}
+    and the logic diagram using AND OR gates
+    \newline\begin{figure}[!htbp]
+  \centering
+  \setlength{\belowcaptionskip}{+0.4cm}
+  \begin{circuitikz}
+    \draw (3, 2.5) node[and port, number inputs=3,anchor=out] (and3) {};
+    \draw (3, 4) node[and port, number inputs=3, anchor=out] (and2) {};
+    \draw (3, 5.5) node[and port, anchor=out] (and1) {};
+    \draw (3, 7) node[and port, anchor=out] (and0) {};
+    \draw (7, 4.75) node[or port, number inputs=4, anchor=out] (nor) {};
+    \draw (and0.in 1) -- ++(-0.5,0)node[left](in1) {$B^{\prime}$};
+    \draw (and0.in 2) -- ++(-0.5,0)node[left](in2) {$C\ $};
+    \draw (and1.in 1) -- ++(-0.5,0)node[left](in1) {$B^{\prime}$};
+    \draw (and1.in 2) -- ++(-0.5,0)node[left](in2) {$D$};
+    \draw (and2.in 1) -- ++(-0.5,0)node[left](in3) {$A^{\prime}$};
+    \draw (and2.in 2) -- ++(-0.5,0)node[left](in4) {$B\ $};
+    \draw (and2.in 3) -- ++(-0.5,0)node[left](in5) {$D\ $};
+    \draw (and3.in 1) -- ++(-0.5,0)node[left](in6) {$A\ $};
+    \draw (and3.in 2) -- ++(-0.5,0)node[left](in7) {$B^{\prime}$};
+    \draw (and3.in 3) -- ++(-0.5,0)node[left](in8) {$C^{\prime}$};
+    \draw (and0.out) -- ++(0.5,0) |- (nor.in 1)node[left](mid1) {};
+    \draw (and1.out) |- (nor.in 2)node[left](mid1) {};
+    \draw (and2.out) |- (nor.in 3)node[left](mid2) {};
+    \draw (and3.out) -- ++(0.5,0) |- (nor.in 4)node[left](mid3) {};
+    \draw (nor.out) -- ++(0.5,0)node[right](out) {$F$};
+    \end{circuitikz}
+\end{figure}
+    \newpage\noindent\textbf{c)} The implementation with 74157 decoder and NAND gate is
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \begin{circuitikz}[circuit logic IEC]
+    \node[and gate, inputs={nnnn}, and gate IEC symbol={Decoder}, text height=8cm,text width=2.5cm, very thick] (A) {};
+    \draw  ([xshift=-20pt]A.input 1) node[left] {$A$} -- (A.input 1);
+    \draw  ([xshift=-20pt]A.input 2) node[left] {$B$} -- (A.input 2);
+    \draw  ([xshift=-20pt]A.input 3) node[left] {$C$} -- (A.input 3);
+    \draw  ([xshift=-20pt]A.input 4) node[left] {$D$} -- (A.input 4);
+    \draw ( $ (A.south east)!.06!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {15};
+    \draw ( $ (A.south east)!.06!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not15) {};    
+    \draw ( $ (A.south east)!.12!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {14};
+    \draw ( $ (A.south east)!.12!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not14) {};    
+    \draw ( $ (A.south east)!.18!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {13};
+    \draw ( $ (A.south east)!.18!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not13) {};    
+    \draw ( $ (A.south east)!.24!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {12};
+    \draw ( $ (A.south east)!.24!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not12) {};    
+    \draw ( $ (A.south east)!.30!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {11};
+    \draw ( $ (A.south east)!.30!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not11) {};    
+    \draw ( $ (A.south east)!.36!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {10};
+    \draw ( $ (A.south east)!.36!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not10) {};    
+    \draw ( $ (A.south east)!.42!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {9};
+    \draw ( $ (A.south east)!.42!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not9) {};    
+    \draw ( $ (A.south east)!.48!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {8};
+    \draw ( $ (A.south east)!.48!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not8) {};
+    \draw ( $ (A.south east)!.54!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {7};
+    \draw ( $ (A.south east)!.54!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not7) {};
+    \draw ( $ (A.south east)!.60!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {6};
+    \draw ( $ (A.south east)!.60!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not6) {};
+    \draw ( $ (A.south east)!.66!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {5};
+    \draw ( $ (A.south east)!.66!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not5) {};
+    \draw ( $ (A.south east)!.72!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {4};
+    \draw ( $ (A.south east)!.72!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not4) {};
+    \draw ( $ (A.south east)!.78!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {3};
+    \draw ( $ (A.south east)!.78!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not3) {};
+    \draw ( $ (A.south east)!.84!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {2};
+    \draw ( $ (A.south east)!.84!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not2) {};
+    \draw ( $ (A.south east)!.90!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {1};
+    \draw ( $ (A.south east)!.90!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not1) {};
+    \draw ( $ (A.south east)!.96!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {0};
+    \draw ( $ (A.south east)!.96!(A.north east) $ ) -- ++(5pt,0) node[notcirc,left] (not0) {};
+    \draw (6,-0.05) node[nand port, number inputs=6] (nand) {};
+    \draw (nand.out) -- ++(0.5,0)node[right](out) {$F$};
+    \draw (not1) -- ++(0.5,0) |- (nand.in 1) {};
+    \draw (not9) -- ++(0.5,0) |- (nand.in 2) {};
+    \draw (not10) -- ++(1,0) |- (nand.in 3) {};
+    \draw (not12) -- ++(1.5,0) |- (nand.in 4) {};
+    \draw (not13) -- ++(2,0) |- (nand.in 5) {};
+    \draw (not14) -- ++(2.5,0) |- (nand.in 6) {};
+    \end{circuitikz}
+    \end{figure}
+    \newline\textbf{d)} The diagram uses one decoder to decode $D_0-D_7$ and the other to decode $D_8-D_{15}$. And then connect the output of minterms with a OR gate.
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \begin{circuitikz}[circuit logic IEC]
+    \node[and gate, inputs={nnnn}, and gate IEC symbol={Decoder}, text height=3.5cm,text width=2cm, very thick] (A) {};
+    \node[and gate, inputs={nnnn}, and gate IEC symbol={Decoder}, text height=3.5cm,text width=2cm, very thick] (B) at (0,5cm) {};
+    \draw (A.input 1) -- ++(-15pt,0) -- ++(0,5cm) node[shape=circle,fill=black,scale=0.3] {};
+    \draw (A.input 2) -- ++(-25pt,0) -- ++(0,5cm) node[shape=circle,fill=black,scale=0.3] {};
+    \draw (A.input 3) -- ++(-35pt,0) -- ++(0,5cm) node[shape=circle,fill=black,scale=0.3] {};
+    \draw  ([xshift=18pt]A.input 4) node[left] {$E$};
+    \foreach \V/\X in {1/B,2/C,3/D,4/A} {
+        \draw  ([xshift=-4cm]B.input \V) node[left] {$\X$} -- (B.input  \V);
+    }
+    \draw  ([xshift=20pt]B.input 1) node[left] {$x_2$};
+    \draw  ([xshift=20pt]B.input 2) node[left] {$x_1$};
+    \draw  ([xshift=20pt]B.input 3) node[left] {$x_0$};
+    \draw  ([xshift=20pt]A.input 1) node[left] {$x_2$};
+    \draw  ([xshift=20pt]A.input 2) node[left] {$x_1$};
+    \draw  ([xshift=20pt]A.input 3) node[left] {$x_0$};
+    \draw  ([xshift=18pt]B.input 4) node[left] {$E$};
+    \foreach \C/\B in {0.111/7,.222/6,.333/5,.444/4,.555/3,.666/2,.777/1,.888/0} 
+    {
+        \draw ( $ (B.south east)!\C!(B.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {$\B$};  
+    }
+    \foreach \C/\B in {0.111/15,.222/14,.333/13,.444/12,.555/11,.666/10,.777/9,.888/8} 
+    {
+        \draw ( $ (A.south east)!\C!(A.north east) $ ) -- ++(10pt,0) node[left,xshift=-10] {$\B$};  
+    }
+    \draw (4.2,2.5cm) node[or port, number inputs=6] (and) {};
+    \draw ([xshift=-2.5cm]B.input 4) node[not port] (not) {};
+    \draw (and.out) -- ++(0.5,0)node[right](out) {$F$};
+    \draw let \p1=(not.in),\p2=(not.in) in (\x1,\y1) to[short,-*] ({\x1-0.15cm},\y1) node (a) {};
+    \draw (a.center) -- ++(0,-5cm) -- (A.input 4);
+    \draw ( $ (B.south east)!.888!(B.north east) $ ) -| (and.in 1) {};
+    \draw ( $ (A.south east)!.777!(A.north east) $ ) -- ++(15pt,0) |- (and.in 2) {};
+    \draw ( $ (A.south east)!.666!(A.north east) $ ) -- ++(25pt,0)  |- (and.in 3) {};
+    \draw ( $ (A.south east)!.444!(A.north east) $ ) -- ++(35pt,0)  |- (and.in 4) {};
+    \draw ( $ (A.south east)!.333!(A.north east) $ ) -- ++(45pt,0)  |- (and.in 5) {};
+    \draw ( $ (A.south east)!.222!(A.north east) $ ) -- ++(55pt,0)  |- (and.in 6) {};
+    \end{circuitikz}
+\end{figure}
+    \newpage\noindent\textbf{e)} The 8-to-1 multiplexer uses $A,B,C$ as its selector and the input is determined by $D$ or $0/1$ according to the truth table.
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \begin{circuitikz}[circuit logic IEC]
+    \node[and gate, inputs={nnnnnnnnnnn}, and gate IEC symbol={MUX}, text height=7cm,text width=2cm, very thick] (A) {};
+    \draw  ([xshift=-2cm]A.input 1) node[left] {$C$} -- (A.input 1);
+    \draw  ([xshift=-2cm]A.input 2) node[left] {$B$} -- (A.input 2);
+    \draw  ([xshift=-2cm]A.input 3) node[left] {$A$} -- (A.input 3);
+    \draw  ([xshift=20pt]A.input 1) node[left] {$S_0$};
+    \draw  ([xshift=20pt]A.input 2) node[left] {$S_1$};
+    \draw  ([xshift=20pt]A.input 3) node[left] {$S_2$};
+    \draw  ([xshift=-2cm]A.input 4) node[left] {$D$} -- (A.input 4);
+    \draw  ([xshift=-2cm]A.input 5) node[left] {$0$} -- (A.input 5);
+    \draw  ([xshift=-2cm]A.input 6) node[left] {$0$} -- (A.input 6);
+    \draw  ([xshift=-2cm]A.input 7) node[left] {$0$} -- (A.input 7);
+    \draw  ([xshift=-2cm]A.input 8) node[left] {$D$} -- (A.input 8);
+    \draw  ([xshift=-2cm]A.input 9) node[left] {$D^{\prime}$} -- (A.input 9);
+    \draw  ([xshift=-2cm]A.input 10) node[left] {$1$} -- (A.input 10);
+    \draw  ([xshift=-2cm]A.input 11) node[left] {$D^{\prime}$} -- (A.input 11);
+    \draw  ([xshift=15pt]A.input 4) node[left] {$1$};
+    \draw  ([xshift=15pt]A.input 5) node[left] {$2$};
+    \draw  ([xshift=15pt]A.input 6) node[left] {$3$};
+    \draw  ([xshift=15pt]A.input 7) node[left] {$4$};
+    \draw  ([xshift=15pt]A.input 8) node[left] {$5$};
+    \draw  ([xshift=15pt]A.input 9) node[left] {$6$};
+    \draw  ([xshift=15pt]A.input 10) node[left] {$7$};
+    \draw  ([xshift=15pt]A.input 11) node[left] {$8$};
+    \draw ( $ (A.south east)!.5!(A.north east) $ ) -- ++(30pt,0) node[left,xshift=20pt] {$F$};  
+    \end{circuitikz}
+\end{figure}
+\newline\textbf{f)} Design the 4-to-1 multiplexer with $B,C$ with its selector from the (a) truth table. So we got when $BC=00$ inputs $= A+D$, when $BC=01$ inputs $= AD^{\prime}$, when $BC=10$ inputs $= 1$ and when $BC=11$ inputs $= AD^{\prime}$.
+    \begin{figure}[!htbp]
+    \centering
+    \setlength{\belowcaptionskip}{+0.4cm}
+    \begin{circuitikz}[circuit logic IEC]
+    \node[and gate, inputs={nnnnnn}, and gate IEC symbol={MUX}, text height=8cm,text width=2cm, very thick] (A) {};
+    \draw  ([xshift=-1.3cm]A.input 1) node[left] {$C$} -- (A.input 1);
+    \draw  ([xshift=-1.3cm]A.input 2) node[left] {$B$} -- (A.input 2);
+    \draw  ([xshift=20pt]A.input 1) node[left] {$S_0$};
+    \draw  ([xshift=20pt]A.input 2) node[left] {$S_1$};
+    \draw  ([xshift=17pt]A.input 3) node[left] {$1$};
+    \draw  ([xshift=17pt]A.input 4) node[left] {$2$};
+    \draw  ([xshift=17pt]A.input 5) node[left] {$3$};
+    \draw  ([xshift=17pt]A.input 6) node[left] {$4$};
+    \draw  ([xshift=-1.3cm]A.input 3) node[or port, anchor=out] (or0){} -- (A.input 3);
+    \draw  ([xshift=-1.3cm]A.input 4) node[and port, anchor=out] (and0){} -- (A.input 4);
+    \draw  ([xshift=-1.3cm]A.input 5) node[left] {$1$} -- (A.input 5);
+    \draw  ([xshift=-1.3cm]A.input 6) node[and port, anchor=out] (and1){} -- (A.input 6);
+    \draw (or0.in 1) -- ++(-0.5,0)node[left](in2) {$A$};
+    \draw (or0.in 2) -- ++(-0.5,0)node[left](in3) {$D$};
+    \draw (and0.in 1) -- ++(-0.5,0)node[left](in2) {$A$};
+    \draw (and0.in 2) -- ++(-0.5,0)node[left](in3) {$D^{\prime}$};
+    \draw (and1.in 1) -- ++(-0.5,0)node[left](in6) {$A$};
+    \draw (and1.in 2) -- ++(-0.5,0)node[left](in7) {$D^{\prime}$};
+    \draw ( $ (A.south east)!.5!(A.north east) $ ) -- ++(30pt,0) node[left,xshift=20pt] {$F$}; 
+    \end{circuitikz}
+\end{figure}
+\end{solution}
+
+\end{document}

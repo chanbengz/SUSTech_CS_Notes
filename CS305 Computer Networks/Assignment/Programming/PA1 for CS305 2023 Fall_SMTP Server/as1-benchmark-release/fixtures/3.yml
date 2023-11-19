@@ -1,0 +1,31 @@
+scenario: Send an email to another user in the different domain and test STAT
+credit: 5
+
+servers:
+  - domain: 'exmail.qq.com'
+    type: student
+  - domain: 'gmail.com'
+    type: student
+
+steps:
+  - name: Send email
+    uses: sendmail
+    args:
+      from: 'usr1@mail.sustech.edu.cn'
+      to:
+        - 'usr1@gmail.com'
+      subject: 'Test Subject'
+      body: 'Test Body'
+  - uses: wait
+    args:
+      seconds: 3
+  - name: Login my account
+    uses: login
+    args:
+      user: 'usr1@gmail.com'
+      pass: 'password1'
+  - name: Show the status
+    uses: stat
+    expect:
+      - count: 1
+  - uses: quit
