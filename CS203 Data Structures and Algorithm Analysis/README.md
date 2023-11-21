@@ -1,5 +1,4 @@
-# SUSTech_CS207_2023_Fall
-Data Structure and Algorithm Analysis(CS207) @ SUSTech
+# Data Structure and Algorithm Analysis(CS207)
 
 The problems can be viewed at [ACM OJ](https://acm.sustech.edu.cn/onlinejudge/), BUT it should be restricted to student-only for now.
 
@@ -43,3 +42,7 @@ The problems can be viewed at [ACM OJ](https://acm.sustech.edu.cn/onlinejudge/),
 |               | [Necklace!](lab5/ProblemD.cpp)                      | Next Array                              |
 |               | [Stick!](lab5/ProblemE.cpp)                         | Rabin-Karp                              |
 |               | [String Problem F](lab4/ProblemF.cpp)               | Next Array                              |
+
+# License
+
+The source codes are only for learning purpose. **DON'T** copy directly and submit to OJ, which might ruin you.
