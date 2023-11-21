@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sun Nov 19 23:00:41 2023
+# Process ID: 20076
+# Current directory: /home/ben/lab6/lab6.runs/impl_1
+# Command line: vivado -log game.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source game.tcl -notrace
+# Log file: /home/ben/lab6/lab6.runs/impl_1/game.vdi
+# Journal file: /home/ben/lab6/lab6.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source game.tcl -notrace

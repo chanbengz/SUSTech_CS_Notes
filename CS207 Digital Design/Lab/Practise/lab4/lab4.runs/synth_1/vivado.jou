@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Oct 20 10:59:02 2023
+# Process ID: 13329
+# Current directory: /home/ben/Desktop/lab4/lab4.runs/synth_1
+# Command line: vivado -log rock_paper_scissor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rock_paper_scissor.tcl
+# Log file: /home/ben/Desktop/lab4/lab4.runs/synth_1/rock_paper_scissor.vds
+# Journal file: /home/ben/Desktop/lab4/lab4.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source rock_paper_scissor.tcl -notrace

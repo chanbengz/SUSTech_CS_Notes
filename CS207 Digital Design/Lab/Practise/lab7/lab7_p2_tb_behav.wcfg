@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="lab7_p2_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="lab7_p2_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="159998583fs"></ZoomStartTime>
+      <ZoomEndTime time="160003114fs"></ZoomEndTime>
+      <Cursor1Time time="160000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="144"></NameColumnWidth>
+      <ValueColumnWidth column_width="104"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="3" />
+   <wvobject type="array" fp_name="/lab7_p2_tb/in">
+      <obj_property name="ElementShortName">in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">in[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/lab7_p2_tb/out1">
+      <obj_property name="ElementShortName">out1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">out1[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/lab7_p2_tb/out2">
+      <obj_property name="ElementShortName">out2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">out2[15:0]</obj_property>
+   </wvobject>
+</wave_config>
