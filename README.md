@@ -1,6 +1,10 @@
+<div align="center">
+
 # SUSTech_CS_Notes
 
 Course Notes for the Computer Science @SUSTech.
+
+</div>
 
 ## Intro
 
@@ -22,6 +26,8 @@ Basically the folders under each course are
 - **Assignment** Programming or Theory assignment
 - **Lab** Lab reports
 - **Midterm/Final** The exams
+
+The notes can be viewed on my [blog](https://bigbens.me)
 
 ## How to Learn with the repo
 It depends on you. Trust yourself
