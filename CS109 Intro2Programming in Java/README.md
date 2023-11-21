@@ -7,7 +7,7 @@ This folder collects my code for the assignment and practice in laboratory, and 
 Any use of my code is allowed, while COPING and SUBMITTING to the OJ is highly prohibited. DON'T ruin yourself.
 ## Content
 - 2022_Fall
-	* [Solutions](./2022_Fall/Assignment) Codes and notes for the assignments (5 in total)
+	* [Solutions](./2022_Fall/Solutions) Codes and notes for the assignments (5 in total)
 	* [Lab](./2022_Fall/Lab) Practices in lab
 > We have a lab(LAB) every week and professor only requires us to submit one exercise(E)
 - 2023_Spring
