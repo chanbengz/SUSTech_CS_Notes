@@ -4,6 +4,26 @@ The problems can be viewed at [ACM OJ](https://acm.sustech.edu.cn/onlinejudge/),
 
 ## Content
 
+The course contains only two parts, theory and lab. Project and 
+
+### Theory
+
+For quiz, midterm and final exams.
+
+| Lecture         | Content                               | Duration |
+| --------------- | ------------------------------------- | -------- |
+| Binary Search   | Complexity Analysis and Binary Search | 2 weeks  |
+| Sort            |                                       |          |
+| Linked List     |                                       |          |
+| Stack and Queue |                                       |          |
+| String          |                                       |          |
+| Tree            |                                       |          |
+| Graph           |                                       |          |
+
+### Lab Exercise
+
+There're 10 labs in total and six problems for each lab with (15 + 15 + 20 + 20 + 25 + 25) points.
+
 | Lab           | Problem                                             | Note                                    |
 | ------------- | --------------------------------------------------- | --------------------------------------- |
 | [lab0](lab0/) | [Search Problem I](lab0/ProblemA.cpp)               | Brute Force                             |
