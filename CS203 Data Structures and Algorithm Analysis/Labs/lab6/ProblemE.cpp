@@ -85,7 +85,7 @@ int main() {
             }
         }
         now = v.back();
-        ans = ans >= now ? ans : now;
+        ans = ans > now ? ans : now;
     }
     printf("%d\n", ans);
 

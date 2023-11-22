@@ -2,38 +2,71 @@
 #include<vector>
 using std::vector;
 const int MAX = 200005;
-int n, maxid;
-long long ans;
+int n, root;
+long long ans, tmparr[MAX];
 
+void sink(int index, int length) {
+    int leftChild = 2 * index + 1;
+    int rightChild = 2 * index + 2;
+    int present = index;
+
+    if (leftChild < length && tmparr[leftChild] > tmparr[present]) {
+        present = leftChild;
+    }
+
+    if (rightChild < length && tmparr[rightChild] > tmparr[present]) {
+        present = rightChild;
+    }
+
+    if (present != index) {
+        int temp = tmparr[index];
+        tmparr[index] = tmparr[present];
+        tmparr[present] = temp;
+        sink(present, length);
+    }
+}
+
+void buildHeap(int length) {
+    for (int i = length / 2; i >= 0; i--) {
+        sink(i, length);
+    }
+}
+
+void sort(int length) {
+    buildHeap(length);
+    for (int i = length - 1; i > 0; i-- ) {
+        int temp = tmparr[0];
+        tmparr[0] = tmparr[i];
+        tmparr[i] = temp;
+        length--;
+        sink(0, length);
+    }
+}
+ 
 struct Node {
-    int p, maxchild;
+    int p, maxval;
+    long long a, b, ans;
     vector<int> child;
 } arr[MAX];
-
-void search_max(int now, int last) {
-    if(arr[now].child.size() == 1 && now != maxid) arr[now].maxchild = now;
+ 
+int max(int a, int b) { return a > b ? a : b; }
+long long min(long long a, long long b) { return a < b ? a : b; }
+ 
+void dfs(int now, int last) {
+    arr[now].maxval = 0;
+    arr[now].ans = 0;
     for(int i = 0; i < arr[now].child.size(); i++) {
         if(arr[now].child[i] == last) continue;
-        search_max(arr[now].child[i], now);
-        if(arr[arr[now].child[i]].p > arr[now].p) 
-            arr[now].p = arr[arr[now].child[i]].p;
-        if(arr[arr[now].child[i]].p > arr[arr[now].maxchild].p)
-            arr[now].maxchild = arr[now].child[i];
+        dfs(arr[now].child[i], now);
+        arr[now].ans += arr[arr[now].child[i]].ans;
+        arr[now].maxval = max(arr[now].maxval, arr[arr[now].child[i]].maxval);
+    }
+    if(arr[now].maxval < arr[now].p) {
+        arr[now].ans += arr[now].p - arr[now].maxval;
+        arr[now].maxval = arr[now].p;
     }
 }
-
-void search_ans(int now, int last) {
-    if(arr[now].child.size() == 1 && now != last) {
-        ans += arr[now].p;
-        return;
-    }
-    arr[arr[now].maxchild].p = arr[now].p;
-    for(int i = 0; i < arr[now].child.size(); i++) {
-        if(arr[now].child[i] == last) continue;
-        search_ans(arr[now].child[i], now);
-    }
-}
-
+ 
 int main() {
     scanf("%d", &n);
     for(int i = 0; i < n - 1; i++) {
@@ -41,21 +74,28 @@ int main() {
         arr[u].child.push_back(v);
         arr[v].child.push_back(u);
     }
-    for(int i = 1; i <= n; i++)  {
+ 
+    for(int i = 1; i <= n; i++) {
         scanf("%d", &arr[i].p);
-        if(arr[i].p > arr[maxid].p) {
-            maxid = i;
-        }
+        if(arr[i].p > arr[root].p) root = i;
     }
-    search_max(maxid, 0);
-    int maxid2 = 0;
-    for(int i = 0; i < arr[maxid].child.size(); i++)
-        if(arr[maxid].child[i] != arr[maxid].maxchild && arr[arr[maxid].child[i]].p > arr[maxid2].p)
-            maxid2 = arr[maxid].child[i];
-    if(arr[maxid2].p) arr[maxid2].p = arr[maxid].p;
-    else ans += arr[maxid].p;
-    search_ans(maxid, 0);
+ 
+    dfs(root, 0);
+    for(int i = 0; i < arr[root].child.size(); i++) {
+        arr[arr[root].child[i]].a = arr[arr[root].child[i]].ans;
+        arr[arr[root].child[i]].p = arr[root].p;
+        dfs(arr[root].child[i], root);
+        arr[arr[root].child[i]].b = arr[arr[root].child[i]].ans;
+    }
+    int k = 0;
+    for(int i = 0; i < arr[root].child.size(); i++) { 
+        ans += arr[arr[root].child[i]].a;
+        tmparr[k++] = arr[arr[root].child[i]].b - arr[arr[root].child[i]].a;
+    }
+    sort(k);
+    ans += arr[root].p + tmparr[0];
+    if(k > 1) ans = min(ans, ans - arr[root].p + tmparr[1]);
     printf("%lld\n", ans);
-
+ 
     return 0;
 }
