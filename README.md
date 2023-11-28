@@ -15,12 +15,12 @@ I'm Ben Chen, currently a sophomore student majoring in CS. The repo records my 
 ## Structure
 
 The repo contains the following courses for now
-- [CS109 Intro to Programming in Java](./CS109_Intro2Programming_in_Java)
-- [CS201 Discrete Math](./CS201_Discrete_Math)
-- [CS203 Data Structures and Algorithm Analysis](./CS203_Data_Structures_and_Algorithm_Analysis)
-- [CS207 Digital Design](./CS207_Digital_Design)
-- [CS305 Computer Networks](./CS305_Computer_Networks)
-- [CS307 Database System](./CS307_Database_System)
+- [CS109 Intro to Programming in Java](./CS109%20Intro2Programming%20in%20Java)
+- [CS201 Discrete Math](./CS201%20Discrete%20Math)
+- [CS203 Data Structures and Algorithm Analysis](./CS203%20Data%20Structures%20and%20Algorithm%20Analysis)
+- [CS207 Digital Design](./CS207%20Digital%20Design)
+- [CS305 Computer Networks](./CS305%20Computer%20Networks)
+- [CS307 Database System](./CS307%20Database%20System)
 
 Basically the folders under each course are
 - **Assignment** Programming or Theory assignment
