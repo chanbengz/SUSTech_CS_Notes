@@ -15,7 +15,7 @@ I'm Ben Chen, currently a sophomore student majoring in CS. The repo records my 
 ## Structure
 
 The repo contains the following courses for now
-- [CS109 Intro to Programming in Jave](./CS109_Intro2Programming_in_Jave)
+- [CS109 Intro to Programming in Java](./CS109_Intro2Programming_in_Java)
 - [CS201 Discrete Math](./CS201_Discrete_Math)
 - [CS203 Data Structures and Algorithm Analysis](./CS203_Data_Structures_and_Algorithm_Analysis)
 - [CS207 Digital Design](./CS207_Digital_Design)
