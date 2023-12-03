@@ -1,10 +1,11 @@
 \documentclass[12pt, a4paper, oneside]{article}
-\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs, algorithm}
+\usepackage[noend]{algpseudocode}
 
 \title{\textbf{Assignment CS201 Fall 2023}}
 \author{Ben Chen(12212231)}
 \date{\today}
-\linespread{1.5}
+\linespread{1.3}
 \newcounter{problemname}
 \newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
 \newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
@@ -15,15 +16,304 @@
 \maketitle
 
 \begin{problem}
-    Write problem here. 
+    Prove that the principles of mathematical induction and well-ordering principles are equivalent.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} First, we prove that the principle of mathematical induction implies the second principle.
+    Suppose we have a proportinal function $F$ that satisfies the week induction.
+    Let the propositional function $G(n) = F(1)\wedge F(2) \wedge \cdots \wedge F(n)$, from the week induction we have
+    \begin{align*}
+        G(n) = F(1)\wedge F(2) \wedge \cdots \wedge F(n) &\equiv F(n) \\
+        F(n) \wedge (F(n) \rightarrow F(n+1)) &\equiv F(n+1) \\
+        &\equiv G(n) \rightarrow F(n+1)
+    \end{align*}
+    and we have a tautology
+    \begin{align*}
+        G(n) \rightarrow G(n) &\equiv G(n) \rightarrow (G(n)\wedge F(n+1)) \\
+        &\equiv G(n) \rightarrow G(n+1)
+    \end{align*}
+    So the function $G$ satisfies the week induction, that is $\forall k\ge 1.\ G(k)$
+    \newline And we have $G(k) \rightarrow F(k)$ and $F(k) \rightarrow F(k+1)$ for all $k$, so
+    \begin{align*}
+        \forall k\ge 1.\ G(k) \rightarrow F(k+1) \equiv \forall k\ge 1.\ F(1)\wedge F(2) \wedge \cdots \wedge F(k) \rightarrow F(k+1)
+    \end{align*}
+    That is $F$ satisfies the second principle. So the principle of mathematical induction implies the second principle.
+    \newline\indent Next, we prove that the second principle implies the principle of mathematical induction.
+    Suppose we have a proportinal function $F$ that satisfies the second principle,
+    \begin{align*}
+        \forall k\ge 1.\ F(1)\wedge F(2) \wedge \cdots \wedge F(k) \rightarrow F(k+1) \equiv \forall k\ge 1.\ F(k) \rightarrow F(k+1)
+    \end{align*}
+    since the week induction has a weeker premise than the second. So $F$ satisfies the week induction.
+    \newline  \newline\textbf{b)} Suppose that we have a non-empty set $S \subseteq \mathbb{N}$ which has no least element.
+    Define a proposition function $F$ as $F(n) := n\notin S$.
+    \newline \textbf{Base step:} $1\notin S$, so $F(1)$ is true.
+    \newline \textbf{Inductive step:} Suppose that $F(1)\wedge F(2) \wedge \cdots \wedge F(n)$, that is for all $1\le k\le n$, $k$ is not in $S$.
+    Since $S$ has no least element and $\forall 1\le k\le n.\ k\notin S$, $n+1$ cannot be in $S$, so $F(n+1)$ is true.
+    \newline By principle of mathematical induction, we have $F(n)$ is true for all $n\in \mathbb{N}$, that is $S = \emptyset$, which is a contradiction.
+    So the set $\mathbb{N}$ has a least element and the well-ordering principle holds.
 \end{solution}
 
-\begin{note}
-    Write note here. 
-\end{note}
+\begin{problem}
+    Prove by induction that $A_1, A_2, \cdots, A_n$ and $B$ are sets
+    \[ (A_1 - B)\cap (A_2 - B)\cap \cdots\cap (A_n - B) = (A_1\cap A_2\cap \cdots \cap A_n) - B\]
+\end{problem}
+
+\begin{solution}
+    \textbf{Base step:} $n = 1$, $(A_1 - B) = (A_1 - B)$ is true obviously.
+    \newline \textbf{Inductive step:} Suppose that \[(A_1 - B)\cap (A_2 - B)\cap \cdots\cap (A_n - B) = (A_1\cap A_2\cap \cdots \cap A_n) - B\]
+    is true, then
+    \begin{align*}
+        &\quad(A_1 - B)\cap (A_2 - B)\cap \cdots\cap (A_n - B)\cap (A_{n+1} - B) \\
+        &= ((A_1\cap A_2\cap \cdots \cap A_n) - B)\cap (A_{n+1} \cup B) \\
+        &= ((A_1\cap A_2\cap \cdots \cap A_n) \cap \overline{B})\cap (A_{n+1} \cap \overline{B}) \\
+        &= ((A_1\cap A_2\cap \cdots \cap A_n)\cap A_{n+1}) \cap \overline{B} 
+    \end{align*}
+    which is 
+    \[ (A_1\cap A_2\cap \cdots \cap A_n\cap A_{n+1}) - B \]
+    so the proposition holds for $n+1$ and by principle of mathematical induction, the proposition holds for all $n\in \mathbb{N}$.
+\end{solution}
+
+\begin{problem}
+    Use induction to prove that if $p$ is a prime and $p | a_1a_2\cdots a_n$ where $a_i$ is integer then $p | a_i$ for some $i\in \{1,2,\cdots,n\}$.
+\end{problem}
+
+\begin{solution}
+    \textbf{Base step:} $n = 1$, if $p | a_1$ is true, then $p | a_i$ is true for $i = 1$.
+    \newline \textbf{Inductive step:} At first, we shall prove that if $p | ab$ and $p$ and $a$ are coprime then $p | b$ for prime $p$.
+    From $gcd(a, p) = 1$ we have $ as + pt = 1$ and multiply both sides by $b$ we can obtain \[ abs + bpt = b\]
+    Since $p | ab$ we have $p | abs$ and $p | bpt$, so \[p | abs + pbt = b\]
+    Also, if for prime $p$ and $p | ab$ then $p | a$ or $p | b$ by exchanging the their roles.
+    \newline \newline Suppose that for $n = k$, if $p | a_1a_2\cdots a_k$ then $p | a_i$ for some $i\in \{1,2,\cdots,k\}$.
+    To prove for $n = k+1$, we have premise $p | a_1a_2\cdots a_{k+1}$. Let a number $b$ be
+    \begin{align*}
+        b := a_2a_3\cdots a_{k+1}
+    \end{align*}
+    so we have
+    \[ p | a_1b\]
+    if $p | a_1$ then the proposition holds, otherwise $p$ and $a_1$ are coprime, so $p | b$.
+    And by hypothesis, since $b$ has $k$ factors, $p | a_i$ for some $i\in \{2,3,\cdots,k+1\}$.
+    \newline\newline Thus, proof by cases, the proposition holds for $n = k+1$ and by principle of mathematical induction, the proposition holds for all $n\in \mathbb{N}$.
+\end{solution}
+
+\begin{problem}
+    Let $P(n)$ be the statement that postage of $n$ cents can be formed using just 3-cent and 7-cent stamps. Prove that $P(n)$ is true for all $n\ge 12$.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} $P(12)$ is true since $12 = 3\times 4$
+    \newline $P(13)$ is true since $13 = 2\times 3 + 7$ 
+    \newline $P(14)$ is true since $14 = 2\times 7$
+    \newline\textbf{b)} $P(k)$ is true for $k = 12, 13, \cdots, n$ where $n \ge 14$.
+    \newline\textbf{c)} Prove that $P(k+1)$ is true.
+    \newline\textbf{d)} For $k + 1 = 15 + 3m$, $m\ge 0$, $P(k+1)$ is true since $k+1 = 12 + 3(m+1)= 3(m+5)$.
+    \newline For $k + 1 = 16 + 3m$, $m\ge 0$, $P(k+1)$ is true since $k+1 = 13 + 3(m+1) = 3(m+3) + 7$.
+    \newline For $k + 1 = 17 + 3m$, $m\ge 0$, $P(k+1)$ is true since $k+1 = 14 + 3(m+1) = 2\times 7 + 3(m+1)$.
+    \newline\textbf{e)} By second principle of mathematical induction, $P(n)$ is true for all $n\ge 12$.
+\end{solution}
+
+\begin{problem}
+    Describe a recursive algorithm for binary search.
+\end{problem}
+
+\begin{solution}
+    \begin{algorithm}
+        \caption{Binary Search}
+        \begin{algorithmic}[1]
+            \Procedure{BinarySearch}{$A, x, l, r$}
+                \If{$l > r$}
+                    \State \Return $-1$
+                \EndIf
+                \State $m \gets \lfloor (l+r)/2 \rfloor$
+                \If{$A[m] = x$}
+                    \State \Return $m$
+                \ElsIf{$A[m] > x$}
+                    \State \Return \Call{BinarySearch}{$A, x, l, m-1$}
+                \Else
+                    \State \Return \Call{BinarySearch}{$A, x, m+1, r$}
+                \EndIf
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+\end{solution}
+
+\begin{problem}
+    Prove that the number of divisions requied by the Euclidean algorithm to compute the gcd of $a$ and $b$ is $O(\log b)$.
+\end{problem}
+
+\begin{solution}
+    We shall prove for the \textit{i}th remainder $r_i$, we have
+    \[ 2r_{i+2} < r_{i}\]
+    To prove that, firstly consider the case when $r_{i+1} \le r_i / 2$, it holds definitely since $r_{i+2} \le r_{i+1} - 1$.
+    So for the other case $r_{i+1} > r_{i}$, suppose that
+    \[ r_i = qr_{i+1} + r_{i-2}\]
+    $q$ cannot be bigger than $1$, so $q = 1$ for sure and $r_{i-2} < r_i - r_{i-1} < r_i / 2$.
+    So, proof by cases, we have $ 2r_{i+2} < r_{i} $.
+    \newline\newline When we iterate $r_1$ to $b$, say $r_{2n-1} = a\ \text{mod}\ b$, we got
+    \begin{align*}
+        b > 2r_{2n-2} > 4r_{2n-4} > \cdots > 2^{n}r_0
+    \end{align*}
+    where $r_0 = 1$ is the termination of algorithm. Thus, we can derive that 
+    \begin{align*}
+        b > 2^{n}r_0 = 2^{n}\ \Rightarrow\ n < \log_2 b
+    \end{align*}
+    And we have $2n = 2\log_2 b$ remainders. So the number of divisions required by the Euclidean algorithm to compute the gcd of $a$ and $b$ is $O(\log b)$.
+\end{solution}
+
+\begin{problem}
+    Iterating the recurrence $T(n) = aT(n/2) + n$ yields $T(n) = \Theta(n)$ for $1\le a < 2$ and $T(1) \ge 0$.
+\end{problem}
+
+\begin{solution}
+    Algebraically, we have
+    \begin{align*}
+        T(n) &= aT(n/2) + n = a(aT(n/4) + n/2) + n \\
+        &= a^2T(n/4) + an/2 + n = a^2(aT(n/8) + n/4) + an/2 + n \\
+        &\quad \vdots
+    \end{align*}
+    \begin{align*}
+        &= a^i T(n/2^i) + a^{i-1}n/2^{i-1} + a^{i-2}n/2^{i-2} + \cdots + an/2 + n \\
+        &\vdots \\
+        &= a^{\log_2 n}T(1) + an/2^{1} + \cdots + an/2^{\log_2 n - 1} + n \\
+        &= a^{\log_2 n}T(1) + n\sum_{i=0}^{\log_2 n - 1} \left(\frac{a}{2}\right)^i + n \\
+        &= a^{\log_2 n}T(1) + n\left(\frac{1 - (a/2)^{\log_2 n - 1}}{1- a/2}\right) + n \\
+        &= a^{\log_2 n}T(1) + n\left(\frac{2 - a/2 - (a/2)^{\log_2 n - 1}}{1- a/2}\right)
+    \end{align*}
+    since $a < 2$ we have $a/2 < 1$, so $(a/2)^{\log_2 n - 1} \rightarrow 0$ as $n \rightarrow \infty$ and $a^{\log_2 n} = n^{\log_2 a} < n$. Thus, we have
+    $T(n) = \Theta(n)$ for $1\le a < 2$ and $T(1) \ge 0$.
+\end{solution}
+
+\begin{problem}
+    Consider a deck of 52 cards. Answer the questions.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The number of full houses is
+    \[\binom{13}{1}\binom{4}{3}\binom{12}{1}\binom{4}{2}\]
+    \textbf{b)} The number of two pairs is
+    \[\binom{13}{2}\binom{4}{2}\binom{4}{2}\binom{11}{1}\binom{4}{1}\]
+    \textbf{c)} The number of flushes is
+    \[\binom{13}{5}\binom{4}{1}\]
+    \textbf{d)} The number of straights is
+    \[\binom{10}{1}\binom{4}{1}^5\]
+    \textbf{e)} The number of quadruples is
+    \[\binom{13}{1}\binom{4}{4}\binom{12}{1}\binom{4}{1}\]
+\end{solution}
+
+\begin{problem}
+    How many bit strings of length $8$ contain either four consecutive $0$s or four consecutive $1$s?
+\end{problem}
+
+\begin{solution}
+    Since zero and one are symmetric, we only need to count the number of bit strings of either of them and multiply by two.
+    The number of bit strings of length $8$ contain four consecutive $0$s is
+    \[\binom{2}{1}^4 + \binom{2}{1}^3 + \binom{2}{1}^2 = 16 + 8 + 4 = 28\]
+    since we have five slots to put four consecutive $0$s and the rest of them are $1$s or $0$s.
+    But when we put four consecutive $0$s in the first or last slots, we can only put arbitary bits in the three of the rest.
+    And when we put four consecutive $0$s in the second first or second last three slots, we can only put arbitary bits in the two of the rest.
+    And when we put it in the middle, we can only put arbitary bits in the two of the rest.
+    So the number of bit strings of length $8$ contain four consecutive $0$s is 56.
+\end{solution}
+
+\begin{problem}
+    Prove that the following binomial is divisible by 2022.
+    \[\binom{2020}{1010}\]
+\end{problem}
+
+\begin{solution}
+    Firstly, 2022 can be factorized as $2\times 1011$ and $1011$ is a prime number. So we have
+    \begin{align*}
+        \binom{2020}{1010} &= \frac{2020!}{1010!1010!} \\
+        &= \frac{2020\times 2019\times \cdots \times 1011\times 1010!}{1010!1010!} \\
+        &= \frac{2020\times 2019\times \cdots \times 1011}{1010!} \\
+        &= \frac{2\times 1010\times 2019\times 2018\times \cdots \times 1011}{1010!}
+    \end{align*}
+    \begin{align*}
+        &= 2\times \frac{2019\times 2018\times \cdots \times 1011}{1009!} \\
+        &= 2\times \frac{2019\times 2018\times \cdots \times 1011}{1009\times 1008\times \cdots \times 1} \\
+        &= 2\times \frac{2019}{1009}\times \frac{2018}{1008}\times \cdots \times \frac{1011}{1} \\
+        &= \boxed{2\times 1011} \times \left(\frac{2019}{1009}\times \frac{2018}{1008}\times \cdots \times \frac{1012}{2} \right)
+    \end{align*}
+    so $2022$ is a factor of the binomial.
+\end{solution}
+
+\begin{problem}
+    Prove the hockey-stick identity by combinatorial argument.
+\end{problem}
+
+\begin{solution}
+    Suppose that in a situation where we want to choose $r$ objects, for each $k$, we are choosing $r-k$ objects from $n+r+1$ objects as the first part and the rest to form the rest part
+    skipping an object, then the number of ways to do the rest is
+    \[ \binom{n+r+1 - (r-k+1)}{r - (r-k)} = \binom{n+k}{k}\]
+    So summing from $k = 0$ to $k = r$ we have the number of choosing $r$ objects from $n+r+1$ objects which is
+    \[ \binom{n+r+1}{r} = \sum_{k = 0}^r \binom{n+k}{k}\]
+\end{solution}
+
+\begin{problem}
+    Solve the recurrence relation $a_n = 3a_{n-2} + 2a_{n-3}$ with $a_0 = 1$, $a_1 = -5$, and $a_2 = 0$.
+\end{problem}
+
+\begin{solution}
+    The characteristic equation is
+    \[ r^3 - 3r - 2 = 0 \]
+    and the solution
+    \[ r_1 = r_2 = -1\quad r_3 = 2\]
+    so assume that
+    \[ a_n = \alpha_1(-1)^n + \alpha_2n(-1)^n + \beta(2)^n\]
+    we have
+    \begin{align*}
+        a_0 &= \alpha_1 + \beta = 1 \\
+        a_1 &= -\alpha_1 - -\alpha_2 + 2\beta = -5 \\
+        a_2 &= \alpha + 2\alpha_2 + 4\beta = 0
+    \end{align*}
+    so $\alpha_1 = 2$ and $\alpha_2 = 1$ and $\beta = -1$ and the solution is
+    \[ a_n = 2(-1)^n + n(-1)^n - 2^n \]
+\end{solution}
+
+\begin{problem}
+    Solve the non-homogeneous recurrence relations.
+\end{problem}
+
+\begin{solution}
+    \textbf{a)} The characteristic equation is
+    \[ r - 2 = 0 \]
+    and the form of solution is
+    \[a_n = \alpha_1 2^n + p(n)\]
+    it's natural to assume that $p(n) = an^2 + bn + c$, so we have
+    \begin{equation*}
+        an^2 + bn + c = 2\left(a(n-1)^2 + b(n-1) + c\right) + n^2
+    \end{equation*}
+    \begin{equation*}
+        (a+1)n^2 + (b - 5a)n + (c - 2b + 2a) = 0
+    \end{equation*}
+    So $a = -1$, $b = -5$ and $c = -8$ and all solutions are
+    \[ a_n = \alpha 2^n-n^2 -5n - 8\]
+    \textbf{b)} The initial condition $a_1  = 2$ gives that
+    \[ \alpha = \frac{2+1+5+8}{2} = 8\]
+    and the solution is
+    \[a_n = 2^{n+3}-n^2-5n - 8\]
+\end{solution}
+
+\begin{problem}
+    Use generating functions to solve the recurrence $a_n = 4a_{n-1} + 8^{n-1}$ with $a_0 = 0$.
+\end{problem}
+
+\begin{solution}
+    Let $G(x)$ be the generating function of $a_n$, then
+    \begin{align*}
+        G(x) - a_0 &= \sum_{n=1}^{\infty} a_nx_n = \sum_{n=1}^{\infty} 4a_{n-1}x^n + 8^{n-1}x^n \\
+        &= 4x\sum_{n=1}^{\infty} a_{n-1}x^{n-1} + x\sum_{n=1}^{\infty} 8^{n-1}x^{n-1} \\
+        &= 4x\sum_{n=0}^{\infty} a_{n}x^{n} + x\sum_{n=0}^{\infty} 8^{n}x^{n} \\
+        &= 4xG(x) + \frac{x}{1-8x}
+    \end{align*}
+    So we have
+    \begin{align*}
+        G(x) &= \frac{x}{(1-4x)(1-8x)} = \frac{1}{4(1-8x)} - \frac{1}{4(1-4x)} \\
+        &= \frac{1}{4}\left(\sum_{n=0}^{\infty} 8^nx^n - \sum_{n=0}^{\infty} 4^nx^n\right) \\
+        &= \sum_{n=0}^{\infty}\frac{1}{4} (8^n - 4^n)x^n
+    \end{align*}
+    Thus, the solution is
+    \[ a_n = \frac{1}{4}(8^n - 4^n) \]
+\end{solution}
 
 \end{document}
