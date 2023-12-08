@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00.100">
+    <devices>
+        <dev id="D86C708D-557B-441b-8A1E-A2D5E468C50C" name="R2" poe="0" model="Router" settings="" system_mac="54-89-98-C4-06-CE" com_port="2001" bootmode="0" cx="443.000000" cy="271.000000" edit_left="470" edit_top="325">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="2" />
+                <interface sztype="Ethernet" interfacename="GE" count="4" />
+                <interface sztype="Serial" interfacename="Serial" count="4" />
+            </slot>
+        </dev>
+        <dev id="D3C8F964-E2D2-4461-B153-B60ED740F753" name="PC1" poe="0" model="PC" settings=" -simpc_ip 192.168.1.101  -simpc_mask 255.255.255.0  -simpc_gateway 192.168.1.254  -simpc_mac 54-89-98-D0-57-C6  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-D0-57-C6" com_port="0" bootmode="0" cx="90.000000" cy="220.000000" edit_left="117" edit_top="274">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="E998E5EC-8C90-4cfe-9CF3-E2AC88A2C15B" name="PC2" poe="0" model="PC" settings=" -simpc_ip 192.168.3.101  -simpc_mask 255.255.255.0  -simpc_gateway 192.168.3.254  -simpc_mac 54-89-98-F5-44-AD  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 0.0.0.0  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 0  -simpc_dhcpv6_state 0  -simpc_dns_auto_state 0  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-F5-44-AD" com_port="0" bootmode="0" cx="594.000000" cy="139.000000" edit_left="621" edit_top="193">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="4F7185E7-A59B-450e-93C6-B1E90A7D91F4" name="R1" poe="0" model="Router" settings="" system_mac="54-89-98-A0-58-AB" com_port="2000" bootmode="0" cx="286.000000" cy="147.000000" edit_left="313" edit_top="201">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="2" />
+                <interface sztype="Ethernet" interfacename="GE" count="4" />
+                <interface sztype="Serial" interfacename="Serial" count="4" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="D3C8F964-E2D2-4461-B153-B60ED740F753" destDeviceID="4F7185E7-A59B-450e-93C6-B1E90A7D91F4">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="157.468063" srcBoundRect_Y="231.927719" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="272.531952" tarBoundRect_Y="189.072281" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="D86C708D-557B-441b-8A1E-A2D5E468C50C" destDeviceID="E998E5EC-8C90-4cfe-9CF3-E2AC88A2C15B">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="502.512421" srcBoundRect_Y="269.578552" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="588.487549" tarBoundRect_Y="194.421463" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="4F7185E7-A59B-450e-93C6-B1E90A7D91F4" destDeviceID="D86C708D-557B-441b-8A1E-A2D5E468C50C">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="346.888672" srcBoundRect_Y="200.765579" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="1" tarBoundRectIsMoved="1" tarBoundRect_X="436.111328" tarBoundRect_Y="271.234436" tarOffset_X="-38.000000" tarOffset_Y="10.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips />
+</topo>
