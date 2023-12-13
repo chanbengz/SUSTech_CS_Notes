@@ -1,0 +1,19 @@
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+ 0     1     1
+ 1     2     2
+ 2     4     4
+ 3     8     8
+ 4    16    16
+ 5    32    32
+ 6    64    64
+ 7   128   128
+ 8   256   256
+ 9   512   512
+10  1024  1024
+11  2048  2048
+12  4096  4096
+13  8192  8192
+14 16384 16384
+15 32768 32768
+$finish called at time : 160 ns : File "/home/ben/lab7/lab7.srcs/sim_1/new/lab7_p2_tb.v" Line 34

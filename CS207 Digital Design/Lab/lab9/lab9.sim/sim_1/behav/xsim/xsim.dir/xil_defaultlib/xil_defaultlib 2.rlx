@@ -1,0 +1,9 @@
+0.6
+2017.4
+Dec 15 2017
+20:57:24
+/home/ben/lab9/lab9.sim/sim_1/behav/xsim/glbl.v,1513215259,verilog,,,,glbl,,,,,,,,
+/home/ben/lab9/lab9.srcs/sim_1/new/lab9_p1_tb.v,1700191972,verilog,,,,lab9_p1_tb,,,,,,,,
+/home/ben/lab9/lab9.srcs/sources_1/new/D_Latch.v,1700188487,verilog,,/home/ben/lab9/lab9.srcs/sources_1/new/lab9_p1_1.v,,D_Latch,,,,,,,,
+/home/ben/lab9/lab9.srcs/sources_1/new/lab9_p1_1.v,1700188850,verilog,,/home/ben/lab9/lab9.srcs/sim_1/new/lab9_p1_tb.v,,lab9_p1_1,,,,,,,,
+/home/ben/lab9/lab9.srcs/sources_1/new/lab9_p1_2.v,1700190522,verilog,,/home/ben/lab9/lab9.srcs/sim_1/new/lab9_p1_tb.v,,lab9_p1_2,,,,,,,,

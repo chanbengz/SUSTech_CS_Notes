@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Dec  8 11:02:23 2023
+# Process ID: 6256
+# Current directory: C:/Users/Ben/lab12/lab12.runs/impl_1
+# Command line: vivado.exe -log lab12_p1.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source lab12_p1.tcl -notrace
+# Log file: C:/Users/Ben/lab12/lab12.runs/impl_1/lab12_p1.vdi
+# Journal file: C:/Users/Ben/lab12/lab12.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source lab12_p1.tcl -notrace

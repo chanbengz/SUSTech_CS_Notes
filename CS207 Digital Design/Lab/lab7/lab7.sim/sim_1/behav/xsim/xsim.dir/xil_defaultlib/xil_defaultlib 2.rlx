@@ -1,0 +1,12 @@
+0.6
+2017.4
+Dec 15 2017
+20:57:24
+/home/ben/lab7/lab7.sim/sim_1/behav/xsim/glbl.v,1513215259,verilog,,,,glbl,,,,,,,,
+/home/ben/lab7/lab7.srcs/sim_1/new/lab7_p2_tb.v,1698980438,verilog,,,,lab7_p2_tb,,,,,,,,
+/home/ben/lab7/lab7.srcs/sim_1/new/lab7_p3_tb.v,1698980903,verilog,,,,lab7_p3_tb,,,,,,,,
+/home/ben/lab7/lab7.srcs/sources_1/new/MUX_8_1.v,1698979944,verilog,,/home/ben/lab7/lab7.srcs/sources_1/new/lab7_p3.v,,MUX_8_1,,,,,,,,
+/home/ben/lab7/lab7.srcs/sources_1/new/decoder_4_16.v,1698980464,verilog,,/home/ben/lab7/lab7.srcs/sources_1/new/decoder_en_3_8.v,,decoder_4_16,,,,,,,,
+/home/ben/lab7/lab7.srcs/sources_1/new/decoder_en_3_8.v,1698978755,verilog,,/home/ben/lab7/lab7.srcs/sources_1/new/lab7_p2.v,,decoder_en_3_8,,,,,,,,
+/home/ben/lab7/lab7.srcs/sources_1/new/lab7_p2.v,1698979622,verilog,,/home/ben/lab7/lab7.srcs/sim_1/new/lab7_p2_tb.v,,lab7_p2,,,,,,,,
+/home/ben/lab7/lab7.srcs/sources_1/new/lab7_p3.v,1698981073,verilog,,/home/ben/lab7/lab7.srcs/sim_1/new/lab7_p3_tb.v,,lab7_p3,,,,,,,,
