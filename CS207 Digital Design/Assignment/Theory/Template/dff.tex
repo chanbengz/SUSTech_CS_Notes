@@ -1,0 +1,185 @@
+% D flip-flops (DFFs) and shift register
+% Author: Martin Scharrer
+\documentclass[a4paper,landscape]{article}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{calc,arrows}
+\usepackage{amsmath}
+\usepackage[left=1cm,right=1cm]{geometry}
+\pagestyle{empty}
+
+\makeatletter
+
+% Data Flip Flip (DFF) shape
+\pgfdeclareshape{dff}{
+  % The 'minimum width' and 'minimum height' keys, not the content, determine
+  % the size
+  \savedanchor\northeast{%
+    \pgfmathsetlength\pgf@x{\pgfshapeminwidth}%
+    \pgfmathsetlength\pgf@y{\pgfshapeminheight}%
+    \pgf@x=0.5\pgf@x
+    \pgf@y=0.5\pgf@y
+  }
+  % This is redundant, but makes some things easier:
+  \savedanchor\southwest{%
+    \pgfmathsetlength\pgf@x{\pgfshapeminwidth}%
+    \pgfmathsetlength\pgf@y{\pgfshapeminheight}%
+    \pgf@x=-0.5\pgf@x
+    \pgf@y=-0.5\pgf@y
+  }
+  % Inherit from rectangle
+  \inheritanchorborder[from=rectangle]
+
+  % Define same anchor a normal rectangle has
+  \anchor{center}{\pgfpointorigin}
+  \anchor{north}{\northeast \pgf@x=0pt}
+  \anchor{east}{\northeast \pgf@y=0pt}
+  \anchor{south}{\southwest \pgf@x=0pt}
+  \anchor{west}{\southwest \pgf@y=0pt}
+  \anchor{north east}{\northeast}
+  \anchor{north west}{\northeast \pgf@x=-\pgf@x}
+  \anchor{south west}{\southwest}
+  \anchor{south east}{\southwest \pgf@x=-\pgf@x}
+  \anchor{text}{
+    \pgfpointorigin
+    \advance\pgf@x by -.5\wd\pgfnodeparttextbox%
+    \advance\pgf@y by -.5\ht\pgfnodeparttextbox%
+    \advance\pgf@y by +.5\dp\pgfnodeparttextbox%
+  }
+
+  % Define anchors for signal ports
+  \anchor{D}{
+    \pgf@process{\northeast}%
+    \pgf@x=-1\pgf@x%
+    \pgf@y=.5\pgf@y%
+  }
+  \anchor{CLK}{
+    \pgf@process{\northeast}%
+    \pgf@x=-1\pgf@x%
+    \pgf@y=-.66666\pgf@y%
+  }
+  \anchor{CE}{
+    \pgf@process{\northeast}%
+    \pgf@x=-1\pgf@x%
+    \pgf@y=-0.33333\pgf@y%
+  }
+  \anchor{Q}{
+    \pgf@process{\northeast}%
+    \pgf@y=.5\pgf@y%
+  }
+  \anchor{Qn}{
+    \pgf@process{\northeast}%
+    \pgf@y=-.5\pgf@y%
+  }
+  \anchor{R}{
+    \pgf@process{\northeast}%
+    \pgf@x=0pt%
+  }
+  \anchor{S}{
+    \pgf@process{\northeast}%
+    \pgf@x=0pt%
+    \pgf@y=-\pgf@y%
+  }
+  % Draw the rectangle box and the port labels
+  \backgroundpath{
+    % Rectangle box
+    \pgfpathrectanglecorners{\southwest}{\northeast}
+    % Angle (>) for clock input
+    \pgf@anchor@dff@CLK
+    \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgf@xc=\pgf@x \pgf@yc=\pgf@y
+    \pgfmathsetlength\pgf@x{1.6ex} % size depends on font size
+    \advance\pgf@ya by \pgf@x
+    \advance\pgf@xb by \pgf@x
+    \advance\pgf@yc by -\pgf@x
+    \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@yb}}
+    \pgfpathlineto{\pgfpoint{\pgf@xc}{\pgf@yc}}
+    \pgfclosepath
+
+    % Draw port labels
+    \begingroup
+    \tikzset{flip flop/port labels} % Use font from this style
+    \tikz@textfont
+
+    \pgf@anchor@dff@D
+    \pgftext[left,base,at={\pgfpoint{\pgf@x}{\pgf@y}},x=\pgfshapeinnerxsep]{\raisebox{-0.75ex}{D}}
+
+    \pgf@anchor@dff@CE
+    \pgftext[left,base,at={\pgfpoint{\pgf@x}{\pgf@y}},x=\pgfshapeinnerxsep]{\raisebox{-0.75ex}{CE}}
+
+    \pgf@anchor@dff@Q
+    \pgftext[right,base,at={\pgfpoint{\pgf@x}{\pgf@y}},x=-\pgfshapeinnerxsep]{\raisebox{-.75ex}{Q}}
+
+    \pgf@anchor@dff@Qn
+    \pgftext[right,base,at={\pgfpoint{\pgf@x}{\pgf@y}},x=-\pgfshapeinnerxsep]{\raisebox{-.75ex}{$\overline{\mbox{Q}}$}}
+
+    \pgf@anchor@dff@R
+    \pgftext[top,at={\pgfpoint{\pgf@x}{\pgf@y}},y=-\pgfshapeinnerysep]{R}
+
+    \pgf@anchor@dff@S
+    \pgftext[bottom,at={\pgfpoint{\pgf@x}{\pgf@y}},y=\pgfshapeinnerysep]{S}
+    \endgroup
+  }
+}
+
+% Key to add font macros to the current font
+\tikzset{add font/.code={\expandafter\def\expandafter\tikz@textfont\expandafter{\tikz@textfont#1}}} 
+
+% Define default style for this node
+\tikzset{flip flop/port labels/.style={font=\sffamily\scriptsize}}
+\tikzset{every dff node/.style={draw,minimum width=2cm,minimum 
+height=2.828427125cm,very thick,inner sep=1mm,outer sep=0pt,cap=round,add 
+font=\sffamily}}
+
+\makeatother
+
+\begin{document}
+
+\begin{tikzpicture}[font=\sffamily,>=triangle 45]
+  \def\N{7}  % Number of Flip-Flops minus one
+
+  % Place FFs
+  \foreach \m in {0,...,\N}
+    \node [shape=dff] (DFF\m) at ($ 3*(\m,0) $) {Bit \#\m};
+
+  % Connect FFs (Q1 with D1, etc.)
+  \def\p{0}  % Used to save the previous number
+  \foreach \m in {1,...,\N} { % Note that it starts with 1, not 0
+    \draw [->] (DFF\p.Q) -- (DFF\m.D);
+    \global\let\p\m
+  }
+
+  % Connect and label data in- and output port
+  \draw [<-] (DFF0.D) -- +(-1,0) node [anchor=east] {input} ;
+  \draw [->] (DFF\N.Q) -- +(1,0) node [anchor=west] {output};
+
+  % 'Reset' port label
+  \path (DFF0) +(-2cm,+2cm) coordinate (temp)
+    node [anchor=east] {reset};
+  % Connect resets
+  \foreach \m in {0,...,\N}
+    \draw [->] (temp) -| (DFF\m.R);
+
+  % 'Set' port label
+  \path (DFF0) +(-2cm,-2cm) coordinate (temp)
+    node [anchor=east] {set};
+  % Connect sets
+  \foreach \m in {0,...,\N}
+    \draw [->] (temp) -| (DFF\m.S);
+
+  % Clock port label
+  \path (DFF0) +(-2cm,-2.5cm) coordinate (temp)
+    node [anchor=east] {clock};
+  \foreach \m in {0,...,\N}
+    \draw [->] (temp) -| ($ (DFF\m.CLK) + (-5mm,0) $) --(DFF\m.CLK);
+
+  % Clock port label
+  \path (DFF0) +(-2cm,-3cm) coordinate (temp)
+    node [anchor=east] {clock enable};
+  \foreach \m in {0,...,\N}
+    \draw [->] (temp) -| ($ (DFF\m.CE) + (-7.5mm,0) $) --(DFF\m.CE);
+\end{tikzpicture}
+
+\end{document}
