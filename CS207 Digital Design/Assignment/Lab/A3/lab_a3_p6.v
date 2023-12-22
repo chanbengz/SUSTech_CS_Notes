@@ -2,17 +2,14 @@ module check_dif(
     input clk, rst, x,
     output reg z
     );
-    reg last_x1, last_x2;
+    reg[1:0] last;
     always @(posedge clk) begin
         if(rst)
             z <= 0;
         else begin
-            if(last_x1 != last_x2)
-                z <= 1;
-            else
-                z <= 0;
-            last_x2 <= last_x1;
-            last_x1 <= x;
+            last <= {last[0], x};
+            if (last[1] != last[0]) z <= 1;
+            else z <= 0;
         end
     end
 endmodule

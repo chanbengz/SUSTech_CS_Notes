@@ -193,15 +193,15 @@
             \draw (0,0) node[state] (0010) {$0010$};
             \draw (5,0) node[state] (0110) {$0110$};
             \draw (10,0) node[state] (1001) {$1001$};
-            \draw (0,-3) node[state] (1000) {$1000$};
+            \draw (0,-3) node[state] (1101) {$1101$};
             \draw (5,-3) node[state] (1100) {$1100$};
-            \draw (10,-3) node[state] (1101) {$1101$};
+            \draw (10,-3) node[state] (1000) {$1000$};
             \path[->] (0010) edge (0110)
                       (0110) edge (1001)
-                      (1001) edge (1101)
-                      (1101) edge (1100)
-                      (1100) edge (1000)
-                      (1000) edge (0010);
+                      (1001) edge (1000)
+                      (1000) edge (1100)
+                      (1100) edge (1101)
+                      (1101) edge (0010);
         \end{tikzpicture}
     \end{figure}
     \newline and then we can derive the state table as follows
@@ -214,20 +214,20 @@
         \cmidrule(lr){1-4}\cmidrule(lr){5-8}
         $Q_3$ & $Q_2$ & $Q_1$ & $Q_0$ & $Q_3$ & $Q_2$ & $Q_1$ & $Q_0$ \\
         \midrule
-        0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
-        0 & 1 & 1 & 0 & 1 & 0 & 0 & 1 \\
-        1 & 0 & 0 & 1 & 1 & 1 & 0 & 1 \\
-        1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 \\
-        1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\
-        1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
         0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\
+        0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
         0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\
         0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
         0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 \\
+        0 & 1 & 1 & 0 & 1 & 0 & 0 & 1 \\
         0 & 1 & 1 & 1 & 0 & 0 & 1 & 0 \\
+        1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
         1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
         1 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+        1 & 1 & 0 & 0 & 1 & 1 & 0 & 1 \\
+        1 & 1 & 0 & 1 & 0 & 0 & 1 & 0 \\
         1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 \\
         1 & 1 & 1 & 1 & 0 & 0 & 1 & 0 \\
         \bottomrule
@@ -237,40 +237,39 @@
     \begin{figure}[!htbp]
         \centering
         \begin{karnaugh-map}(label=corner)[4][4][1][$Q_0$][$Q_1$][$Q_2$][$Q_3$]
-            \minterms{6,9,13,12}
+            \minterms{6,8,9,12}
             \autoterms[0]
-            \implicant{12}{13}
-            \implicant{13}{9}
+            \implicant{12}{8}
+            \implicant{8}{9} 
             \implicant{6}{6}
         \end{karnaugh-map}
         \begin{karnaugh-map}(label=corner)[4][4][1][$Q_0$][$Q_1$][$Q_2$][$Q_3$]
-            \minterms{2,9,13}
+            \minterms{2,8,12}
             \autoterms[0]
-            \implicant{13}{9}
+            \implicant{12}{8}
             \implicant{2}{2}
         \end{karnaugh-map}
         \begin{karnaugh-map}(label=corner)[4][4][1][$Q_0$][$Q_1$][$Q_2$][$Q_3$]
-            \minterms{0,1,2,3,4,5,7,8,10,11,14,15}
+            \minterms{0,1,2,3,4,5,7,10,11,13,14,15}
             \autoterms[0]
             \implicant{0}{5}
             \implicant{0}{2}
-            \implicant{1}{7}
+            \implicant{5}{15}
             \implicant{15}{10}
-            \implicantcorner
         \end{karnaugh-map}
         \begin{karnaugh-map}(label=corner)[4][4][1][$Q_0$][$Q_1$][$Q_2$][$Q_3$]
-            \minterms{6,9}
+            \minterms{6,12}
             \autoterms[0]
             \implicant{6}{6}
-            \implicant{9}{9}
+            \implicant{12}{12}
         \end{karnaugh-map}
     \end{figure}
     \newline so the simplified state equations for each DFF will be
     \begin{align*}
-        Q_3(t+1) &= Q_3Q_2Q_1^{\prime} + Q_3Q_1^{\prime}Q_0 + Q_3^{\prime}Q_2Q_1Q_0^{\prime} \\
-        Q_2(t+1) &= Q_3Q_1^{\prime}Q_0 + Q_3^{\prime}Q_2^{\prime}Q_1Q_0^{\prime} \\
-        Q_1(t+1) &= Q_2^{\prime}Q_0^{\prime} + Q_3^{\prime}Q_1^{\prime} + Q_3^{\prime}Q_0 + Q_3^{\prime}Q_2^{\prime} \\
-        Q_0(t+1) &= Q_3^{\prime}Q_2Q_1Q_0^{\prime} + Q_3Q_2^{\prime}Q_1^{\prime}Q_0
+        Q_3(t+1) &= Q_3Q_1^{\prime}Q_0^{\prime} + Q_3Q_2^{\prime}Q_1^{\prime} + Q_3^{\prime}Q_2Q_1Q_0^{\prime} \\
+        Q_2(t+1) &= Q_3Q_1^{\prime}Q_0^{\prime} + Q_3^{\prime}Q_2^{\prime}Q_1Q_0^{\prime} \\
+        Q_1(t+1) &= Q_3^{\prime}Q_1^{\prime} + Q_2Q_0 + Q_3^{\prime}Q_2^{\prime} + Q_3Q_1 \\
+        Q_0(t+1) &= Q_3^{\prime}Q_2Q_1Q_0^{\prime} + Q_3Q_2Q_1^{\prime}Q_0^{\prime}
     \end{align*}
     Since in DFF the excitation is equivelant to the state equation, we skip the input equations.
     To draw the logic diagram, we connect the input components based on the excitation to the D port of each DFF.

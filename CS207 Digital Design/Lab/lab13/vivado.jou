@@ -1,0 +1,153 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Dec 15 10:30:48 2023
+# Process ID: 3028
+# Current directory: C:/Users/Ben/lab13
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4672 C:\Users\Ben\lab13\lab13.xpr
+# Log file: C:/Users/Ben/lab13/vivado.log
+# Journal file: C:/Users/Ben/lab13\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Ben/lab13/lab13.xpr
+file mkdir C:/Users/Ben/lab13/lab13.srcs/sources_1/new
+close [ open C:/Users/Ben/lab13/lab13.srcs/sources_1/new/rps.v w ]
+add_files C:/Users/Ben/lab13/lab13.srcs/sources_1/new/rps.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Ben/lab13/lab13.srcs/sources_1/new/rps.v] -no_script -reset -force -quiet
+remove_files  C:/Users/Ben/lab13/lab13.srcs/sources_1/new/rps.v
+add_files {C:/Users/Ben/lab13/lab13.srcs/sources_1/new/RPS_comparator.v C:/Users/Ben/lab13/lab13.srcs/sources_1/new/RPS_display.v}
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_display.xdc
+close [ open C:/Users/Ben/lab13/lab13.srcs/sources_1/new/RPS_main.v w ]
+add_files C:/Users/Ben/lab13/lab13.srcs/sources_1/new/RPS_main.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top RPS_main [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_display.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_display.xdc
+file delete -force C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_display.xdc
+synth_design -rtl -name rtl_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list {led1[2]} {led1[1]} {led1[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {led2[2]} {led2[1]} {led2[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {p1[2]} {p1[1]} {p1[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {seg_ctrl1[7]} {seg_ctrl1[6]} {seg_ctrl1[5]} {seg_ctrl1[4]} {seg_ctrl1[3]} {seg_ctrl1[2]} {seg_ctrl1[1]} {seg_ctrl1[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {p2[2]} {p2[1]} {p2[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {seg_ctrl2[7]} {seg_ctrl2[6]} {seg_ctrl2[5]} {seg_ctrl2[4]} {seg_ctrl2[3]} {seg_ctrl2[2]} {seg_ctrl2[1]} {seg_ctrl2[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {seg_en[1]} {seg_en[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list clk]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list eval]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list rst]]
+place_ports clk P17
+place_ports eval P15
+set_property package_pin "" [get_ports [list  rst]]
+place_ports eval R11
+place_ports rst P15
+close [ open C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_constr.xdc w ]
+add_files -fileset constrs_1 C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_constr.xdc
+set_property target_constrs_file C:/Users/Ben/lab13/lab13.srcs/constrs_1/new/rps_constr.xdc [current_fileset -constrset]
+save_constraints -force
+place_ports {led1[2]} F6
+place_ports {led1[1]} G4
+place_ports {led1[0]} G3
+place_ports {led2[2]} J3
+place_ports {led2[1]} J2
+place_ports {led2[0]} K2
+save_constraints
+set_property package_pin "" [get_ports [list  {seg_en[0]}]]
+refresh_design
+set_property IOSTANDARD LVCMOS33 [get_ports [list {led[2]} {led[1]} {led[0]}]]
+save_constraints
+refresh_design
+place_ports {led[0]} J4
+place_ports {led[1]} H4
+save_constraints
+place_ports {p1[0]} P5
+place_ports {p1[1]} P4
+place_ports {p1[2]} P3
+place_ports {p2[0]} M4
+place_ports {p2[1]} N4
+place_ports {p2[2]} R1
+place_ports {seg_en[0]} G2
+place_ports {seg_en[1]} G6
+place_ports {seg_ctrl1[7]} B4
+place_ports {seg_ctrl1[6]} A4
+place_ports {seg_ctrl1[5]} A3
+place_ports {seg_ctrl1[4]} B1
+place_ports {seg_ctrl1[3]} A1
+place_ports {seg_ctrl1[2]} B3
+place_ports {seg_ctrl1[1]} B2
+place_ports {seg_ctrl1[0]} D5
+place_ports {seg_ctrl2[7]} D4
+place_ports {seg_ctrl2[6]} E3
+place_ports {seg_ctrl2[5]} D3
+place_ports {seg_ctrl2[4]} F4
+place_ports {seg_ctrl2[3]} F3
+place_ports {seg_ctrl2[2]} E2
+place_ports {seg_ctrl2[1]} D2
+place_ports {seg_ctrl2[0]} H2
+save_constraints
+place_ports {p1[0]} R2
+place_ports {p1[2]} P5
+place_ports {p1[0]} P3
+set_property package_pin "" [get_ports [list  {led[0]}]]
+place_ports {led[1]} J4
+place_ports {led[0]} H4
+place_ports {p2[0]} M1
+place_ports {p2[2]} M4
+place_ports {p2[0]} R1
+save_constraints
+close [ open C:/Users/Ben/lab13/lab13.srcs/sources_1/new/Debouncer.v w ]
+add_files C:/Users/Ben/lab13/lab13.srcs/sources_1/new/Debouncer.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+refresh_design
+refresh_design
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/Ben/lab13/lab13.runs/impl_1/RPS_main.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/Ben/lab13/lab13.runs/impl_1/RPS_main.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/Ben/lab13/lab13.runs/impl_1/RPS_main.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+disconnect_hw_server

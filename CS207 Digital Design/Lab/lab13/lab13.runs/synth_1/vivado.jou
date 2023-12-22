@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Dec 15 13:50:43 2023
+# Process ID: 2032
+# Current directory: C:/Users/Ben/lab13/lab13.runs/synth_1
+# Command line: vivado.exe -log RPS_main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RPS_main.tcl
+# Log file: C:/Users/Ben/lab13/lab13.runs/synth_1/RPS_main.vds
+# Journal file: C:/Users/Ben/lab13/lab13.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source RPS_main.tcl -notrace

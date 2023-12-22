@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper, oneside]{article}
-\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs, tikz}
 
 \title{\textbf{Assignment\# 5 CS201 Fall 2023}}
 \author{Ben Chen(12212231)}
@@ -15,82 +15,237 @@
 \maketitle
 
 \begin{problem}
-    Write problem here. 
+Let $S$ be the set of all strings of English letters. Determine whether the following relations are \textit{reflexive}, \textit{irreflexive}, \textit{symmetric}, \textit{antisymmetric}, and/or \textit{transitive}.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} irreflexive, symmetric
+    \newline\textbf{b)} reflexive, symmetric, transitive
+    \newline\textbf{c)} transitive, irreflexive, antisymmetric
+    \newline\textbf{d)} transitive, irreflexive, symmetric
+    \newline\textbf{e)} transitive, antisymmetric, reflexive
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Consider relations on a set $A$. Prove or disprove the following statements.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} True. For reflexive, we have
+    \[ \forall x\in A, (x,x)\in R \]
+    and for symmetric, we have
+    \[ \forall a,b\in A, (a,b) \Rightarrow (b,a) \]
+    so we have
+    \[ \forall a,b\in A, (a,b)\in R, (b,a)\in R \Rightarrow (a,a) \in R, (b,b)\in R \]
+    always holds. So if $R$ is reflexive and symmetric, then $R$ is also transitive.
+    \newline\textbf{b)} True. Consider that $R_1$ and $R_2$ are subsets of $R_1\cup R_2$, so if $R_1$ and $R_2$ is reflexive, we have
+    \[ \forall a\in A,\ \left((a,a)\in R_1\right) \wedge\left( (a,a) \in R_2\right) \]
+    \[ \Rightarrow \forall a\in A,\  (a,a)\in R_1\cup R_2 \]
+    which gives that $R_1\cup R_2$ is also reflexive.
+    \newline\textbf{c)} False. Counterexample: if we have $(a,b)\in R_1$ and $(b,a)\notin R_1$ and
+    $(b,a) \in R_2$ and $(a,b) \notin R_2$ then we have $(a,b)\in R_1\cup R_2$ and $(b,a)\in R_1\cup R_2$ which gives that $R_1\cup R_2$ is symmetric.
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Prove the statements about \textit{n}-ary relations.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} The selection operator combined is the set
+    \[ S_{C_1\wedge C_2}(R) = \{ a\in R | C_1(a)\wedge C_2(a) \} \]
+    and we have if \[ x\in S_{C_1\wedge C_2}(R) \]
+    then $x\in R$ satisfy $C_1 \wedge C_2$, which is $x\in R$ satisfy $C_1$ and $C_2$, so we have
+    \[ x\in S_{C_2}(R)\ \text{and}\ x\ \text{satisfy}\ C_1\]
+    which gives
+    \[ S_{C_1}(S_{C_2}(R))\]
+    \textbf{b)} Both sides project into the $\{i_k\} = \{ i_1,i_2, \cdots, i_m\}$th elements in tuples of $R$ and $S$.
+    So for the left side, we have
+    \[ a = (a_1, a_2, \cdots, a_n) \]
+    \[ P_{\{i_k\}}(R\cup S) = \{ (a_{i_1}, a_{i_2}, \cdots, a_{i_m}) | a\in R\cup S \}\]
+    and for the right side, we have
+    \[ P_{\{i_k\}}(R) \cup P_{\{i_k\}}(S) = \{ (a_{i_1}, a_{i_2}, \cdots, a_{i_m}) | a\in R \} \cup \{ (a_{i_1}, a_{i_2}, \cdots, a_{i_m}) | a\in S \}\]
+    \[ \Rightarrow \{ (a_{i_1}, a_{i_2}, \cdots, a_{i_m}) | a\in R\cup S \}\]
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Suppose that a relation $R$ on a set $A$ is symmetric.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} We can use induction to prove this.
+    \newline For $k=1$, $R^1$ is symmetric since $R$ is symmetric.
+    \newline For $k=n-1$, assume that $R^{n-1}$ is symmetric, then we have
+    \[ R^n = R^{n-1} \circ R = R \circ R^{n-1} \]
+    so for all $ (x,y)\in R^n $ we always have
+    \[ (x,z) \in R \wedge (z,y) \in R^{n-1} \]
+    since $R$ and $R^{n-1}$ are symmetric, we have
+    \[ (z,x) \in R \wedge (y,z) \in R^{n-1} \]
+    and the composition of them gives
+    \[ (y,x) \in R \circ R^{n-1} = R^n \]
+    which means $R^n$ is symmetric. So by induction, we have $R^n$ is symmetric for all $n\in \mathbb{N^+}$.
+    \newline \textbf{b)} The $R^* = \bigcup R^k$ and from previous proof we have $R^n$ is symmetric for all $n\in \mathbb{N^+}$,
+    so we need to prove that the union of symmetric relations is symmetric. Suppose that $R_1$ and $R_2$ are symmetric relations on $A$,
+    then
+    \[ \Big( (a,b) \in R_1 \rightarrow (b,a) \in R_1 \Big) \vee \Big( (c,d)  \in R_2 \rightarrow (d,c)\in R_2 \Big) \]
+    \[ \Rightarrow (a,b),(c,d) \in R_1 \cup R_2 \rightarrow (b,a), (d,c) \in R_1\cup R_2 \]
+    which gives that $R_1\cup R_2$ is symmetric. So we have $R^*$ is symmetric since
+    \[ R^* = (R^1 \vee R^2) \vee \cdots \vee R^n \]
+    the union of symmetric relations is symmetric.
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Prove that the transitive closure of the symmetric closure of a relation must contain
+    the symmetric closure of the transitive closure of the relation.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    Suppose that $R$ is a relation on a set $A$, the symmetric closure is
+    \[ S = R \cup\{ (b,a) | (a,b) \in R \} \]
+    and the transitive closure of it is
+    \[ T = S \cup \{ (a,c) | (a,b),(b,c) \in S \} \]
+    and by symmetric closure, we have
+    \[ (c,b),(b,a)\in S \Rightarrow (c,a)\in T \]
+    so the transitive closure of the symmetric closure of $R$ is symmetric and hence it must contain the symmetric closure of the transitive closure of $R$.
 \end{solution}
 \begin{problem}
-    Write problem here. 
+    Use the Floyd-Warshall algorithm to find the transitive closures of the relation 
+    \[R=\left\{(a,b), (a,c), (a,e), (b, a), (b, c), (c, a), (c, b), (d, a), (e, d)\right\}\]
+    on the set $A=\left\{a,b,c,d,e\right\}$.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    The initial matrix is
+    \[ M = \begin{bmatrix}
+        0 & 1 & 1 & 1 & 0 \\
+        1 & 0 & 1 & 0 & 0 \\
+        1 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 \\
+        1 & 0 & 0 & 0 & 0
+    \end{bmatrix} \]
+    for $k=1$, we have
+    \[ M_1 = \begin{bmatrix}
+        1 & 1 & 1 & 1 & 0 \\
+        1 & 1 & 1 & 1 & 0 \\
+        1 & 1 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 1 \\
+        1 & 1 & 1 & 1 & 0 
+    \end{bmatrix} \]
+    for $k=2$, we have
+    \[ M_2 = \begin{bmatrix}
+        1 & 1 & 1 & 1 & 0 \\
+        1 & 1 & 1 & 1 & 0 \\
+        1 & 1 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 1 \\
+        1 & 1 & 1 & 1 & 0 
+    \end{bmatrix} \]
+    for $k=3$, we have
+    \[ M_3 = \begin{bmatrix}
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 1 \\
+        1 & 1 & 1 & 1 & 1 
+    \end{bmatrix} \]
+    for $k=4$, we have
+    \[ M_4 = \begin{bmatrix}
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 
+    \end{bmatrix} \]
+    so the transitive closure of $R$ is
+    \[ M^* = \begin{bmatrix}
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 
+    \end{bmatrix} \] 
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Consider the relation $R = \left\{(x,y) | x - y\in \mathbb{Z}\right\}$.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} $R$ is symmetric since for any $x,y\in \mathbb{R}$, we have
+    \[ x-y\in \mathbb{Z} \Rightarrow y-x = -(x-y) \in \mathbb{Z} \]
+    $R$ is reflexive since for any $x\in \mathbb{R}$, we have
+    \[ x-x = 0 \in \mathbb{Z} \]
+    $R$ is transitive since for any $x,y,z\in \mathbb{R}$, we have
+    \[ x-y\in \mathbb{Z} \wedge y-z\in \mathbb{Z} \Rightarrow x-z = (x-y)+(y-z) \in \mathbb{Z} \]
+    so $R$ is an equivalence relation.
+    \newline \textbf{b)} The equivalence class of $1$ is
+    \[ [1] = \{ x\in \mathbb{R} | 1-x\in \mathbb{Z} \} = \mathbb{Z}\]
+    The equivalence class of $1/2$ is
+    \[ \left[\frac{1}{2}\right] = \{ x\in \mathbb{R} | 1/2-x\in \mathbb{Z} \} = \{ 1/2+n | n\in \mathbb{Z} \}\]
+    The equivalence class of $\pi$ is
+    \[ \left[\pi\right] = \{ x\in \mathbb{R} | \pi-x\in \mathbb{Z} \} = \{ \pi+n | n\in \mathbb{Z} \}\]
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    For any functions $f:\mathbb{R}\rightarrow\mathbb{R}$ and $g:\mathbb{R}\rightarrow\mathbb{R}$.
+    We say $f$ is \textit{dominated} by $g$, denoted by $f\preceq g$, if and only if $\forall x\in\mathbb{R}, f(x) \le g(x)$ holds.
+    Prove or disprove the following statements.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} The relation is antisymmetric since if $f\preceq g$ then we have
+    \[ \forall x\in \mathbb{R}, f(x) \le g(x) \]
+    and the opposite is false since if $g\preceq f$ then we have
+    \[ \forall x\in \mathbb{R}, g(x) \le f(x) \]
+    which is contradictory to the previous statement. So the relation is antisymmetric.
+    \newline The relation is reflexive since for any $f: \mathbb{R}\rightarrow\mathbb{R}$, we have
+    \[ \forall x\in \mathbb{R}, f(x) \le f(x) \]
+    which is $f\preceq f$.
+    \newline The relation is transitive since for any $f,g,h: \mathbb{R}\rightarrow\mathbb{R}$, we have
+    \[ \forall x\in \mathbb{R}, f(x) \le g(x) \wedge g(x) \le h(x) \Rightarrow f(x) \le h(x) \]
+    which is $f\preceq g \wedge g\preceq h \Rightarrow f\preceq h$. Thereby, the relation is a partial order.
+    \newline\textbf{b)} The statement is false since functions in the poset are not comparable. For example, if we have
+    \[ f(x) = x,\quad g(x) = x^2 \]
+    then $f(x) \le g(x)$ only holds for $x \le 0$ or $x \ge 1$, so $f\preceq g$ and $g\preceq f$ are false.
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Answer the questions about the partial order represented by the Hasse diagram.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    \textbf{a)} $l$ and $m$
+    \newline\textbf{b)} $a$, $b$ and $c$
+    \newline\textbf{c)} No.
+    \newline\textbf{d)} No.
+    \newline\textbf{e)} $l$, $k$ and $e$
+    \newline\textbf{f)} $k$
+    \newline\textbf{g)} $a$, $d$ and $b$
+    \newline\textbf{h)} $d$
 \end{solution}
 
 \begin{problem}
-    Write problem here. 
+    Topological sorting. Find all compatible total orderings for the poset $\left(\left\{2,3,4,6,12\right\},|\right)$.
 \end{problem}
 
 \begin{solution}
-    Write solution here. 
+    The Hasse diagram of the poset is
+    \newline
+    \begin{figure*}[!htbp]
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0) node[above] (12) {12};
+            \draw (-1,-1) node[above] (6) {6};
+            \draw (1,-1) node[above] (4) {4};
+            \draw (-1,-2) node[above] (3) {3};
+            \draw (1,-2) node[above] (2) {2};
+            \draw (12) -- (6) -- (3)
+                  (12) -- (4) -- (2);
+        \end{tikzpicture}
+    \end{figure*}
+    \newline so the compatible total orderings are
+    \[ 2\prec 3\prec 4\prec 6\prec 12 \]
+    \[ 3\prec 2\prec 4\prec 6\prec 12 \]
+    \[ 2\prec 4\prec 3\prec 6\prec 12 \]
+    \[ 3\prec 4\prec 2\prec 6\prec 12 \]
 \end{solution}
 
 \end{document}
