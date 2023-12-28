@@ -27,7 +27,7 @@ Folder structure
 
 **Theory assignment** section includes my answers and reference solutions.
 
-**Programming assignment **changes always, not recommended for reference. But you can check my thoughts and techniques.
+**Programming assignment** changes always, not recommended for reference. But you can check my thoughts and techniques.
 
 The coding practices use `Python` and it's suggested to start learning socket programming eariler.
 
