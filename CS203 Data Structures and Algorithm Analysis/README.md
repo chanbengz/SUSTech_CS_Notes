@@ -25,8 +25,8 @@ For quiz, midterm and final exams.
 
 There're 10 labs in total and six problems for each lab with (15 + 15 + 20 + 20 + 25 + 25) points.
 
-| Lab                | Problem                                             | Note                                    |
-| ------------------ | --------------------------------------------------- | --------------------------------------- |
+| Lab                | Problem                                                  | Note                                    |
+| ------------------ | -------------------------------------------------------- | --------------------------------------- |
 | [lab0](Labs/lab0/) | [Search Problem I](Labs/lab0/ProblemA.cpp)               | Brute Force                             |
 | Welcome Lab        | [Search Problem II](Labs/lab0/ProblemB.cpp)              | Sort + Binary Search                    |
 |                    | [Majsoul](Labs/lab0/ProblemC.java)                       | Sort + Simulation                       |
@@ -61,14 +61,32 @@ There're 10 labs in total and six problems for each lab with (15 + 15 + 20 + 20 
 | String             | [Find Next](Labs/lab5/ProblemB.cpp)                      | KMP Basic                               |
 |                    | [FSA](Labs/lab5/ProblemC.cpp)                            | FSA Basic                               |
 |                    | [Necklace!](Labs/lab5/ProblemD.cpp)                      | Next Array                              |
-|                    | [Stick!](Labs/lab5/ProblemE.cpp)                    | Rabin-Karp                              |
-|                    | [String Problem F](Labs/lab5/ProblemF.cpp)          | Next Array                              |
-| [lab6](Labs/lab6/) | [Leaves](Labs/lab6/ProblemA.cpp)                    | Leaf Node                               |
-| Tree               | [Paths](Labs/lab6/ProblemB.cpp)                     | Path between Root and Leaf Node         |
-|                    | [Pre, in and post](Labs/lab6/ProblemC.cpp)          | Tree Traversal                          |
-|                    | [Cut the Stick](Labs/lab6/ProblemD.cpp)             | Min Heap/Huffman Tree                   |
-|                    | [Giant](Labs/lab6/ProblemE.cpp)                     | BFS + Simulation                        |
-|                    | [Node Activation](Labs/lab6/ProblemF.cpp)           | Root Exchange DP                        |
+|                    | [Stick!](Labs/lab5/ProblemE.cpp)                         | Rabin-Karp                              |
+|                    | [String Problem F](Labs/lab5/ProblemF.cpp)               | Next Array                              |
+| [lab6](Labs/lab6/) | [Leaves](Labs/lab6/ProblemA.cpp)                         | Leaf Node                               |
+| Tree               | [Paths](Labs/lab6/ProblemB.cpp)                          | Path between Root and Leaf Node         |
+|                    | [Pre, in and post](Labs/lab6/ProblemC.cpp)               | Tree Traversal                          |
+|                    | [Cut the Stick](Labs/lab6/ProblemD.cpp)                  | Min Heap/Huffman Tree                   |
+|                    | [Giant](Labs/lab6/ProblemE.cpp)                          | Search + Simulation                     |
+|                    | [Node Activation](Labs/lab6/ProblemF.cpp)                | Root Exchange DP                        |
+| [lab7](Labs/lab7)  | [Judgement](Labs/lab7/ProblemA.cpp)                      | Heap                                    |
+| Advanced Tree      | [Meet my friend HEAP!](Labs/lab7/ProblemB.cpp)           | Heap Swap                               |
+|                    | [We only want the smallest](Labs/lab7/ProblemC.cpp)      | Heap + Greedy                           |
+|                    | [Funny Fluffy Tuzi](Labs/lab7/ProblemD.cpp)              | Heap + Simulation                       |
+|                    | [Nth Element in Sliding Window](Labs/lab7/ProblemE.cpp)  | AVL Tree + Nth Element                  |
+|                    | [Pet Adoption](Labs/lab7/ProblemF.cpp)                   | AVL Tree + Succeeder                    |
+| [lab8](Labs/lab9)  | [Adjacency Matrix](Labs/lab8/ProblemA.cpp)               | Matrix Representation                   |
+| Graph              | [Shortest Path](Labs/lab8/ProblemB.cpp)                  | BFS                                     |
+|                    | [Defensive Tower](Labs/lab8/ProblemC.cpp)                | Simulation                              |
+|                    | [Ancestor](Labs/lab8/ProblemD.cpp)                       | DFS Order                               |
+|                    | [Sum](Labs/lab8/ProblemE.cpp)                            | Search                                  |
+|                    | [The Elves](Labs/lab8/ProblemF.cpp)                      | Traverse                                |
+| [lab9](Labs/lab9)  | [Travel](Labs/lab9/ProblemA.cpp)                         | SPFA Shortest Path                      |
+| Advanced Graph     | [Sign in Problem](Labs/lab9/ProblemB.cpp)                | Kruskal Minimum Spinning Tree           |
+|                    | [Game](Labs/lab9/ProblemC.cpp)                           | Kruskal Maximum Spinning Tree           |
+|                    | [Naive Problem](Labs/lab9/ProblemD.cpp)                  | Dijstra + Multiple Source               |
+|                    | [Simple Problem](Labs/lab9/ProblemE.cpp)                 | Tarjan SCC                              |
+|                    | [Portal](Labs/lab9/ProblemF.cpp)                         | Dijstra + Layer                         |
 
 # License
 
