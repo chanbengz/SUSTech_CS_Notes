@@ -39,12 +39,14 @@ lab3 | [HTTP and HTTPS](Lab/lab3/lab3.md) | Theory 3 |[Network](Assignment/Theor
 lab4 | [HTTP and HTTPS Advanced](Lab/lab4/lab4.md) | Programming 1 |[SMTP POP3 server](Assignment/Programming/PA1_for_CS305_2023_Fall_SMTP_Server/src/report.md)
 lab5 | [DNS](Lab/lab5/lab5.md) | Programming 2 |[Topology on ENSP](Assignment/Programming/PA2)
 lab6 | [CDN & WebSocket](Lab/lab6/lab6.md) | |
-lab7 | [TCP/UDP](Lab/lab7/lab7.md) | Project |[HTTP File Manager](Project/)
+lab7 | [TCP/UDP](Lab/lab7/lab7.md) | Project |[HTTP File Manager](https://github.com/chanbengz/CS305_Project_2023F)
 lab8 | [TCP Congestion Control](Lab/lab8/lab8.md) |  |
 lab9 | [Network Simulation](Lab/lab9/lab9.md) | |
 lab10 | [Static Routing](Lab/lab10/lab20.md) | |
 lab11 | [IP/ICMP](Lab/lab11/lab11.md) | |
-lab12 | [RIP & OCSP](Lab/lab12/lab12.md) | |
+lab12 | [RIP & OSPF](Lab/lab12/lab12.md) | |
+lab13 | [VLAN]() | |
+lab14 | [Physical Router]() | |
 
 ## Theory
 
