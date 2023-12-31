@@ -2,13 +2,10 @@
 
 ## About
 
-**Instructor:** `Ming TANG (唐茗)`
-
-**TA:** `Qing WANG (王晴)`
-
-**Semester:** `2023 Fall`
-
-**Textbook:** `Computer Networking A Top Down Approach, 7th`
+- **Instructor:** `Ming TANG (唐茗)`
+- **TA:** `Qing WANG (王晴)`
+- **Semester:** `2023 Fall`
+- **Textbook:** `Computer Networking A Top Down Approach, 7th`
 
 ## Content
 
