@@ -2,9 +2,14 @@
 
 The problems can be viewed at [ACM OJ](https://acm.sustech.edu.cn/onlinejudge/), BUT it should be restricted to student-only for now.
 
+## About
+ - **Instructor:** `Bo Tang (唐博)`
+ - **TA:** `Yun Shen (沈昀)`
+ - **Semester:** `Fall 2023`
+
 ## Content
 
-The course contains only two parts, theory and lab. Project and 
+The course contains only two parts, theory and lab. Project is excluded and the assignment is to finish all labs.
 
 ### Theory
 
@@ -82,8 +87,8 @@ There're 10 labs in total and six problems for each lab with (15 + 15 + 20 + 20 
 |                    | [Sum](Labs/lab8/ProblemE.cpp)                            | Search                                  |
 |                    | [The Elves](Labs/lab8/ProblemF.cpp)                      | Traverse                                |
 | [lab9](Labs/lab9)  | [Travel](Labs/lab9/ProblemA.cpp)                         | SPFA Shortest Path                      |
-| Advanced Graph     | [Sign in Problem](Labs/lab9/ProblemB.cpp)                | Kruskal Minimum Spinning Tree           |
-|                    | [Game](Labs/lab9/ProblemC.cpp)                           | Kruskal Maximum Spinning Tree           |
+| Advanced Graph     | [Sign in Problem](Labs/lab9/ProblemB.cpp)                | Kruskal Minimum Spanning Tree           |
+|                    | [Game](Labs/lab9/ProblemC.cpp)                           | Kruskal Maximum Spanning Tree           |
 |                    | [Naive Problem](Labs/lab9/ProblemD.cpp)                  | Dijstra + Multiple Source               |
 |                    | [Simple Problem](Labs/lab9/ProblemE.cpp)                 | Tarjan SCC                              |
 |                    | [Portal](Labs/lab9/ProblemF.cpp)                         | Dijstra + Layer                         |
