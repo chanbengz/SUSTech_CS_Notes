@@ -5,9 +5,7 @@ The course introduces the necessary mathematics knowledge for Computer Science. 
 ## About
 
 - **Instructor:** `Shan CHEN (陈杉)`
-
 - **Semester:** `2023 Fall`
-
 - **Textbook:** `Discrete Mathematics and Its Applications`
 
 ## Content
