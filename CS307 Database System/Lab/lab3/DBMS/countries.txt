@@ -1,0 +1,186 @@
+country_code;country_name;continent
+ae;United Arab Emirates;ASIA
+af;Afghanistan;ASIA
+al;Albania;EUROPE
+am;Armenia;ASIA
+ao;Angola;AFRICA
+ar;Argentina;AMERICA
+at;Austria;EUROPE
+au;Australia;OCEANIA
+az;Azerbaijan;ASIA
+ba;Bosnia and Herzegovina;EUROPE
+bb;Barbados;AMERICA
+bd;Bangladesh;ASIA
+be;Belgium;EUROPE
+bf;Burkina Faso;AFRICA
+bg;Bulgaria;EUROPE
+bh;Bahrain;ASIA
+bi;Burundi;AFRICA
+bj;Benin;AFRICA
+bm;Bermuda;AMERICA
+bn;Brunei;ASIA
+bo;Bolivia;AMERICA
+br;Brazil;AMERICA
+bs;Bahamas;AMERICA
+bt;Bhutan;ASIA
+bw;Botswana;AFRICA
+by;Belarus;EUROPE
+bz;Belize;AMERICA
+ca;Canada;AMERICA
+cd;Congo Kinshasa;AFRICA
+cf;Central African Republic;AFRICA
+cg;Congo Brazzaville;AFRICA
+ch;Switzerland;EUROPE
+ci;Cote d'Ivoire;AFRICA
+ck;Cook Islands;OCEANIA
+cl;Chile;AMERICA
+cm;Cameroon;AFRICA
+cn;China;ASIA
+co;Colombia;AMERICA
+cr;Costa Rica;AMERICA
+cu;Cuba;AMERICA
+cy;Cyprus;EUROPE
+cz;Czech Republic;EUROPE
+de;Germany;EUROPE
+dj;Djibouti;AFRICA
+dk;Denmark;EUROPE
+dm;Dominica;AMERICA
+do;Dominican Republic;AMERICA
+dz;Algeria;AFRICA
+ec;Ecuador;AMERICA
+ee;Estonia;EUROPE
+eg;Egypt;AFRICA
+er;Eritrea;AFRICA
+et;Ethiopia;AFRICA
+fi;Finland;EUROPE
+fj;Fiji;OCEANIA
+fm;Micronesia;OCEANIA
+fr;France;EUROPE
+ga;Gabon;AFRICA
+gb;United Kingdom;EUROPE
+gd;Grenada;AMERICA
+ge;Georgia;ASIA
+gh;Ghana;AFRICA
+gm;Gambia;AFRICA
+gn;Guinea;AFRICA
+gq;Equatorial Guinea;AFRICA
+gr;Greece;EUROPE
+gt;Guatemala;AMERICA
+gw;Guinea-Bissau;AFRICA
+gy;Guyana;AMERICA
+hk;Hong Kong;ASIA
+hn;Honduras;AMERICA
+hr;Croatia;EUROPE
+ht;Haiti;AMERICA
+hu;Hungary;EUROPE
+id;Indonesia;ASIA
+ie;Ireland;EUROPE
+il;Israel;ASIA
+in;India;ASIA
+iq;Iraq;ASIA
+ir;Iran;ASIA
+is;Iceland;EUROPE
+it;Italy;EUROPE
+jm;Jamaica;AMERICA
+jo;Jordan;ASIA
+jp;Japan;ASIA
+ke;Kenya;AFRICA
+kg;Kyrgyzstan;ASIA
+kh;Cambodia;ASIA
+km;Comoros;AFRICA
+kp;North Korea;ASIA
+kr;South Korea;ASIA
+kw;Kuwait;ASIA
+kz;Kazakhstan;ASIA
+la;Laos;ASIA
+lb;Lebanon;ASIA
+lk;Sri Lanka;ASIA
+lr;Liberia;AFRICA
+ls;Lesotho;AFRICA
+lt;Lithuania;EUROPE
+lu;Luxembourg;EUROPE
+lv;Latvia;EUROPE
+ly;Libya;AFRICA
+ma;Morocco;AFRICA
+md;Moldova;EUROPE
+me;Montenegro;EUROPE
+mg;Madagascar;AFRICA
+mk;Macedonia;EUROPE
+ml;Mali;AFRICA
+mm;Myanmar;ASIA
+mn;Mongolia;ASIA
+mr;Mauritania;AFRICA
+mt;Malta;EUROPE
+mu;Mauritius;AFRICA
+mv;Maldives;ASIA
+mw;Malawi;AFRICA
+mx;Mexico;AMERICA
+my;Malaysia;ASIA
+mz;Mozambique;AFRICA
+na;Namibia;AFRICA
+ne;Niger;AFRICA
+ng;Nigeria;AFRICA
+ni;Nicaragua;AMERICA
+nl;Netherlands;EUROPE
+no;Norway;EUROPE
+np;Nepal;ASIA
+nz;New Zealand;OCEANIA
+om;Oman;ASIA
+pa;Panama;AMERICA
+pe;Peru;AMERICA
+pg;Papua New Guinea;OCEANIA
+ph;Philippines;ASIA
+pk;Pakistan;ASIA
+pl;Poland;EUROPE
+pr;Puerto Rico;AMERICA
+pt;Portugal;EUROPE
+py;Paraguay;AMERICA
+qa;Qatar;ASIA
+ro;Romania;EUROPE
+rs;Serbia;EUROPE
+ru;Russia;EUROPE
+rw;Rwanda;AFRICA
+sa;Saudi Arabia;ASIA
+sb;Solomon Islands;OCEANIA
+sc;Seychelles;AFRICA
+sd;Sudan;AFRICA
+se;Sweden;EUROPE
+sg;Singapore;ASIA
+si;Slovenia;EUROPE
+sk;Slovakia;EUROPE
+sl;Sierra Leone;AFRICA
+sn;Senegal;AFRICA
+so;Somalia;AFRICA
+sp;Spain;EUROPE
+sr;Suriname;AMERICA
+ss;South Sudan;AFRICA
+sv;El Salvador;AMERICA
+sy;Syria;ASIA
+sz;Swaziland;AFRICA
+td;Chad;AFRICA
+tg;Togo;AFRICA
+th;Thailand;ASIA
+tj;Tajikistan;ASIA
+tk;Tokelau;OCEANIA
+tl;Timor-Leste;ASIA
+tm;Turkmenistan;ASIA
+tn;Tunisia;AFRICA
+to;Tonga;OCEANIA
+tr;Turkey;ASIA
+tt;Trinidad and Tobago;AMERICA
+tv;Tuvalu;OCEANIA
+tw;Taiwan;ASIA
+tz;Tanzania;AFRICA
+ua;Ukraine;EUROPE
+ug;Uganda;AFRICA
+us;United States;AMERICA
+uy;Uruguay;AMERICA
+uz;Uzbekistan;ASIA
+ve;Venezuela;AMERICA
+vn;Vietnam;ASIA
+vu;Vanuatu;OCEANIA
+ws;Samoa;OCEANIA
+ye;Yemen;ASIA
+za;South Africa;AFRICA
+zm;Zambia;AFRICA
+zw;Zimbabwe;AFRICA
