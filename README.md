@@ -25,7 +25,8 @@ The repo contains the following courses for now
 Basically the folders under each course are
 - **Assignment** Programming or Theory assignment
 - **Lab** Reports and practices
-- **Midterm/Final** The exams
+- **Exam** Final and midterm tests
+- **Slides** Lecture slides
 - **Text** Textbook and reference
 
 The notes can be viewed on my [blog](https://bigbens.me)

@@ -10,10 +10,18 @@ The content of this course is actually about how to use the database and princip
 - **Textbook:** `Database System Concepts`
 
 ## Content
- - [Lab](./Lab)
-   - [DBMS](./Lab/DBMS) Sample JDBC code
-   - [Assignment](./Lab/Assignment) Programming assignment in SQL
+ - [Lab](./Lab) Tutorial and experiments for SQL in PostgreSQL
+ - [Assignment](./Lab/Assignment) Programming assignment in SQL
  - [Practice](./Practice) Try to build a database from scratch (learn by myself)
+ - [Project](Project/) Documents for projects (two parts in total)
+ - [Slides](Slides/) Slides for theory part
+ - [Text](Text) Reference book for this course.
 
- | Chapter                        | Content                                                      | Note                                                         |
-| ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Chapter              | Content                                                      | Note |
+| -------------------- | ------------------------------------------------------------ | ---- |
+| Database Design      | Intro to SQL (Structure Query Language)<br>1-3 Normal Form<br>Entity-Relation Diagram |      |
+| SQL                  | DDL (Data Definition Language)<br>DML (Data Manipulation Language)<br>Data Type<br>Constraint<br>Query and Subquery<br>Aggregate Function<br>Join<br>Window Function |      |
+| Function and Trigger |                                                              |      |
+| Transaction          |                                                              |      |
+| Relational Algebra   |                                                              |      |
+| Index                |                                                              |      |
