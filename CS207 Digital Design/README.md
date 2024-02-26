@@ -1,4 +1,4 @@
-# Digital Design(CS207)
+# Digital Design (CS207)
 
 ## About
 

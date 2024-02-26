@@ -1,4 +1,4 @@
-# Introduction to Programming in Java(CS109)
+# Introduction to Programming in Java (CS109)
 ## About
 SUSTech `CS109` is a course of programming in `Java`, intended for the freshmen undergraduate.
 ## Goal

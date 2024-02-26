@@ -1,4 +1,4 @@
-# Discrete Math(CS201)
+# Discrete Math (CS201)
 
 The course introduces the necessary mathematics knowledge for Computer Science. The scope spreads widely and therefore, it might not dive in too much. There is mountainous concepts and proofs but don't be scared. The best way to learn this course is to read the slides carefully and know the steps to solve the homework by heart.
 

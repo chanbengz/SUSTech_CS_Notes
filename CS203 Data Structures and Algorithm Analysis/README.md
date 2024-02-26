@@ -1,4 +1,4 @@
-# Data Structure and Algorithm Analysis(CS207)
+# Data Structure and Algorithm Analysis (CS207)
 
 The problems can be viewed at [ACM OJ](https://acm.sustech.edu.cn/onlinejudge/), BUT it should be restricted to student-only for now.
 
