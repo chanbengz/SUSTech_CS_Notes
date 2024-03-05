@@ -5,25 +5,23 @@
   keywords: (),
   body
 ) = {
-  let zh_shusong = ("FZShuSong-Z01", "FZShuSong-Z01S")
-  let zh_xiaobiansong = ("FZXiaoBiaoSong-B05", "FZXiaoBiaoSong-B05S")
-  let zh_kai = ("FZKai-Z03", "FZKai-Z03S")
-  let zh_hei = ("FZHei-B01", "FZHei-B01S")
-  let zh_fangsong = ("FZFangSong-Z02", "FZFangSong-Z02S")
+  let zh_kai = "Kaiti SC"
+  let zh_hei = "Heiti SC"
+  let zh_songti = "Songti SC"
   let en_sans_serif = "Georgia"
   let en_serif = "Times New Roman"
   let en_typewriter = "Courier New"
   let en_code = "Menlo"
   // Moidfy the following to change the font.
-  let title-font = (en_serif, ..zh_hei)
-  let author-font = (en_typewriter, ..zh_fangsong)
-  let body-font = (en_serif, ..zh_shusong)
-  let heading-font = (en_serif, ..zh_xiaobiansong)
-  let caption-font = (en_serif, ..zh_kai)
-  let header-font = (en_serif, ..zh_kai)
-  let strong-font = (en_serif, ..zh_hei)
-  let emph-font = (en_serif, ..zh_kai)
-  let raw-font = (en_code, ..zh_hei)
+  let title-font = (en_serif, zh_hei)
+  let author-font = (en_typewriter, zh_songti)
+  let body-font = (en_serif, )
+  let heading-font = (en_serif, )
+  let caption-font = (en_serif, zh_kai)
+  let header-font = (en_serif, zh_kai)
+  let strong-font = (en_serif, zh_hei)
+  let emph-font = (en_serif, zh_kai)
+  let raw-font = (en_code, zh_hei)
   
   set document(author: authors.map(author => author.name), title: title)
   set page(numbering: "1", number-align: center, header: align(left)[
@@ -31,8 +29,8 @@
     #title
   ])
   set heading(numbering: "1.1")
-  set text(font: body-font, lang: "zh", region: "cn")
-  set bibliography(style: "gb-7714-2015-numeric")
+  set text(font: body-font, lang: "en", region: "cn")
+  set bibliography(style: "institute-of-electrical-and-electronics-engineers")
   
   show heading: it => box(width: 100%)[
     #v(0.50em)
@@ -83,13 +81,11 @@
   }
   v(2em, weak: true)
 
-  // Main body
   set par(first-line-indent: 2em)
   set enum(indent: 2em)
   set list(indent: 2em)
   set figure(gap: 0.8cm)
 
-  // 定义空白段，解决首段缩进问题
   let blank_par = par()[#text()[#v(0em, weak: true)];#text()[#h(0em)]]
 
   show figure: it => [
@@ -137,17 +133,6 @@
   show raw: set text(font: raw-font)
   show link: underline
   show link: set text(blue)
-
-  if abstract != none [
-    #v(2pt)
-    #h(2em) *摘要：* #abstract
-
-    #if keywords!= () [
-      *关键字：* #keywords.join("；")
-    ]
-    #v(2pt)
-  ]
-
   body
 }
 #let problem-counter = counter("problem")
@@ -161,7 +146,7 @@
     inset: 8pt,
     radius: 2pt,
     width: 100%,
-  )[*题目 #problem-counter.display().* #h(0.75em) #body]
+  )[*Problem #problem-counter.display().* #h(0.75em) #body]
 }
 
 #let solution(body) = {
@@ -169,5 +154,5 @@
   block(
     inset: 8pt,
     width: 100%
-  )[*解答.* #h(0.75em) #body]
+  )[*Solution.* #h(0.75em) #body]
 }

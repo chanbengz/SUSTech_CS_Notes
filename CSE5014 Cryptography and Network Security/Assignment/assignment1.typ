@@ -4,7 +4,7 @@
   title: "Cryptography Homework 1",
   authors: (
     (
-      name: "",
+      name: "陈贲(12212231)",
     ),
   ),
 )
