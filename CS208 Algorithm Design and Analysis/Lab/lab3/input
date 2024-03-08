@@ -1,0 +1,22 @@
+16 5
+mkdir a
+echo 123 > a/b
+echo 234 > a/c
+echo 345 > a/d
+mkdir b
+mkdir c
+mkdir d
+echo 666 > b/a
+echo 23333 > c/a
+echo 12312dasdasdf > d/a
+mkdir a/e
+echo > a/e/b
+echo > b/b
+echo > d/b
+rm a/c
+rm -rf a/e
+cat d/a
+cat c/a
+find 
+find a -name b
+find ././././ -name b -type f
