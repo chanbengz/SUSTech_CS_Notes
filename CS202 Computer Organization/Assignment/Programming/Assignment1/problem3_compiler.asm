@@ -1,5 +1,5 @@
 .data
-	str: .space 300
+	str: .space 1024
 .text
 main:
         li      a7,8
