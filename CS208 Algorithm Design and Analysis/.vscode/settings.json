@@ -5,6 +5,16 @@
         "vector": "cpp",
         "ostream": "cpp",
         "queue": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "stack": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "ios": "cpp"
     }
 }
