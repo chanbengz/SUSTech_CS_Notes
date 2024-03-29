@@ -1,7 +1,7 @@
 #import "template.typ": *
 
 #show: project.with(
-  title: "OS Assignment 1",
+  title: "OS Assignment 2",
   authors: (
     (
       name: "陈贲(12212231)",
