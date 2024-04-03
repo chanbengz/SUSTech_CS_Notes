@@ -45,8 +45,8 @@
   ))
   The average turn-around time for each algorithm is
   - *HRRN*: $( 6 + 6 + 8 + 6 ) slash 4 = 6.5$
-  - *FIFO/FCFS*: $( 6 + 6 + 8 + 4 ) slash 4 = 6$
-  - *RR*: $( 11 + 6 + 8 + 5 ) slash 4 = 6.5$
-  - *SJF*: $( 6 + 6 + 8 + 4 ) slash 4 = 6$
+  - *FIFO/FCFS*: $( 6 + 6 + 8 + 6 ) slash 4 = 6.5$
+  - *RR*: $( 11 + 6 + 8 + 5 ) slash 4 = 7.5$
+  - *SJF*: $( 6 + 6 + 8 + 6 ) slash 4 = 6.5$
   - *Priority*: $( 12 + 1 + 4 + 2 ) slash 4 = 4.75$
 ]

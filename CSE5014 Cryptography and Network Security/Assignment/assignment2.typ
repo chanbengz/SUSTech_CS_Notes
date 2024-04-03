@@ -125,7 +125,7 @@
 ]
 
 #solution[
-  By the definition of CPA security, suppose we have two fixed messages $m_0 = 0^n, m_1 arrow.l {0,1}^n$. We can construct a algorithm $D$ with non-negligible probability to win: query the encryption oracle to get $cal(O)(0^(n-1) 1) = angle.l I V, c angle.r$. If the $I V$ is even, then $I V + 1 = I V xor 0^(n-1) 1$, and therefore, $c = F_k (I V xor 0^(n-1) 1) = F_k (I V + 1)$. Suppose the challenge ciphertext is $c^prime$, if $c = c^prime$, $D$ outputs 0 since $F_k (I V + 1) = F_k ((I V + 1) xor 0^n)$. If the $I V$ is odd, the algorithm outputs a random bit and has $1 slash 2$ chance to win. The algorithm $D$ has non-negligible probability to win, and thus the scheme is not CPA-secure.
+  By the definition of CPA security, suppose we have two fixed messages $m_0 = 0^n, m_1 arrow.l {0,1}^n$. We can construct a adversary $D$ with non-negligible probability to win: query the encryption oracle to get $cal(O)(0^(n-1) 1) = angle.l I V, c angle.r$. If the $I V$ is even, then $I V + 1 = I V xor 0^(n-1) 1$, and therefore, $c = F_k (I V xor 0^(n-1) 1) = F_k (I V + 1)$. Suppose the challenge ciphertext is $c^prime$, if $c = c^prime$, $D$ outputs 0 since $F_k (I V + 1) = F_k ((I V + 1) xor 0^n)$. If the $I V$ is odd, the adversary outputs a random bit and has $1 slash 2$ chance to win. The adversary $D$ has non-negligible probability to win, and thus the scheme is not CPA-secure.
 ]
 
 #problem[
@@ -133,5 +133,7 @@
 ]
 
 #solution[
-  Suppose the attacker knows the messages $m_1 in {m_0^1, m_1^1}$, after getting the first responces $angle.l I V, c_1, c_2, c_3 angle.r$, the attacker requests the encryption oracle to encrypt $m_4 = I V xor m_0^1 xor c_3$ and $m_5 arrow.l {0,1}^n$. The attacker can determine that if $c_4 = c_1$, then $m_1 = m_0^1$
+  Suppose the adversary $A$ knows the messages $m_1 in {m_0^1, m_1^1}$, after getting the first responces $angle.l I V, c_1, c_2, c_3 angle.r$, the adversary requests the encryption oracle to encrypt $m_4 = I V xor m_0^1 xor c_3$ and $m_5 arrow.l {0,1}^n$. The adversary can determine that if $c_4 = c_1$, then $m_1 = m_0^1$ since
+  $ c_4 = F_k (m_4 xor c_3) = F_k (I V xor m_0^1 xor (c_3 xor c_3)) = F_k (I V xor m_0^1) $
+  so the adversary can win with non-negligible probability.
 ]
