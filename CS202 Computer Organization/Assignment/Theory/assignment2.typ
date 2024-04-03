@@ -1,7 +1,7 @@
 #import "template.typ": *
 
 #show: project.with(
-  title: "Computer Organization Homework 1",
+  title: "Computer Organization Homework 2",
   authors: (
     (
       name: "陈贲(12212231)",
@@ -73,18 +73,22 @@
 #show table.cell.where(y: 0): strong
 
 #solution[
-	The result of $62 times 14 = 1101100100$. Steps:
+	The result of $"0x"62 times "0x"14 = 11110101000 = 1960$. Steps:
 	#align(center,
 	table(
-		columns: 5,
+		columns: 4,
 		inset: (x: 1.5em),
-		table.header("Step", "Action", "Multiplier", "Multiplicand", "Product"),
-		[0], [Initial Values], [1110], [0000 0011 1110], [0000 0000 0000],
-		table.cell(rowspan: 3, align: horizon)[1], [No Action], [1110], [0000 0011 1110], [0000 0000 0000], [Lshift Mcand], [1110], [0000 0111 1100], [0000 0000 0000], [Rshift Mplier], [0111], [0000 0111 1100], [0000 0000 0000],
-		table.cell(rowspan: 3, align: horizon)[2], [Prod+=Mcant], [0111], [0000 0111 1100], [0000 0111 1100], [Lshift Mcand], [0110], [0000 1111 1000], [0000 0111 1100], [Rshift Mplier], [0011], [0000 1111 1000], [0000 0111 1100],
-		table.cell(rowspan: 3, align: horizon)[3], [Prod+=Mcant], [0011], [0000 1111 1000], [0001 0111 0100], [Lshift Mcand], [0011], [0001 1111 0000], [0001 0111 0100], [Rshift Mplier], [0001], [0001 1111 0000], [0001 0111 0100],
-		table.cell(rowspan: 3, align: horizon)[4], [Prod+=Mcant], [0001], [0001 1111 0000], [0011 0110 0100], [Lshift Mcand], [0001], [0011 1110 0000], [0011 0110 0100], [Rshift Mplier], [0000], [0011 1110 0000], [0011 0110 0100],
-		[5], [Final Result], [0000], [0011 1110 0000], [0011 0110 0100]
+		table.header("Step", "Action", "Multiplicand", "Product", ),
+		[0], [Initial Values], [0110 0010], [0000 0000 0001 0100],
+		table.cell(rowspan: 2, align: horizon)[1], [No Action], [0110 0010], [0000 0000 0001 0100], [Rshift Prod], [0110 0010], [0000 0000 0000 1010],
+		table.cell(rowspan: 2, align: horizon)[2], [No Action], [0110 0010], [0000 0000 0000 1010], [Rshift Prod], [0110 0010], [0000 0000 0000 0101],
+		table.cell(rowspan: 2, align: horizon)[3], [Add to left part], [0110 0010], [0110 0010 0000 0101], [Rshift Prod], [0110 0010], [0011 0001 0000 0010],
+		table.cell(rowspan: 2, align: horizon)[4], [No Action], [0110 0010], [0011 0001 0000 0010], [Rshift Prod], [0110 0010], [0001 1000 1000 0001],
+		table.cell(rowspan: 2, align: horizon)[5], [Add to left part], [0110 0010], [0111 1010 1000 0001], [Rshift Prod], [0110 0010], [0011 1101 0100 0000],
+		table.cell(rowspan: 2, align: horizon)[6], [No Action], [0110 0010], [0011 1101 0100 0000], [Rshift Prod], [0110 0010], [0001 1110 1010 0000],
+		table.cell(rowspan: 2, align: horizon)[7], [No Action], [0110 0010], [0001 1110 1010 0000], [Rshift Prod], [0110 0010], [0000 1111 0101 0000],
+		table.cell(rowspan: 2, align: horizon)[8], [No Action], [0110 0010], [0000 1111 0101 0000], [Rshift Prod], [0110 0010], [0000 0111 1010 1000],
+		[9], [Final Result], [0110 0010], [0000 0111 1010 1000]
 	))
 ]
 

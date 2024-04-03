@@ -10,7 +10,7 @@ Course Notes for the Computer Science @SUSTech.
 
 :laughing: Welcome to my humble repo :)
 
-I'm Ben Chen, currently a sophomore student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problem understanding my writing, please feel free to reach me via my email `chanben04gz@gmail.com`.
+I'm Ben Chen, currently a sophomore student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to reach me via my email `chanben04gz@gmail.com`.
 
 ## Structure
 
