@@ -25,6 +25,7 @@ The repo contains the following courses for now
 - [CS305 Computer Networks](./CS305%20Computer%20Networks)
 - [CS307 Database System](./CS307%20Database%20System)
 - [CSE5014 Cryptography and Network Security](./CSE5014%20Cryptography%20and%20Network%20Security)
+- [SS149 Modern Western Philosophy](./SS149%20Modern%20Western%20Philosophy/)
 
 Basically the folders under each course are
 - **Assignment** Programming or Theory assignment
