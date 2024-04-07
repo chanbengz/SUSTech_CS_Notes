@@ -12,21 +12,21 @@ main:
 	fld fa1, (a1)
 	fld fa2, (a2)
 	fgt.d t1, fa3, fa1
-	bnez t1, .L1
+	bnez t1, rule2
 	fcvt.s.d fa0, fa3
 	li a7,2
 	ecall
 	j exit
-.L1:
+rule2:
 	fgt.d t1, fa3, fa2
-	bnez t1, .L2
+	bnez t1, rule3
 	fsub.d fa4, fa3, fa1
 	fadd.d fa0, fa3, fa4
 	li a7,2
 	fcvt.s.d fa0, fa0
 	ecall
 	j exit
-.L2:
+rule3:
 	fsub.d fa4, fa3, fa2
 	fadd.d fa3, fa3, fa4
 	fadd.d fa3, fa3, fa4
