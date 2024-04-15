@@ -3,8 +3,8 @@
 #include <cmath>
 using namespace std;
 
-const int MAXN = 7e4 + 5;
-const int MAXM = 7e7 + 5;
+const int MAXN = 5e4 + 5;
+const int MAXM = 5e7 + 5;
 int T, n, k, fa[MAXN], perm[MAXN];
 long long arr[MAXN], ans;
 
@@ -19,7 +19,7 @@ int find(int x) {
     return fa[x] == x ? x : fa[x] = find(fa[x]);
 }
 
-void kruskal() {
+inline void kruskal() {
     sort(edges, edges + k);
     for (int i = 0; i <= n; i++) fa[i] = i;
     int cnt = 0;
@@ -48,7 +48,8 @@ int main() {
         }
         int len = sqrt(n);
         for(int i = 1; i <= n; i++) {
-            for(int j = i + 1; (j <= i + len) && (j <= n); j++) {
+            int upper = min(i + len, n);
+            for(int j = i + 1; j <= upper; j++) {
                 long long x = abs(i - j) * abs(arr[i] - arr[j]);
                 if (x < n) edges[k++] = {i, j, x};
                 x = abs(perm[i] - perm[j]) * abs(arr[perm[i]] - arr[perm[j]]);
