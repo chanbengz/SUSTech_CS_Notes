@@ -2,13 +2,13 @@
 #include <vector>
 using namespace std;
 
-const int MAXN = 1e5 + 5;
+const int MAXN = 1e6 + 5;
 long long n, L, R, sum[MAXN];
 
 long long merge(int l, int r) {
     if(l >= r) return 0;
     int mid = (l + r) / 2;
-    int low = merge(l, mid), high = merge(mid + 1, r);
+    long long low = merge(l, mid), high = merge(mid + 1, r);
     long long ans = low + high;
 
     int i = l, j = mid + 1, k = mid + 1;
@@ -19,7 +19,7 @@ long long merge(int l, int r) {
         i++;
     }
 
-    long long merged[r - l + 1], idx = 0;
+    long long merged[MAXN], idx = 0;
     i = l, j = mid + 1;
     while(i <= mid || j <= r) {
         if(i > mid) merged[idx++] = sum[j++];
