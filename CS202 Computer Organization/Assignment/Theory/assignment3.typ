@@ -9,7 +9,6 @@
   ),
 )
 
-
 #problem[
   #show table.cell.where(y:0) : strong
   #set enum(numbering: "a)")
@@ -39,18 +38,18 @@
   #show table.cell.where(y:0) : strong
   #set enum(numbering: "a)")
   + The clock cycle time for a pipeline is determined by the critical path, which is the ID stage with a latency of 350ps. The clock cycle time for a non-pipelined processor is the sum of all stage latencies, which is 1250 ps.
-  + Both will take the whole path, which is 1250 ps.
+  + The latency of non-pipelined is the whole path, which is 1250 ps. And that of the pipelined is the sum of clock times, which is $5 times 350" ps" = 1750" ps"$
   + Split the critical stage, i.e., stage ID, into two stages. The new clock cycle time will become 300ps, determined by stage MEM.
   + Only load and store use data memory, which is 35% of the time.
   + Only ALU/logic and load instructions write to the register, which takes 65% of the time.
   + The clock cycle time for the multi-cycle organization is the same as pipeline. And the execution time is the weighted average
-  $ T = 20"%" &times (250 + 350 + 150) + 15"%" times (250 + 350 + 150 + 300) \ + 60"%" &times (250 + 350 + 150 + 300 + 200) = 1057.5" ps" $
+  $ T = 20"%" times 3 times 350 + 15"%" times 4 times 350 + 60"%" times 5 times 350 = 1470" ps" $
   #align(center, table(
     columns: 4,
     inset: (x: 1.5em),
     [Time], [Single-cycle], [Multi-cycle], [Pipelined],
     [Cycle time], [1250 ps], [350 ps], [350 ps],
-    [Execution time], [1250 ps], [1057.5 ps], [1250 ps]
+    [Execution time], [1250 ps], [1470 ps], [1750 ps]
   ))
 ]
 
@@ -182,7 +181,6 @@
   #text("e)  ")The cycle per iteration for one-issue is $10 - 1 = 9" cycles"$ after filling in the stall. And for two-issue, it's $15 slash 2 = 7.5" cycles"$ since the two iteratios start from cycle 6 and end at cycle 21. So the speedup is $9 slash 7.5 = 1.2$
 ]
 
-#pagebreak()
 #rotate(-90deg, reflow: true, align(center, table(
   columns: 21,
   stroke: (_, y) => (
@@ -202,10 +200,10 @@
   [`sub x30, x7, x29`], [], [], [], [], [], [IF], [], [ID], [], [], [EX], [ME], [WB], [], [], [], [], [], [], [],
   [`add x31, x11, x5`], [], [], [], [], [], [], [], [IF], [], [], [ID], [EX], [ME], [WB], [], [], [], [], [], [],
   [`sw x30, 0(x31)`], [], [], [], [], [], [], [], [IF], [], [], [ID], [], [EX], [ME], [WB], [], [], [], [], [],
-  [`addi x12, x12, 2`], [], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [EX], [ME], [WB], [], [], [],
-  [`bne x12, x13, TOP`], [], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [], [EX], [ME], [WB], [], [],
-  [`slli x5, x12, 3`], [], [], [], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [EX], [ME], [WB], [],
-  [`add x6, x10, x5`], [], [], [], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [], [EX], [ME], [WB],
+  [`addi x12, x12, 2`], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [EX], [ME], [WB], [], [], [], [],
+  [`bne x12, x13, TOP`], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [], [EX], [ME], [WB], [], [], [],
+  [`slli x5, x12, 3`], [], [], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [EX], [ME], [WB], [], [],
+  [`add x6, x10, x5`], [], [], [], [], [], [], [], [], [], [], [], [], [IF], [], [ID], [], [EX], [ME], [WB], [],
   [], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28],
   [`lw x7, 0(x6)`], [], [], [], [], [], [], [IF], [], [ID], [EX], [ME], [WB], [], [], [], [], [], [], [], [], 
   [`lw x29, 4(x6)`], [], [], [], [], [], [], [IF], [], [ID], [], [EX], [ME], [WB], [], [], [], [], [], [], [],
