@@ -1,0 +1,214 @@
+\documentclass[10pt,letterpaper]{beamer}
+\usetheme{Berkeley}
+\definecolor{sustechorange}{RGB}{237,108,0}
+\usecolortheme[named=sustechorange]{structure}
+\setbeamercolor{subsection in toc}{fg=sustechorange!70}
+\setbeamercolor{white-orange}{fg=white,bg=sustechorange!70}
+\setbeamercolor{white-orange2}{fg=white,bg=sustechorange!60!black} %cyan
+\setbeamercolor{alerted text}{fg=sustechorange}
+\setbeamerfont{alerted text}{series=\bfseries,shape=\upshape}
+\setbeamertemplate{enumerate items}[circle]
+\setbeamercolor{itemize item}{fg=sustechorange}
+\setbeamertemplate{blocks}[rounded][shadow]
+\setbeamercolor{block title example}{fg=white, bg=sustechorange}
+\setbeamercolor{block body example}{bg=sustechorange!10}
+
+\author[odat@tcd.ie]{Takaharu Oda, PhD (odat@tcd.ie)}
+\institute[SUSTech]{Southern University of Science and Technology\\\vspace{0.5em}SS149 (\begin{CJK}{UTF8}{gbsn}社会科学中心\end{CJK}), Spring 2024}
+\title[Week 14:\\Kant and\\Part II Conclusion]{Week 14: Kant and Part II Conclusion}
+\date{\alert{Early Modern Western Philosophy (17\textsuperscript{th}-18\textsuperscript{th} Centuries)\\\vspace{0.5em}\begin{CJK}{UTF8}{gbsn}近代西方哲学（十七–十八世纪）\end{CJK}}}
+
+%\pgfdeclareimage[height=1.3cm]{logo}{sustechlogo}
+%\logo{\pgfuseimage{logo}}
+
+\setbeamercovered{invisible}
+\setbeamercovered{still covered={\opaqueness<1->{10}}}
+
+\usepackage[final]{microtype} %subliminal refinements towards typographical perfection
+\usepackage[greek.polutoniko,english]{babel}
+\usepackage{xpatch}
+\xapptocmd{\greektext}{\edef~{\string~}}{}{}
+%\usepackage{kpfonts}
+\usepackage{soul} % Highlighting and strikeout
+\usepackage{lmodern}
+\usepackage{CJKutf8} 
+\usepackage{amsmath}
+\usepackage{fancybox}
+\usepackage[overlay]{textpos}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.7}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,positioning,shadows}
+
+\usepackage{phaistos} %\PHcat etc.
+\usepackage{substitutefont}
+\substitutefont{LPH}{\familydefault}{cmr}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=,urlcolor=sustechorange}
+
+\newcommand{\attrib}[1]{\begin{itemize}\setlength{\itemindent}{1cm}\item[\phantom{foobar}--]#1\end{itemize}}
+
+\addtobeamertemplate{navigation symbols}{}
+{\usebeamerfont{footline}
+	\usebeamercolor[fg]{footline}
+	\hspace{1pt}
+	\insertframenumber/\inserttotalframenumber}
+
+\AtBeginSection[]
+{\begin{frame}
+\frametitle{\insertsection}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\newcommand{\sectframetitle}{\frametitle{\insertsection}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\frame{\titlepage}	
+\begin{frame}
+\frametitle{\inserttitle}
+\tableofcontents
+\end{frame}
+
+\section{Weekly Quiz}
+\begin{frame}{A Quiz from the Last Week}
+\begin{block}
+    {Quiz 14:
+    In the context where Sheperd criticises Hume's argument for no idea of necessary connection, what logical fallacy (sophism) is suggested?} 
+    \begin{enumerate}
+        \item \textit{Quaternio terminorum} \only<2>{[fallacy of `four terms': a conclusion contains the fourth term, where the premisses do three terms. E.g. major premiss `all humans are mortal'; minor premiss `Socrates is a human'; therefore, `\textbf{Plato} is mortal'.]} %Aristotelian
+        \item \textit{Non sequitur} \only<2>{[fallacy of `not following': invalid deduction or no connection between a premiss and its conclusion]}
+        \item \textit{Reductio ad absurdum} \only<2>{[`reduction to an absurdity': \textit{not fallacious} itself as a valid deduction, but it exposes a fallacy]}
+        \item \alert<2>{\textit{Ignoratio elenchi}} \only<2>{\alert{[fallacy of `ignorance of refutation': 
+        an irrelevant conclusion from an inconsistent or fallacious premiss, however valid the argument may be. See the `Summary' section in the slides of last lecture]}}
+    \end{enumerate}
+\end{block}
+\vfill
+%This is not related to your final grade, but intended to observe your understanding of the last class.
+\end{frame}
+
+\section[\textit{Immanuel Kant}]{Film: \textit{The Last Days of Immanuel Kant}}
+\subsection{Kant}
+\begin{frame}{Immanuel Kant (1724–1804)}
+\begin{columns}
+\column{0.40\textwidth}
+    \centering
+\underline{Biographical Overview}\\ 
+\vspace{0.2em}
+%\includegraphics[width=\textwidth]{Kant}
+\begin{exampleblock}{All the graphics}
+    Removed for your compiling purpose.
+\end{exampleblock}
+\vfill
+\begin{beamercolorbox}[rounded=true,shadow=true]{white-orange}\justifying
+\textit{Philonous}. \uncover<2->{We are chained to a body, that is to say, our perceptions are connected with corporeal motions. [...]}
+\attrib{\textit{DHP} 3, 241, emphasis added}    
+\end{beamercolorbox}
+
+    \vfill
+\href{https://research.rug.nl/en/publications/on-dealing-with-kants-sexism-and-racism}{\underline{`... Kant's Sexism and Racism'}}\\(Pauline Kleingeld 2019)\\{\small \textcolor{sustechorange}{Are we whitewashed?}}
+
+\column{0.60\textwidth}
+   \vspace{-0.5em}
+\begin{small}
+    \begin{itemize}\itemsep-0.1em
+        \item<2-> \textbf{22 April 1724} – Born in Königsberg, Prussia [now Kaliningrad, Russia].
+        \item<3-> \textbf{c.1755} Publishes science papers, including `General Natural History and Theory of the Heavens'.
+        \item<3-> \textbf{1764} – \textit{Observations on the Feeling of the Beautiful and the Sublime}
+        \item<4-> \textbf{1781/87} – \textit{\textbf{Critique} of Pure Reason}
+        \item<5-> \textbf{1784} – `An Answer to the Question: What is \alert{Enlightenment}?'
+            \begin{itemize}\vspace{-0.2em}
+                \item[\PHram] To think freely for oneself. 
+            \end{itemize}
+        \item<4-> \textbf{1788} – \textit{\textbf{Critique} of Practical Reason} %on ethics
+        \item<4-> \textbf{1790} – \textit{\textbf{Critique} of Judgement} %on aesthetics
+        \item<6-> \textbf{1798} – \textit{Anthropology from a Pragmatic Point of View} [last lectures]
+        \item<7-> \textbf{1800} – \href{https://philpapers.org/rec/KANTJL}{`\underline{The Jäsche Logic}' [his student's notes/commentaries of Kant's lectures]} %on logic, relating to the first \textit{critique})}
+        \item<8-> \textbf{12 February 1804} – Dies in Königsberg.
+    \end{itemize}
+\end{small}
+\end{columns} 
+\end{frame}
+
+\subsection{Film}
+\begin{frame}{Film français par Philippe Collin\\(réalisé du livre de Thomas de Quincey, 1854)}
+\centering
+%\includegraphics[width=8.7cm]{LesDerniersKant}
+\vfill
+   \href{https://www.bilibili.com/video/BV1NR4y1c7Bn/?spm_id_from=333.337.search-card.all.click}{\underline{\textit{Les derniers jours d’Emmanuel Kant} (1993; Bilibili)}: 67 minutes} %full with subtitles: https://www.youtube.com/watch?v=BYGGHlgpdlw
+\end{frame} %https://www.radiofrance.fr/franceculture/podcasts/les-chemins-de-la-philosophie/quelle-place-pour-la-sensibilite-dans-la-morale-5505953 
+%https://www.youtube.com/watch?v=BYGGHlgpdlw
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section[Part II: C18th Conclusion]{Part II: 18th-Century Philosophy Conclusion}
+\begin{frame}{Concluding Philosophical Questions}
+\underline{Part II: 18th-Century Philosophy (developed from the 17th century)}
+\vspace{0.5em}
+    \begin{itemize}
+        \item What can we know and how can we know it? \pause
+             \begin{itemize}
+                \item[$\clubsuit$] Is there any difference between the current meaning of knowledge and early modern \textit{scientia} (`knowledge' in Latin)?\pause
+                \item[$\clubsuit$] What are \alert{ideas} (and notions) in relation to our finite minds?
+            \end{itemize}\pause
+        \item What is the mind and how is it related to the body? \pause
+            \begin{itemize}
+                \item[$\clubsuit$] Are bodies something beyond perceived \alert{ideas} (realist) or just a bundle of perceptions (anti-realist)?
+            \end{itemize}\pause
+        \item What is the nature of body? \pause
+            \begin{itemize}
+                \item[$\clubsuit$] Is it purely passive (occasionalist) or also somehow active?\pause
+                \item[$\clubsuit$] Are all of its perceived qualities (\alert{ideas}) equally real/objective?
+            \end{itemize}\pause
+        \item What kinds of causal relations could possibly exist in the world? \pause
+            \begin{itemize}
+                \item[$\clubsuit$] Does causation (causality) make sense metaphysically?
+            \end{itemize}\pause
+        \item Do reason and science support religion or contradict it?
+            \begin{itemize}
+                \item[$\clubsuit$] To that end, does philosophy (such as \textit{reductio} arguments from \alert{contradictions}) make sense at all?
+            \end{itemize}\pause
+
+        \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Assignments]{Assignments}
+\label{final}
+\begin{frame}{Part 2 (C18\textsuperscript{th}) Essay Questions}%\\(Do not take questions in Part 1: C17\textsuperscript{th})}
+\begin{enumerate}\small %\addtocounter{enumi}{5}
+    \item Critically evaluate Berkeley’s argument about occasional causes, compared with Malebranche’s occasionalism.
+    \item Critically evaluate Berkeley’s argument against one of the twelve objections in the \textit{Principles}. 
+    \item Critically evaluate Berkeley’s argument about embodiment in the \textit{Three Dialogues}.
+    \item Critically evaluate Berkeley’s argument for mechanical causes as distinguished from metaphysical ones in \textit{De motu}. %the De motu
+    \item Critically evaluate Hume’s argument about the uniformity of nature in his problem of induction (\textit{Enquiry}, §4).
+    \item Critically evaluate Hume’s argument that there is no idea of power or necessary connection (\textit{Enquiry}, §7), along with Shepherd’s response to that argument.
+    \item Critically evaluate Shepherd’s argument for a necessary connection in the \textit{Essay}, along with Hume’s sceptical response to that argument.
+    \item Critically evaluate Reid’s ‘same shop’ argument for trust in the senses.
+    %\item Critically evaluate Reid’s ‘first argument for moral liberty’ (\textit{Essays}, ch. 4.6).
+\end{enumerate}
+\end{frame}
+
+%next lecture info!
+\begin{frame}
+ \frametitle{Next Weeks 15 and 16: Presentations!}
+	\begin{overprint}
+		\begin{itemize}
+            \item[\raisebox{-0.3em}\PHcat] Assignment 1: Prepare for your essay submission (via Turnitin)
+                \begin{enumerate}
+                    \item \textcolor{gray}{Essay (either Part 1 or Part 2 Question): Friday 24 May midnight (Week 14)}
+                    \item \alert{Presentation (a given Question): Tuesday 28 May or 4 June midnight (Week 15/16)} 
+                \end{enumerate}
+                \vspace*{0.5ex}
+		  \item[\raisebox{-0.3em}\PHcat] Assignment 2: Read the `Argument Advice' and `Essay Questions' in PDF. And ask me or your assigned TA for anything unclear in the documents and slides.
+			\vspace*{3ex}
+            \item Keep active in the \alert{WeCom}/\alert{\begin{CJK}{UTF8}{gbsn}企业微信\end{CJK}} group for this course, and pay attention to the \alert{Blackboard} (SS149, Spring 2024), in which you can find all the basic info and \texttt{recommended references}.
+            \vspace*{1ex}
+            \item \alert{Office hours} of the instructor (Center for Social Sciences, C111) and TAs (their offices) are Mondays 2-4pm, or any working time of appointment, by WeCom direct message or email.
+		\end{itemize}
+	\end{overprint}
+\end{frame} 
+
+\end{document}
