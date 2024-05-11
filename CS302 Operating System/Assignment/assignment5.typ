@@ -22,7 +22,7 @@
   ))
   The page size is 4 KB, the access time for main memory is 100 ns, the access time for the TLB is 10 ns, and the average time to handle a page fault, including the time to update the TLB and page table, is $10^8$ ns. Assuming:
   + The TLB is initially empty
-  + During address translation, the TLB is accessed ﬁrst. If there is a miss in the TLB, the page table is accessed subsequently (ignoring the time taken to update the TLB after accessing the page table)
+  + During address translation, the TLB is accessed first. If there is a miss in the TLB, the page table is accessed subsequently (ignoring the time taken to update the TLB after accessing the page table)
   + A valid bit set to 0 indicates that the page is not present in memory, causing a page fault interrupt. After the page fault interrupt handling is completed, the execution returns to the instruction that triggered the page fault to execute.
   #par(first-line-indent: 0cm, "Given a virtual address access sequence of 1333H, 0555H, 2555H:")
   + What is the time required to sequentially access each of the three virtual addresses mentioned above? Give the calculation process. The answer should include the time cost of the final access to the physical address.
@@ -30,7 +30,7 @@
 ]
 
 #solution[
-  + The first address 1333H is not in the TLB, so the TLB is accessed first, resulting in a TLB miss. The page table is then accessed. Since it's valid in page table, the main memory is accessed. The time taken for the first is $10 + 100 times 2 = 210" ns"$. The second address 0555H is not in the TLB, nor in the page table. So it will take $10 + 100 + 10^8 + 100 = 100000210" ns"$ to access TLB, handle page fault, and access main memory. The third address 2555H is not in TLB but in page table. So it will take $10 + 100 times 2 = 210" ns"$ to access main memory. The total time is $210 + 100000210 + 210 = 100000630" ns"$. The time to access the physical address is considered.
+  + The first address 1333H is not in the TLB, so the TLB is accessed first, resulting in a TLB miss. The page table is then accessed. Since it's valid in page table, the main memory is accessed. The time taken for the first is $10 + 100 times 2 = 210" ns"$. The second address 0555H is not in the TLB, nor in the page table. So it will take $10 + 100 + 10^8 + 10 + 100 = 100000220" ns"$ to access TLB, handle page fault, and access main memory. The third address 2555H is not in TLB but in page table. So it will take $10 + 100 times 2 = 210" ns"$ to access main memory. The total time is $210 + 100000220 + 210 = 100000640" ns"$. The time to access the physical address is considered.
   + Since the virtual address 1333H is accessed before 0555H, the second virtual page is the least recently used page, which will be swapped out and the phyical page frame will be deallocated. The physical page with frame number 233H will be allocated to the No. 0 virtual page. So the physical address for the virtual address 0555H is 233555H.
 ]
 
