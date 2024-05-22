@@ -24,11 +24,11 @@ int main() {
                 min2 = min(min2, dp2[i - 1][j]);
             }
             
-            if (dp1[i][j] > min1 + !(j == b[i])) {
-                dp1[i][j] = min1 + !(j == b[i]) ;
+            if (dp1[i][j] > min1 + j != b[i]) {
+                dp1[i][j] = min1 + j != b[i];
                 dp2[i][j] = min2 + abs(x[j] - a[i]);
             }
-            if (dp1[i][j] == min1 + !(j == b[i])) {
+            if (dp1[i][j] == min1 + j != b[i]) {
                 dp2[i][j] = min(dp2[i][j], min2 + abs(x[j] - a[i]));
             }
         }
