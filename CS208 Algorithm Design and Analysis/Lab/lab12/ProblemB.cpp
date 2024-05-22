@@ -16,21 +16,13 @@ int main() {
     for(int i = 1; i <= n; i++) {
         int min1 = 1e9, min2 = 1e9;
         for(int j = 1; j <= l; j++) {            
-            if (dp1[i - 1][j] < min1) {
+            if (dp1[i - 1][j] <= min1) {
                 min1 = dp1[i - 1][j];
-                min2 = dp2[i - 1][j];
-            }
-            if (dp1[i - 1][j] == min1) {
                 min2 = min(min2, dp2[i - 1][j]);
             }
             
-            if (dp1[i][j] > min1 + j != b[i]) {
-                dp1[i][j] = min1 + j != b[i];
-                dp2[i][j] = min2 + abs(x[j] - a[i]);
-            }
-            if (dp1[i][j] == min1 + j != b[i]) {
-                dp2[i][j] = min(dp2[i][j], min2 + abs(x[j] - a[i]));
-            }
+            dp1[i][j] = min1 + (j != b[i]);
+            dp2[i][j] = min(dp2[i][j], min2 + abs(x[j] - a[i]));
         }
     }
     
@@ -40,9 +32,7 @@ int main() {
             ans1 = dp1[n][i];
             ans2 = dp2[n][i];
         }
-        if (ans1 == dp1[n][i]) {
-            ans2 = min(ans2, dp2[n][i]);
-        }
+        if (ans1 == dp1[n][i]) ans2 = min(ans2, dp2[n][i]);
     }
     cout << ans1 << "\n" << ans2 << endl;
 
