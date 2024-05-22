@@ -61,12 +61,12 @@ int main() {
     cin >> n >> m; s = n + 1, t = n + 2;
     for(int i = 1, b; i <= n; i++) {
         cin >> b;
-        if(b > 0) { add(s, i, 1), add(i, s, 0); sum += b; }
-        else { add(i, t, 1), add(t, i, 0); }
+        if(b > 0) { add(s, i, b), add(i, s, 0); sum += b; }
+        else { add(i, t, -b), add(t, i, 0); }
     }
     for(int i = 1, u, v; i <= m; i++) { cin >> u >> v; add(v, u, INF), add(u, v, 0); }
     while(bfs(t)) ans += dinic(s, INF, t);
-    cout << sum - ans << endl;
+    cout << max(0LL, sum - ans) << endl;
 
     return 0;
 }
