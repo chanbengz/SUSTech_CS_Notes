@@ -1,0 +1,64 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /sensor:    
+    put:
+      operationId: "sensor.create"
+      tags:
+        - Relay sensor data
+      summary: Create a sensor data record in the cloud database
+      description: Create a sensor data record in the cloud database
+      parameters:
+        - name: sensor
+          in: body
+          description: Sensor data record to create
+          required: True
+          schema:
+            type: object
+            properties:
+              devicename:
+                  type: "string"
+              temp:
+                  type: "number"
+              humidity:
+                  type: "number"
+              rain:
+                  type: "string"
+              timestamp:
+                  type: "string"
+      responses:
+        200:
+          description: Sensor data record successfully created
+  /predictrain:
+    get:
+      operationId: "predictrain.predict"
+      tags:
+        - Predict rain
+      summary: "Predict whether it would using the temperature and humidity passed in from node"
+      description: "Predict whether it would using the temperature and humidity passed in from node"
+      parameters:
+        - name: temp
+          in: query
+          description: Temperature
+          required: true
+          type: number
+        - name: humidity
+          in: query
+          description: Temperature
+          required: true
+          type: number
+        
+      responses:
+        200:
+          description: "Successful prediction"          
