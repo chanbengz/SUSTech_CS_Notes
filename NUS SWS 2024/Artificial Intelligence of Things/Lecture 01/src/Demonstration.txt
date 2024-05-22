@@ -1,0 +1,29 @@
+1.	Create sqlite database on rpi
+
+2.	Create sqlite database on laptop
+
+3.	Setup hardware:
+		Power - 1
+		Ground - 9
+		Green LED - 40
+		Red LED - 38
+		Blue LED - 36
+		Rain Sensor - 35
+		DHT11 - 37
+		
+		MH-RD:
+			Board to Sensor Left Yellow Left Yellow
+			Board to Sensor Right Green Right Green
+
+4.	Start laptop rain-classifier.py
+
+5.	Start laptop aiot-cloud.py
+
+6.	Start laptop browser and goto http://localhost:5000/
+
+7.	Start rpi aiot-hub.py
+		python -m flask --app aiot-hub run
+
+8.	Start rpi browser and goto http://localhost:5000/
+
+9.	Start rpi aiot-node.py

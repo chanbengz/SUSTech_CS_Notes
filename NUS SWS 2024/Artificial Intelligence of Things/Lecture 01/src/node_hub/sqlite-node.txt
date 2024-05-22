@@ -1,0 +1,19 @@
+sudo apt-get install sqlite3
+
+sqlite3 aiot.db
+
+BEGIN;
+DROP TABLE `sensor`;
+COMMIT;
+
+BEGIN;
+CREATE TABLE `sensor` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `devicename` CHARACTER(8) NOT NULL, `temp` INTEGER NOT NULL, `humidity` INTEGER NOT NULL, `rain` CHARACTER(3) NOT NULL, `timestamp` DATETIME NOT NULL, `tocloud` BOOLEAN DEFAULT 0 NOT NULL);
+COMMIT;
+
+BEGIN;
+INSERT INTO sensor (`devicename`, `temp`, `humidity`, `rain`, `timestamp`) VALUES('test', 29, 50, 'No', datetime('now','localtime'));
+INSERT INTO sensor (`devicename`, `temp`, `humidity`, `rain`, `timestamp`) VALUES('test', 30, 55, 'No', datetime('now','localtime'));
+INSERT INTO sensor (`devicename`, `temp`, `humidity`, `rain`, `timestamp`) VALUES('test', 31, 60, 'Yes', datetime('now','localtime'));
+COMMIT;
+
+.quit

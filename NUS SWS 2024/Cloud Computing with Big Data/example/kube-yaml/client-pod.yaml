@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: http-client
+spec:
+  containers:
+  - name: http-client
+    image: yancanmao/client-image
