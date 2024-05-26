@@ -40,7 +40,24 @@
 ]
 
 #solution[
+ The definition of CDH problem is that, for adversary $cal(A)$ and group generator $cal(G)$, do the experiment below:
+ + Run $cal(G)(1^n)$ to get $(GG, q, g)$
+ + Choose $h_1, h_2 attach(arrow.l, br: R) GG$
+ + Run $cal(A)(GG, q, g, h_1, h_2)$ to get $h_3 in GG$
+ + The experiment evaluates to 1 if $h_3 = "DH"_g (h_1 h_2)$, and 0 otherwise.
+ Assume that the CDH problem is hard, i.e., for all efficient adversary $cal(A)$, the probability that the experiment evaluates to 1 is negligible. Then suppose we have an adversary $cal(A)$ for discrete logarithm problem and another adversary $cal(A)^prime$ that uses $cal(A)$ to solve the CDH problem, it works as follows:
+ + On input $(GG, q, g, h_1, h_2)$, $cal(A)^prime$ runs $cal(A)(GG, q, g, h_1)$ to get $x_1$
+ + Return $h_2^(x_1)$ as the solution of CDH problem, i.e., $h_3$.
+ It is obvious that $cal(A)^prime$ solves the CDH problem if and only if $cal(A)$ solves the discrete logarithm problem, i.e. $ Pr[cal(A) (GG, q, g, h_1) = 1] equiv Pr[cal(A)^prime (GG,q,g,h_1,h_2) = 1] $ Thus, since CDH is hard, we have also that the adversary $cal(A)$ succeeds with probability of a negligible value, which is$ Pr["DLog"_(cal(A), cal(G)) (n) = 1] lt.eq "negl"(n) $
+ Thus, the hardness of the CDH problem implies the hardness of the discrete logarithm problem.
+ Similarly, if we have an adversary $cal(A)$ for the CDH problem, we can construct an adversary $cal(A)^prime$ that uses $cal(A)$ to solve the DDH problem, it works as follows:
+ + On inputs $(GG, q, g, h_1, h_2, h_3)$, $cal(A) (GG, q, g, h_1, h_2)$ to get output $h_3^prime$
+ + If $h_3^prime = h_3$, return 1, otherwise return 0.
 
+Since the DDH problem is hard, the adversary $cal(A)$ succeeds with probability of a negligible value, and $cal(A)$ depends on $cal(A)^prime$ to solve the CDH problem, for which they have the same probability to win. The adversary $cal(A)^prime$ do the following things:
+ + Solve the CDH problem with $epsilon(n)$ probability
+ + If $h_3 eq.not "DH"_g (h_1 h_2)$, return a random value $h_3 in GG$
+ The probability that $cal(A)$ succeeds is $epsilon(n) + 1 slash abs(GG) lt.eq "negl" (n)$, and $epsilon(n) lt.eq "negl" (n) - 1 slash q$, which gives that the CDH problem can be solved with a negligible probability. Thus, the hardness of the DDH problem implies the hardness of the CDH problem.
 ]
 
 #problem[
@@ -87,7 +104,12 @@
 ]
 
 #solution[
-
+#set enum(numbering: "1.")
+  The man-in-the-middle attack works as follows:
+  + The adversary will play the role of Alice and Bob, and intercept the key and messages between Alice and Bob.
+  + For Alice, the adversary will act like Bob, and get the key $k_A$ from Alice. Alice will receive the forged key $k_B^prime$ from the adversary.
+  + For Bob, the adversary will act like Alice, and get the key $k_B$ from Bob. Bob will receive the forged key $k_A^prime$ from the adversary.
+  + Since the adversary follows exactly the protocal, Alice and Bob cannot detect that anything is wrong. The adversary can decrypt the messages from Alice and Bob, and encrypt the messages to Alice and Bob, and thus, the adversary can eavesdrop the conversation between Alice and Bob.
 ]
 
 #problem[
@@ -96,11 +118,12 @@
   + Alice chooses uniform $k, r in {0,1}^n$, and sends $s := k xor r$ to Bob
   + Bob chooses uniform $t in {0,1}^n$, and sends $u := s xor t$ to Alice.
   + Alice computes $w := u xor r$ and sends $w$ to Bob.
-  + Alice ouputs $k$ and Bob output the same key. Analyze the security of the scheme.
+  + Alice ouputs $k$ and Bob output $w xor t$.
+  Show that Alice and Bob output the same key. Analyze the security of the scheme.
 ]
 
 #solution[
-
+  Bob outputs $ w xor t = (u xor r) xor t = (s xor t xor r) xor t = s xor r = k $which is the same as Alice's output. But the scheme is not secure, since the adversary can easily get the key $k$ from the messages intercepted, which are $s, u, w$, by doing $ s xor u xor w = (k xor r) xor u xor (u xor r) = k $ without knowing the private keys $r, t$.
 ]
 
 #problem[
@@ -129,5 +152,5 @@
 #solution[
   + We construct an efficient adversary $A$ that breaks it with CPA by doint the steps: $A$ receives the challenge ciphertext $c := (c_1 = g^y, c_2 = h^y dot m)$, then it chooses a random $r, m^prime in Z^*_p$ and queries the oracle with $c^prime = (c_1 dot g^r, c_2 dot m^prime dot h^r)$. Since $c^prime_1 = g^(y + r)$ and $c^prime_2 = m dot m^prime dot h^(y + r)$, the oracle returns the plaintext $m m^prime$, and thus, $A$ can get the message $m$ by simply multiplying a inverse of $m^prime$.
   + The hash-and-sign signature scheme is secure against chosen-message attack. The signature scheme will replace $m$ with $"hash"(m)$. Since to forge a signature, the adversary must find a message $m^prime$ such that $"hash"(m^prime) = m$, in order to forge the signature of $m$ by querying the oracle with message $m^prime.double = "hash"(m^prime)$. If the hash function is collision-resistant, the adversary has a negligible probability of success.
-  + 
+  + We can construct a forger as follows: randomly choose a message $m^prime$ and query the singing oracle with message $m^prime$, then calculate $u = m dot m^(prime -1) mod (p - 1)$. The oracle will returns $r = g^k mod p$ and $s = k^(-1) (m^prime - r x) mod (p - 1)$. Then, compute $s^prime = s u mod (p - 1)$ and $r^prime equiv r u mod (p - 1)$, also $r equiv r^prime mod p$. Finally, return $(m, r^prime, s^prime)$ as the forged signature. The verfication will pass since $ h^r^prime r^s^prime = h^(r u) r^(s u) = (h^r r^s)^u = (g^m^prime)^u = g^(m^prime u) = g^m $ so the signature is forged.
 ]
