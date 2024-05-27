@@ -146,10 +146,10 @@ This exercise examines the effect of different cache designs, specifically compa
 #solution[
 #show table.cell.where(y: 0) : strong
 #set enum(numbering: "a)")
-	+ The table is shown below #align(center, table(columns: 3, inset: (x: 1em), fill: (x, y) => if y == 0 {luma(200)}, table.header("Address", "Virtual Page", "TLB Hit/Miss, Page Table Hit/Miss, Page fault"), [0x123D], [0x1], [TLB Miss, PT Hit, Page Fault],
+	+ The table is shown below #align(center, table(columns: 3, inset: (x: 1em), fill: (x, y) => if y == 0 {luma(200)}, table.header("Address", "Virtual Page", "TLB Hit/Miss, Page Table Hit/Miss, Page fault"), [0x123D], [0x1], [TLB Miss, PT Miss, Page Fault],
 	[0x08B3], [0x0], [TLB Miss, PT Hit, No Page Fault],
 	[0x365C], [0x3], [TLB Hit, PT Hit, No Page Fault],
-	[0x871B], [0x8], [TLB Miss, PT Hit, Page Fault],
+	[0x871B], [0x8], [TLB Miss, PT Miss, Page Fault],
 	[0xBEE6], [0xB], [TLB Miss, PT Miss, Page Fault],
 	[0x3140], [0x3], [TLB Hit, PT Hit, No Page Fault],
 	[0xC049], [0xC], [TLB Miss, PT Miss, Page Fault]))
@@ -159,10 +159,10 @@ This exercise examines the effect of different cache designs, specifically compa
 		inset: (x: 1em),
 		fill: (x, y) => if y == 0 {luma(200)},
 		[*Valid*], [*Tag*], [*Physical Page*], [*Time Since Last Access*],
-		[1], [0xC], [16], [0],
+		[1], [0xC], [15], [0],
 		[1], [0x8], [14], [2],
 		[1], [0x3], [6], [3],
-		[1], [0xB], [15], [1]
+		[1], [0xB], [12], [1]
 	))
 	And the final state of page table would be #align(center, table(
 		columns: 2,
@@ -181,13 +181,12 @@ This exercise examines the effect of different cache designs, specifically compa
 		[0], [Disk],
 		[1], [3],
 		[1], [12],
-		[1], [15],
-		[1], [16]
+		[1], [15]
 	))
-	b)  The table is shown below #align(center, table(columns: 5, fill: (x, y) => if y == 0 {luma(200)}, table.header("Address", "Virtual Page", "Index", "Tag", "TLB Hit/Miss, PT Hit/Miss, Page fault"), [0x123D], [0x1], [0x1], [0x0], [TLB Miss, PT Hit, Page Fault],
+	b)  The table is shown below #align(center, table(columns: 5, fill: (x, y) => if y == 0 {luma(200)}, table.header("Address", "Virtual Page", "Index", "Tag", "TLB Hit/Miss, PT Hit/Miss, Page fault"), [0x123D], [0x1], [0x1], [0x0], [TLB Miss, PT Miss, Page Fault],
 	[0x08B3], [0x0], [0x0], [0x0], [TLB Miss, PT Hit, No Page Fault],
 	[0x365C], [0x3], [0x1], [0x1], [TLB Hit, PT Hit, No Page Fault],
-	[0x871B], [0x8], [0x0], [0x4], [TLB Miss, PT Hit, Page Fault],
+	[0x871B], [0x8], [0x0], [0x4], [TLB Miss, PT Miss, Page Fault],
 	[0xBEE6], [0xB], [0x1], [0x5], [TLB Miss, PT Miss, Page Fault],
 	[0x3140], [0x3], [0x1], [0x1], [TLB Hit, PT Hit, No Page Fault],
 	[0xC049], [0xC], [0x0], [0x6], [TLB Miss, PT Miss, Page Fault]))
@@ -197,9 +196,9 @@ This exercise examines the effect of different cache designs, specifically compa
 		inset: (x: 1em),
 		fill: (x, y) => if y == 0 {luma(200)},
 		[*Valid*], [*Tag*], [*Physical Page*], [*Time Since Last Access*],
-		[1], [0xC], [16], [0],
+		[1], [0xC], [15], [0],
 		[1], [0x8], [14], [3],
 		[1], [0x3], [6], [1],
-		[1], [0xB], [15], [2]
+		[1], [0xB], [12], [2]
 	))
 ]
