@@ -1,4 +1,4 @@
-# CS305 Computer Networks
+# Computer Networks (CS305)
 
 ## About
 

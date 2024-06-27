@@ -1,4 +1,4 @@
-# Database System(CS307)
+# Database System (CS307)
 
 The content of this course is actually about how to use the database and principles to design the tables and customized functions. It will not deep into the principles of database and teach you how to build a database system from scratch neither.
 
