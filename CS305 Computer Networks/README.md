@@ -1,5 +1,7 @@
 # Computer Networks (CS305)
 
+Principles of computer networks, including the mechanisms and protocols of Internet, from theory to practice. Will also cover hands-on practices on network programming and related tools & commands.
+
 ## About
 
 - **Instructor:** `Ming TANG (唐茗)`

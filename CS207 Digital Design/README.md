@@ -1,5 +1,7 @@
 # Digital Design (CS207)
 
+Introduction to digital circuit design and analysis, along with programming in Verilog to describe the circuit for simulation and running on FPGA.
+
 ## About
 
 - **Instructor:** `Yuhui BAI (白雨卉)`
