@@ -2,7 +2,7 @@
 
 This course is not computer related but essential for science thinking. Though the final grade is not satisfying, I learnt a lot from this course. The instructor is a analytic philosopher, so the course might seem boring and tough for some students. Well, all philosophy courses are tough and mind-blowing.
 
-# About
+## About
 
 - **Instructor:** `Takaharu Oda (小田崇晴)`
 - **Semester:** `2024 Spring`
@@ -20,14 +20,14 @@ The content is divided into two parts: 17-th century and 18-th century, both tak
 | 4 | [Spinoza and Leibniz](./Material/Week4/) | Defense and objection to final causation |
 | 5 | [Leibniz and Cavendish](./Material/Week5/) | Argument for motion of matter |
 | 6 | [Cavendish and Malebranche](./Material/Week6/) | Panpsychism and Occasionalism |
-| 7 | [Locke and Astell and Part I Conclusion](./Material/Week7/) | The nature and origin of idea, argument for knowledge and judgement |
+| 7 | [Locke and Astell and Part I Conclusion](./Material/Week7/) | The nature and origin of idea, argument for knowledge and judgement and conclusion of 17-th century |
 | 8 | [Berkeley 1](./Material/Week8/) | Occasional causation |
-| 9 | [Berkeley 2](./Material/Week9/) |  |
-| 10 | [Berkeley 3](./Material/Week10/) |  |
-| 11 | [Berkeley 4](./Material/Week11/) |  |
-| 12 | [Hume](./Material/Week12/) |  |
-| 13 | [Shepherd](./Material/Week13/) |  |
-| 14 | [Kant and Part II Conclusion](./Material/Week14/) |  |
+| 9 | [Berkeley 2](./Material/Week9/) | Berkeley's response to objection |
+| 10 | [Berkeley 3](./Material/Week10/) | Argument of the Three Dialogues |
+| 11 | [Berkeley 4](./Material/Week11/) | Theories of causation |
+| 12 | [Hume](./Material/Week12/) | Hume's Fork, uniformity principle of nature, custom principle, chimera, copy principle and idea of 'No necessary connection' |
+| 13 | [Shepherd](./Material/Week13/) | Vision argument, Uncaused Objection |
+| 14 | [Kant and Part II Conclusion](./Material/Week14/) | Intro to Immanuel Kant and Conclusion of 18-th century |
 | 15-16 | [Presentation](./Essay/presentation.pdf) | 3 mins talks by students |
 
 ## Assessment
