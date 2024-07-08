@@ -12,6 +12,9 @@ Course Notes for the Computer Science @SUSTech.
 
 I'm Ben Chen, currently a sophomore student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to reach me via my email `chanben04gz@gmail.com`.
 
+> [!NOTE] 
+> Due to my preference for system security, I did not enroll most of the AI related courses like Machine Learning, Deep Learning and Intelligent Robotics. Sorry for not covering them. Please refer to other repos for those courses.
+
 ## Structure
 
 The repo contains the following courses for now
@@ -38,13 +41,15 @@ Basically the folders under each course are
 - **Slides** Lecture slides
 - **Text** Textbook and reference
 
-The notes can be viewed on my [blog](https://chanbengz.github.io).
+Mostly, assignments, notes and reports are written in typst or $\LaTeX$.
+
+The notes can be viewed on my [blog](https://chanbengz.github.io). ~~I haven't written any, though.~~
 
 ## How to Learn with the repo
-It depends on you. Trust yourself. As tips, you can preview the slides before the semester starts so as to have a general idea of the course, or even better, you will master the course if you're a quick-learner. 
+It depends on you, trust yourself. As tips, you can preview the slides before the semester starts so as to have a general idea of the course, or even better, you will master the course if you're a quick learner.
 
-### DON'T DO
-- Don't Ignore the lectures even if you've acquired the contents, as they will most likely contain some significant details that are not included in the slides ~~(why is that? I guess the professors forget)~~.
+### DON'T
+- Don't ignore the lectures even if you've acquired the contents, as they will most likely contain some significant details that are not included in the slides ~~(why is that? I guess the professors forget)~~.
 - Don't learn for the sake of exams, like paying attention to barely what the professor says to be tested. You will not learn anything.
 - Don't copy the codes or answers directly from the repo. Though labs and assignments are tough, they're the essence of the course, especially for computer science. (learning by doing is the best way to learn CS)
 
