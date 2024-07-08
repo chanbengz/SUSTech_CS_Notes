@@ -28,6 +28,9 @@ For quiz, midterm and final exams.
 
 ### Lab Exercise
 
+> [!WARNING]
+> The source codes are only for learning purpose. **DON'T** copy directly and submit to OJ, which might ruin you. Try understanding the idea, if trapped, feel free to contact [me](mailto:chanben04gz@gmail.com).
+
 There're 10 labs in total and six problems for each lab with (15 + 15 + 20 + 20 + 25 + 25) points.
 
 | Lab                | Problem                                                  | Note                                    |
@@ -93,6 +96,3 @@ There're 10 labs in total and six problems for each lab with (15 + 15 + 20 + 20 
 |                    | [Simple Problem](Labs/lab9/ProblemE.cpp)                 | Tarjan SCC                              |
 |                    | [Portal](Labs/lab9/ProblemF.cpp)                         | Dijstra + Layer                         |
 
-# License
-
-The source codes are only for learning purpose. **DON'T** copy directly and submit to OJ, which might ruin you.

@@ -27,6 +27,14 @@ The course introduces the necessary mathematics knowledge for computer science. 
 | Relation                       | Properties<br>Closure<br>$n$-ary Relation<br>Ordering and Comparability | Proof Matters                                                |
 | Graph and Trees                | Basic Concepts and Properties<br>Representation and Isomorphism<br>Connectivity<br>Euler and Hamilton Paths<br>Planar<br>Coloring<br>Shortest Path<br>Trees and MST | The most useful part<br>Similar to the content of DSAA (CS 203) |
 
+## Project
+
+
+
+## Exam
+
+Well, professor Chen won't leak any exam questions, however, the exam comes mostly from the homework and the slides. If you'd like to do some exam questions, refer to [wLUOw's repo](https://github.com/wLUOw/SUSTech_Math_Course_Materials/tree/master/CS201%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/6-%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98)
+
 ## Build
 
 If you want to make some changes to my answer and compile it on your own, change to the directory of this course and execute the command
