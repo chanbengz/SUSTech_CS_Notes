@@ -18,16 +18,16 @@ The content is divided into two parts: 17-th century and 18-th century, both tak
 | 2 | [Descartes 1](./Material/Week2/) | Meditation 1-3: Argument for sceptical hypothesis, Wax argument, and argument for the existence of God |
 | 3 | [Descartes 2](./Material/Week3/) | Meditation 5-6:  |
 | 4 | [Spinoza and Leibniz](./Material/Week4/) |  |
-| 5 |  |  |
-| 6 |  |  |
-| 7 |  |  |
-| 8 |  |  |
-| 9 |  |  |
-| 10 |  |  |
-| 11 |  |  |
-| 12 |  |  |
-| 13 |  |  |
-| 14 |  |  |
+| 5 | [Leibniz and Cavendish](./Material/Week5/) |  |
+| 6 | [Cavendish and Malebranche](./Material/Week6/) |  |
+| 7 | [Locke and Astell](./Material/Week7/) |  |
+| 8 | [Berkeley 1](./Material/Week8/) |  |
+| 9 | [Berkeley 2](./Material/Week9/) |  |
+| 10 | [Berkeley 3](./Material/Week10/) |  |
+| 11 | [Berkeley 4](./Material/Week11/) |  |
+| 12 | [Hume](./Material/Week12/) |  |
+| 13 | [Shepherd](./Material/Week13/) |  |
+| 14 | [Kant and Part II Conclusion] |  |
 | 15-16 | [Presentation](./Essay/presentation.pdf) | 3 mins talks by students |
 
 ## Assessment
@@ -55,5 +55,5 @@ The talks should cover another question from the list, and similar structure as 
 
 For essay, I wrote about the [final causes](./Essay/final_essay_ss149_benchen_12212231.pdf) from Leibniz and Spinoza. Compiled in typst.
 
-For presentation, I talked about the [material mind](./Essay/presentation.pdf) from Locke and Stllingfleet. Compiled in $$\LaTeX$$.
+For presentation, I talked about the [material mind](./Essay/presentation.pdf) from Locke and Stllingfleet. Compiled in $\LaTeX$.
 
