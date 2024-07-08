@@ -1,6 +1,6 @@
 # Discrete Math (CS201)
 
-The course introduces the necessary mathematics knowledge for Computer Science. The scope spreads widely and therefore, it might not dive in too much. There is mountainous concepts and proofs but don't be scared. The best way to learn this course is to read the slides carefully and know the steps to solve the homework by heart.
+The course introduces the necessary mathematics knowledge for computer science. The scope spreads widely and therefore, it might not dive in too much. Don't let the flood of concepts and proofs scare you. The best way to learn discrete math is to read the slides carefully and know the steps to solve the homework by heart.
 
 ## About
 
@@ -29,7 +29,7 @@ The course introduces the necessary mathematics knowledge for Computer Science. 
 
 ## Build
 
-If you want to make some changes to my anwer and compile it on your own, change to the directory of this course and execute the command
+If you want to make some changes to my answer and compile it on your own, change to the directory of this course and execute the command
 
 ```bash
 make
