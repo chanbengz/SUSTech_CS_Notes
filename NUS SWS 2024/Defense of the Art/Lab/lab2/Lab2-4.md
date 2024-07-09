@@ -51,7 +51,7 @@ for pos in range(16):
 # get the decrypted result from the box
 msg = []
 for i, num in enumerate(mid):
-    iv_char = int(iv_origin[i * 2: i * 2 + 2], 16)
+    iv_char = bytes.fromhex(iv_origin)[i]
     msg.append(iv_char ^ num)
 
 print(msg)
