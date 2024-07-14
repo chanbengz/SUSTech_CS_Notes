@@ -5,14 +5,14 @@ SUSTech `CS109` is a course of programming in `Java`, intended for the freshmen 
 
 ## About
 The folder contains two semsester's materials. In the first semsester, I was a student of the course, and in the second semsester, I was a student assistant. The course is taught by two professors, and the course content is largely the same.
-> [!INFO]
+> [!NOTE]
 > **Instructor:** `Zhuozhao Li (李卓钊)`
 >
 > **Semester:** `2022 Fall`
 >
 > We have a lab(LAB) every week and professor only requires us to submit one exercise(E)
 
-> [!INFO]
+> [!NOTE]
 > **Instructor:** `Fengwei Zhang (张锋巍)`
 >
 > **Semester:** `2023 Spring`
