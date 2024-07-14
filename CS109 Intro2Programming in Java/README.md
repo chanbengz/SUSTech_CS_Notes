@@ -4,12 +4,15 @@ SUSTech `CS109` is a course of programming in `Java`, intended for the freshmen 
 > Any use of my code is allowed, while COPING and SUBMITTING to the OJ is highly prohibited. DON'T ruin yourself.
 
 ## About
+The folder contains two semsester's materials. In the first semsester, I was a student of the course, and in the second semsester, I was a student assistant. The course is taught by two professors, and the course content is largely the same.
+> [!INFO]
 > **Instructor:** `Zhuozhao Li (李卓钊)`
 >
 > **Semester:** `2022 Fall`
 >
 > We have a lab(LAB) every week and professor only requires us to submit one exercise(E)
 
+> [!INFO]
 > **Instructor:** `Fengwei Zhang (张锋巍)`
 >
 > **Semester:** `2023 Spring`
@@ -26,4 +29,4 @@ This folder collects my code for the assignment and practice in laboratory, and 
 - 2023_Spring
     * [Assignment](./2023_Spring/Assignment): Reference codes
     * [Lab Material](./2023_Spring/Lab_Material): Slides that I use in lab
-    * [Project][./2023_Spring/Project]: Project requirements
+    * [Project](https://github.com/chanbengz/SUSTech_CS109_Project/): Project requirements
