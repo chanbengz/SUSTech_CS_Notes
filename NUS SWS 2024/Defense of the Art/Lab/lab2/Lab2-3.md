@@ -1,4 +1,4 @@
-# DOTA Lab 2 Part 2
+# DOTA Lab 2 Part 3
 
 ## Task 1: Encrypt with CBC and ECB
 
