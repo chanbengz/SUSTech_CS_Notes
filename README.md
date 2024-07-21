@@ -54,7 +54,7 @@ It depends on you, trust yourself. As tips, you can preview the slides before th
 - Don't copy the codes or answers directly from the repo. Though labs and assignments are tough, they're the essence of the course, especially for computer science. (learning by doing is the best way to learn CS)
 
 ### DO
-- Hacking is musch appreciated, no matter if it's irrelevant to the course. You will learn a lot from it. I encourage you to actually use linux and vim and so in your daily life.
+- Hacking is much appreciated, no matter if it's irrelevant to the courses. You will learn a lot from it. For example, it's encouraged to actually use linux and vim and so in your daily life and follow the [LFS](https://www.linuxfromscratch.org/).
 - Ask smart questions. Searching and solving problems by yourself is a basic skill for CS students. Questions only come up after you've tried everything, and express the issue clearly.
 - Pay more attention to art. It's not a joke. Art will not only enrich your taste, but also improve your creativity and organization aibility.
 

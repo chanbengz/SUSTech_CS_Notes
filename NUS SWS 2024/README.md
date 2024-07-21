@@ -6,7 +6,7 @@ The summer workshop is orgranized by NUS School of Computing, intended for fresh
 
 ## Content
 
-There is one cluster for freshman, X-cluster, and two for sophomores, **Cloud, Security, IoT & AI** and **Media, Analytics & AI**. I was selected to join the former one.
+There is one cluster for freshman, **X-cluster**, and two for sophomores, **Cloud, Security, IoT & AI** and **Media, Analytics & AI**. I was selected to join the former one.
 
 ### Courses
 
@@ -14,10 +14,10 @@ There is one cluster for freshman, X-cluster, and two for sophomores, **Cloud, S
 | --- | --- | --- |
 | [Artificial Intelligence of Things](./Artificial%20Intelligence%20of%20Things) | Dr. Tan Wee Kek | Edge computing and embedded computer (robotics) combined with algorithms |
 | [Cloud Computing with Big Data](./Cloud%20Computing%20with%20Big%20Data) | Dr. Richard T. B. Ma | Kubernetes, server and container |
-| [Deep Learning](./Deep%20Learning) | Dr. Colin Tan | Neural networks |
-| [Defence of the Art](./Defence%20of%20the%20Art) | Dr. Hugh Anderson | Cybersecurity |
-| [Robotics](./Robotics) | Dr. Boyd Anderson | Building and programming robots |
 | [Visual Computing](./Visual%20Computing) | Dr. Terence Tim | Computer vision and pattern recognition |
+| [Defence of the Ancient](./Defence%20of%20the%20Ancient) | Dr. Hugh Anderson | Cybersecurity |
+| [Robotics](./Robotics) | Dr. Boyd Anderson | Building and programming robots |
+| [Deep Learning](./Deep%20Learning) | Dr. Colin Tan | Neural networks, integrated into Robotics |
 
 I was involved in the course of **DOTA**.
 
