@@ -12,7 +12,7 @@ Course Notes for the Computer Science @SUSTech.
 
 :laughing: Welcome to my humble repo :)
 
-I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to raise an Issue or reach me via my [email](mailto:chanben04gz@gmail.com) `chanben04gz@gmail.com. Also if you'd like to contribute to this repo, please directly create a PR!
+I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to raise an Issue or reach me via my [email](mailto:chanben04gz@gmail.com) `chanben04gz [AT] gmail [DOT] com`. Also if you'd like to contribute to this repo, please directly create a PR!
 
 > [!NOTE] 
 > Due to my preference for system security, I did not (and will neither) enroll most of the AI related courses like Machine Learning (CS401) and Intelligent Robotics (CS405). Sorry for not covering them. Please refer to other repos for those courses.
@@ -21,7 +21,7 @@ I'm Ben Chen, currently a junior student majoring in CS. The repo records my eve
 
 The repo contains the following courses for now
 | Course | Instructor | Semester |
-| ------ | ---------- | -------- |
+| :-------------------- | :----------: | :--------: |
 | [CS109 Intro to Programming in Java](./CS109%20Intro2Programming%20in%20Java) | Zhuozhao Li | Fall 2022 |
 | [CS201 Discrete Math](./CS201%20Discrete%20Math) | Shan Chen | Fall 2023 |
 | [CS202 Computer Organization](./CS202%20Computer%20Organization) | Yuhui Bai | Spring 2024 |
