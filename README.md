@@ -12,7 +12,7 @@ Course Notes for the Computer Science @SUSTech.
 
 :laughing: Welcome to my humble repo :)
 
-I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to reach me via my email `chanben04gz@gmail.com`.
+I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to reach me via my [email](mailto:chanben04gz@gmail.com) `chanben04gz@gmail.com` or raise an issue.
 
 > [!NOTE] 
 > Due to my preference for system security, I did not enroll most of the AI related courses like Machine Learning, Deep Learning and Intelligent Robotics. Sorry for not covering them. Please refer to other repos for those courses.
@@ -44,7 +44,7 @@ Basically the folders under each course are
 - **Slides** Lecture slides
 - **Text** Textbook and reference
 
-Mostly, assignments, notes and reports are written in typst or $\LaTeX$.
+Mostly, assignments, notes and reports are written in Typst or $\LaTeX$.
 
 The notes can be viewed on my [blog](https://chanbengz.github.io). ~~I haven't written any, though.~~
 
