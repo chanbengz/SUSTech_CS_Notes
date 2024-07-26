@@ -4,13 +4,15 @@
 
 Course Notes for the Computer Science @SUSTech.
 
+:book: Language: <a href="https://github.com/chanbengz/SUSTech_CS_Notes/blob/master/README.md">English</a> • <a href="https://github.com/chanbengz/SUSTech_CS_Notes/blob/main/README_ZH.md">中文</a> 
+
 </div>
 
 ## Intro
 
 :laughing: Welcome to my humble repo :)
 
-I'm Ben Chen, currently a sophomore student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to reach me via my email `chanben04gz@gmail.com`.
+I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to reach me via my email `chanben04gz@gmail.com`.
 
 > [!NOTE] 
 > Due to my preference for system security, I did not enroll most of the AI related courses like Machine Learning, Deep Learning and Intelligent Robotics. Sorry for not covering them. Please refer to other repos for those courses.
@@ -29,6 +31,7 @@ The repo contains the following courses for now
 - [CS305 Computer Networks](./CS305%20Computer%20Networks)
 - [CS307 Database System](./CS307%20Database%20System)
 - [CS309 Object-Oriented Analysis and Design](./CS309%20Object-Oriented%20Analysis%20and%20Design)
+- [CS321 Group Project](./CS321%20Group%20Project)
 - [CS323 Compiler Principles](./CS323%20Compiler%20Principles)
 - [CSE5014 Cryptography and Network Security](./CSE5014%20Cryptography%20and%20Network%20Security)
 - [SS149 Modern Western Philosophy](./SS149%20Modern%20Western%20Philosophy/)
@@ -46,7 +49,7 @@ Mostly, assignments, notes and reports are written in typst or $\LaTeX$.
 The notes can be viewed on my [blog](https://chanbengz.github.io). ~~I haven't written any, though.~~
 
 ## How to Learn with the repo
-It depends on you, trust yourself. As tips, you can preview the slides before the semester starts so as to have a general idea of the course, or even better, you will master the course if you're a quick learner.
+It depends on you, trust yourself. As tips, you can preview the slides before the semester starts so as to have a general idea of the course, or even better, you will master the course if you're a quick learner. Also, you can refer to the solutions to check if you're right or not, and review the exams to see if you've mastered the course.
 
 ### DON'T
 - Don't ignore the lectures even if you've acquired the contents, as they will most likely contain some significant details that are not included in the slides ~~(why is that? I guess the professors forget)~~.
@@ -55,6 +58,6 @@ It depends on you, trust yourself. As tips, you can preview the slides before th
 
 ### DO
 - Hacking is much appreciated, no matter if it's irrelevant to the courses. You will learn a lot from it. For example, it's encouraged to actually use linux and vim and so in your daily life and follow the [LFS](https://www.linuxfromscratch.org/).
-- Ask smart questions. Searching and solving problems by yourself is a basic skill for CS students. Questions only come up after you've tried everything, and express the issue clearly.
+- Ask smart questions. Searching and solving problems by yourself is a basic skill for CS students. Questions only come up after you've tried everything, and you can express the issue clearly.
 - Pay more attention to art. It's not a joke. Art will not only enrich your taste, but also improve your creativity and organization aibility.
 
