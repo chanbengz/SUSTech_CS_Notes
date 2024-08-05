@@ -4,7 +4,7 @@
 
 The orginal picture `pic_origin.bmp`
 
-![](https://gist.githubusercontent.com/chanbengz/a29058bb1ffbb8928a160b6546d4ce63/raw/6f2f78c782266ace3152a425886e1a1e0cce5561/pic_original.bmp)
+![](./img/pic_original.bmp)
 
 For this task, I use [CyberChef](https://gchq.github.io/CyberChef/) to encrypt the plaintext with the key `00112233445566778889aabbccddeeff` and iv `0102030405060708090A0B0C0D0E0F00` for both CBC and ECB.
 
@@ -14,11 +14,11 @@ Next, use ImHex software to modify the header in order to view the bmp pic.
 
 Encrypt the origin picture
 
-![](https://gist.githubusercontent.com/chanbengz/a29058bb1ffbb8928a160b6546d4ce63/raw/6f2f78c782266ace3152a425886e1a1e0cce5561/ecb_encrypt.png)
+![](./img/ecb_encrypt.png)
 
 And get the encrypted picture
 
-![](https://gist.githubusercontent.com/chanbengz/a29058bb1ffbb8928a160b6546d4ce63/raw/6f2f78c782266ace3152a425886e1a1e0cce5561/ecb_enc_pic.bmp)
+![](./img/ecb_enc_pic.bmp)
 
 It's clear that though the color information is encrypted, the pattern of the encrypted picture is still visible, and similar to the original picture. The ECB mode is not secure since the ciphertext still contains information about the plaintext, which violates the perfect secrecy.
 
@@ -26,11 +26,11 @@ It's clear that though the color information is encrypted, the pattern of the en
 
 Encrypt the origin picture
 
-![](https://gist.githubusercontent.com/chanbengz/a29058bb1ffbb8928a160b6546d4ce63/raw/6f2f78c782266ace3152a425886e1a1e0cce5561/cbc_encrypt.png)
+![](./img/cbc_encrypt.png)
 
 And get the encrypted picture
 
-![](https://gist.githubusercontent.com/chanbengz/a29058bb1ffbb8928a160b6546d4ce63/raw/6f2f78c782266ace3152a425886e1a1e0cce5561/cbc_enc_pic.bmp)
+![](./img/cbc_enc_pic.bmp)
 
 The encrypted picture looks chaotic and does not contain any information about the original picture. The CBC mode is secure since the ciphertext does not contain any information about the plaintext. We cannot derive any useful information from the encrypted picture.
 
