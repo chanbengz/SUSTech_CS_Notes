@@ -34,4 +34,7 @@ This course is a graduate-level course on cryptography and network security. The
 | [lec16](./Slides/lec16.pdf) | Zero Knowledge Proof & Homomorphic Encryption | Definition<br>Quadratic Residue |
 
 ## Assignment & Exam
+> [!NOTE]
+> My final review can be found [here](https://chanbengz.github.io/posts/crypto-review/).
+
 The assignments cover the topics mentioned in the content section. The questions in the final exam will mostly be the same as the assignments. The final exam will not cover the last two lectures.
