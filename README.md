@@ -12,7 +12,7 @@ Course Notes for the Computer Science @SUSTech.
 
 :laughing: Welcome to my humble repo :)
 
-I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to raise an Issue or reach me via my [email](mailto:chanben04gz@gmail.com) `chanben04gz [AT] gmail [DOT] com`. Also if you'd like to contribute to this repo, please directly create a PR!
+I'm Ben Chen, currently a junior student majoring in CS. The repo records my every notes, materials and codes of the courses that I've taken seriously. I might not express my solutions well so if you have problems understanding my writing, please feel free to raise an Issue or reach me via my email `chanben04gz [AT] gmail [DOT] com`. Also if you'd like to contribute to this repo, please directly create a PR!
 
 > [!NOTE] 
 > Due to my preference for system security, I did not (and will neither) enroll most of the AI related courses like Machine Learning (CS401) and Intelligent Robotics (CS405). Sorry for not covering them. Please refer to other repos for those courses.
@@ -48,7 +48,7 @@ Basically the folders under each course are
 
 Mostly, assignments, notes and reports are written in Typst or $\LaTeX$.
 
-The notes can be viewed on my [blog](https://chanbengz.github.io). ~~I haven't written any, though.~~
+The notes can be viewed on my [blog](https://blog.benx.dev). ~~I haven't written any, though.~~
 
 ## How to Learn with the repo
 It depends on you, trust yourself. As tips, you can preview the slides before the semester starts so as to have a general idea of the course, or even better, you will master the course if you're a quick learner. Also, you can refer to the solutions to check if you're right or not, and review the exams to see if you've mastered the course.
