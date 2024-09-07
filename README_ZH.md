@@ -29,6 +29,7 @@
 | [CS203 数据结构与算法分析（DSAA）](./CS203%20Data%20Structures%20and%20Algorithm%20Analysis) | 唐博          | 2023 秋季 |
 | [CS207 数字逻辑](./CS207%20Digital%20Design)                 | 白雨卉        | 2023 秋季 |
 | [CS208 算法设计与分析（ADA）](./CS208%20Algorithm%20Design%20and%20Analysis) | 史玉回        | 2024 春季 |
+| [CS301 Embedded System and Microcomputer Principle](./EE411%20Information%20Theory%20and%20Coding) | 白雨卉 | 2024 秋季 |
 | [CS302 操作系统（OS）](./CS302%20Operating%20System)         | 张殷乾        | 2024 春季 |
 | [CS303 人工智能（AI）](./CS303%20Artificial%20Intelligence)  | 唐珂          | 2024 秋季 |
 | [CS305 计算机网络](./CS305%20Computer%20Networks)            | 唐茗          | 2023 秋季 |
