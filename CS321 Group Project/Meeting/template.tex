@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\usepackage{amssymb, amsfonts, latexsym, amsthm, amsmath, framed, esvect, parskip}
+\usepackage{amsmath, amssymb, framed, tcolorbox, mathrsfs, xcolor, graphicx}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\setbeamerfont{footnote}{size=\tiny}
+\addbibresource{ref.bib}
+\tcbuselibrary{theorems}
+\usepackage{listings}
+\definecolor{green}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+    frame=none,
+    language=Java,
+    showstringspaces=false,
+    columns=fullflexible,
+    basicstyle = \ttfamily\small,
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    morekeywords={function},
+    breakatwhitespace=true,
+    tabsize=4
+}
+
+% Beamer theme setting
+\definecolor{myteal}{cmyk}{0.5,0,0.15,0}
+\usecolortheme[named=myteal]{structure}
+\definecolor{my-yellow}{cmyk}{0,0.2,0.7,0,1.00}
+\definecolor{my-blue}{cmyk}{0.80, 0.13, 0.14, 0.04, 1.00}
+\definecolor{my-green}{cmyk}{0.4,0,0.4,0,1.00}
+\tcbset{
+defstyle/.style={fonttitle=\bfseries\upshape, colback=my-yellow!5,colframe=my-yellow!80!black},
+theostyle/.style={fonttitle=\bfseries\upshape, colback=my-blue!5,colframe=my-blue!80!black},
+corstyle/.style={fonttitle=\bfseries\upshape, colback=my-green!5,colframe=my-green!80!black},
+}
+\usetheme{Madrid}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+
+\title{Week X Report}
+\author{Ben Chen}
+\institute{Dept of Computer Science and Engineering, SUSTech}
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{title}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+\tiny
+\printbibliography
+\end{frame}
+\end{document}

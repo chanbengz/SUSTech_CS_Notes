@@ -1,0 +1,141 @@
+\documentclass{beamer}
+\usepackage{amssymb, amsfonts, latexsym, amsthm, amsmath, framed}
+\usepackage{esvect, parskip, amsmath, amssymb, framed, tcolorbox}
+\usepackage{mathrsfs, xcolor, graphicx}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\setbeamerfont{footnote}{size=\tiny}
+\addbibresource{ref.bib}
+\tcbuselibrary{theorems}
+\usepackage{listings}
+\definecolor{green}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+    frame=none,
+    language=Java,
+    showstringspaces=false,
+    columns=fullflexible,
+    basicstyle = \ttfamily\small,
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    morekeywords={function},
+    breakatwhitespace=true,
+    tabsize=4
+}
+
+% Beamer theme setting
+\definecolor{myteal}{cmyk}{0.5,0,0.15,0}
+\usecolortheme[named=myteal]{structure}
+\definecolor{my-yellow}{cmyk}{0,0.2,0.7,0,1.00}
+\definecolor{my-blue}{cmyk}{0.80, 0.13, 0.14, 0.04, 1.00}
+\definecolor{my-green}{cmyk}{0.4,0,0.4,0,1.00}
+\tcbset{
+defstyle/.style={fonttitle=\bfseries\upshape, colback=my-yellow!5,colframe=my-yellow!80!black},
+theostyle/.style={fonttitle=\bfseries\upshape, colback=my-blue!5,colframe=my-blue!80!black},
+corstyle/.style={fonttitle=\bfseries\upshape, colback=my-green!5,colframe=my-green!80!black},
+}
+\usetheme{Madrid}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+
+\title{Research on Side-Channel Attack in RISC-V}
+\author{Ben Chen}
+\institute{Dept of Computer Science and Engineering, SUSTech}
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{With Great Power Come Great Side Channels\cite{with-great}}
+  Motivation: Noise and false positive in time measurement is fatal to side channel
+  \begin{itemize}
+    \item Improve statistical analysis on timing result with bounded type-1 error
+    \item Propose new decision rule based on boostrap to obtain a reasonable accept and reject hypothesis $H_0$, and implement a evaluation tool called RTLF
+    \item Compared with Mona, dudect, tlsfuzzer and t-test, shows a higher accuracy
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ZenHammer\cite{zenhammer}}
+  Motivation: RowHammer attack on Intel $\rightarrow$ attack on AMD chips
+  \begin{itemize}
+    \item Reverse engineer the address mapping function of DRAM
+    \item Design a access pattern to bypass the TRR, and activate the throughput optimization to make attack effective
+    \item Evaluated on AMD Zen 2 and Zen 3 with multiple DDR4 and DDR5 memory to smash the page table, secrets and priviledge escalation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{BunnyHop\cite{bunnyhop}}
+  Exploit the instruction prefetcher on Intel
+  \begin{itemize}
+    \item Exploit the interaction between branch predictor and instruction prefetcher to enhance the speculative attack
+    \item Propose a variant of Flush+Reload and Prime+Probe attack
+    \item Show an attack on the KASLR with BunnyHop-Reload attack to extract kernel space address
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{PrefetchX\cite{prefetchx}}
+  Exploit the XPT prefetcher on Intel
+  \begin{itemize}
+    \item XPT prefetch L2 directly from memory with prediction of L3 cache miss, XPT is shared cross-core and works without shared cache and memory
+    \item Propose a new attack primitive: PREFETCHX-Evict and PREFETCHX-Flush
+    \item Experiemtn shows an extraction of RSA private key and monitor of user keyboard behaviour, and works in visualized envrionment(AWS EC2)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{L1 I\$ Attack on Xiangshan}
+  \url{https://www.bilibili.com/video/BV1mhH5eeEyZ/?share_source=copy_web&vd_source=cff89ae5ccad158ff4e1081ad1a85564&t=10621}
+\end{frame}
+
+\begin{frame}
+  \frametitle{WhisperFuzz\cite{whisperfuzz}}
+  Motivation: fuzzing software $\rightarrow$ fuzzing hardware
+  \begin{itemize}
+    \item Using white-box fuzzing to locate possible timing vulnerability in RTL source code
+    \item Combined with static analysis, can cover the archtectural temporal diagram and states transformation to indicate possible timing difference
+    \item Evaluated on BOOM, Rocket Core, CVA6, 8 critical out of 12 found
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{SpecLFB\cite{speclfb}}
+  Defense against the Speculative Side-Channel attack
+  \begin{itemize}
+    \item Propose a new component called Line-Fill Buffer to store the cache line before the instruction retired
+    \item Design ROB unsafe mask to track status of instruction to narrow the protection range
+    \item Evaluated on SonicBOOM(RISC-V) and tested on FPGA and Gem5
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ClepsydraCache\cite{clepsydra}}
+  Defense cache side-channel attack with TTL and address randomization
+  \begin{itemize}
+    \item Mechanism to create dynamic TTL and monitor cache's Time-To-Live and evict when expired
+    \item Use address randomization to make eviction set construction hard
+    \item Prevent Prime+Probe, Flush+Reload with low overhead
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Possible Direction}
+  \begin{itemize}
+    \item Attack on the cross-core L2 cache prefetch
+    \item Multi-core attack on the RVWMO model
+    \item Defense against (speculative) cache side-channel
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+\tiny
+\printbibliography
+\end{frame}
+\end{document}
