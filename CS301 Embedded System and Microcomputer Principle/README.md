@@ -6,7 +6,7 @@ The course
 
 - **Instructor:** `Yuhui Bai (白雨卉)`
 - **Semester:** `2024 Fall`
-- **Textbook:** ``
+- **Textbook:** `NO Textbook, only references`
 
 ## Content
 

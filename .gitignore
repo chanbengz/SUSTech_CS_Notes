@@ -9,7 +9,6 @@
 *.blg
 *.log
 *.out
-*.pdf
 *.synctex.gz
 *.toc
 *.fdb_latexmk
