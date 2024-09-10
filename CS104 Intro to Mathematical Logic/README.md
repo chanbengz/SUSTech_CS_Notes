@@ -1,6 +1,6 @@
 # Introduction to Mathematical Logic (CS204)
 
-The course introduces the necessary mathematical logic concepts in computer science.
+The course introduces the necessary concepts of mathematical logic in computer science.
 
 ## About
 
@@ -14,15 +14,14 @@ The course introduces the necessary mathematical logic concepts in computer scie
  - [Assignment](./Assignment): Handwritten assignments with full problems and reference solutions
  - [Text](./Text): Reading materials
 
-| Chapter | Content | Note |
-| ------- | ------- | ---- |
-| TBD     | TBD     | TBD  |
-|         |         |      |
-|         |         |      |
-|         |         |      |
-|         |         |      |
-|         |         |      |
-|         |         |      |
-|         |         |      |
+| Chapter              | Content                                                      | Note                                                         |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Introduction         | Overview<br>Inference Rules<br>Syntax Parsing                | Lots of rules to remember :(                                 |
+| Natural Deduction    | Derivations and proofs<br>Semantics and Truth Table          | Know how to prove the sequent                                |
+| Formal Proof         | Rules and Proofs<br>Equivalence<br>Normal Forms<br>SAT<br>Resolutions with Completeness | Lots of concepts :(                                          |
+| First Order Logic    | Rules & Formal  Proof in FOL<br>Substitution<br>CNF<br>Terms and Unification<br>Resolution | Qualifiers matter                                            |
+| Program Verification | Assignment & Array<br>Condition<br>Loop<br>Correctness       | Hard to write a program<br>Even harder to prove its correctness |
 
 ## Exam
+
+The test problems are similar to the assignments. It's allowed to bring a hand-written cheatsheet in A4 size.
