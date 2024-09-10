@@ -22,6 +22,7 @@ I'm Ben Chen, currently a junior student majoring in CS. The repo records my eve
 The repo contains the following courses for now
 | Course | Instructor | Semester |
 | :-------------------- | :----------: | :--------: |
+| [CS104 Intro to Mathematical Logic](./CS104%20Intro%20to%20Mathematical%20Logic) | Mingxin He | Spring 2023 |
 | [CS109 Intro to Programming in Java](./CS109%20Intro2Programming%20in%20Java) | Zhuozhao Li | Fall 2022 |
 | [CS201 Discrete Math](./CS201%20Discrete%20Math) | Shan Chen | Fall 2023 |
 | [CS202 Computer Organization](./CS202%20Computer%20Organization) | Yuhui Bai | Spring 2024 |
@@ -52,6 +53,11 @@ Mostly, assignments, notes and reports are written in Typst or $\LaTeX$.
 The notes can be viewed on my [blog](https://blog.benx.dev). ~~I haven't written any, though.~~
 
 ## How to Learn with the repo
+
+> [!NOTE] 
+>
+> If you'd like to download folder(s) of specific course, [Downgit](https://downgit.benx.dev) is a suitable tool for you.
+
 It depends on you, trust yourself. As tips, you can preview the slides before the semester starts so as to have a general idea of the course, or even better, you will master the course if you're a quick learner. Also, you can refer to the solutions to check if you're right or not, and review the exams to see if you've mastered the course.
 
 ### DON'T
