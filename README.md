@@ -23,7 +23,7 @@ The repo contains the following courses for now
 | Course | Instructor | Semester |
 | :-------------------- | :----------: | :--------: |
 | [CS104 Intro to Mathematical Logic](./CS104%20Intro%20to%20Mathematical%20Logic) | Mingxin He | Spring 2023 |
-| [CS109 Intro to Programming in Java](./CS109%20Intro2Programming%20in%20Java) | Zhuozhao Li | Fall 2022 |
+| [CS109 Intro to Programming in Java](./CS109%20Intro%20to%20Programming%20in%20Java) | Zhuozhao Li | Fall 2022 |
 | [CS201 Discrete Math](./CS201%20Discrete%20Math) | Shan Chen | Fall 2023 |
 | [CS202 Computer Organization](./CS202%20Computer%20Organization) | Yuhui Bai | Spring 2024 |
 | [CS203 Data Structures and Algorithm Analysis](./CS203%20Data%20Structures%20and%20Algorithm%20Analysis) | Bo Tang | Fall 2023 |

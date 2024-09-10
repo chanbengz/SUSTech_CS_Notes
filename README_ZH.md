@@ -24,7 +24,7 @@
 | 课程                                                         | 主讲          | 学期      |
 | ------------------------------------------------------------ | ------------- | --------- |
 | [CS104 数理逻辑导论](./CS104%20Intro%20to%20Mathematical%20Logic) | 何明昕 | 2023 春季 |
-| [CS109 计算机程序设计基础（Java A）](./CS109%20Intro2Programming%20in%20Java) | 李卓钊        | 2022 秋季 |
+| [CS109 计算机程序设计基础（Java A）](./CS109%20Intro%20to%20Programming%20in%20Java) | 李卓钊        | 2022 秋季 |
 | [CS201 离散数学](./CS201%20Discrete%20Math)                  | 陈杉          | 2023 秋季 |
 | [CS202 计算机组成原理](./CS202%20Computer%20Organization)    | 白雨卉        | 2024 春季 |
 | [CS203 数据结构与算法分析（DSAA）](./CS203%20Data%20Structures%20and%20Algorithm%20Analysis) | 唐博          | 2023 秋季 |
