@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add One Purchase Record</title>
+</head>
+<body>
+<h2>Adding new Purchase Record</h2>
+    <form th:action="@{/allRecord}" th:object="${purchaseRecord}" method="post">
+        <input type="hidden" th:value="*{id}" name="id">
+        <label for="nameId">Name:</label>
+        <input type="text" name="username" id="nameId" th:field="*{username}" >
+        <br>
+        <label for="dateId">Date:</label>
+        <input type="text" name="date" id="dateId" th:field="*{date}">
+        <br>
+        <label for="descriptionId">Description:</label>
+        <input type="text" name="description" id="descriptionId" th:field="*{description}">
+        <br>
+        <label for="moneyId">Money:</label>
+        <input type="text" name="money" id="moneyId" th:field="*{money}">
+        <br>
+        <label for="typeId">Type:</label>
+        <select name="status" id="typeId" th:field="*{type}">
+            <option value="0" th:selected="(*{type}=='0')">expense</option>
+            <option value="1" th:selected="(*{type}=='1')">income</option>
+        </select>
+        <br>
+        <button type="submit">submit</button>
+    </form>
+
+</body>
+</html>

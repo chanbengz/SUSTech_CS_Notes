@@ -1,0 +1,133 @@
+\documentclass{beamer}
+\usepackage{amssymb, amsfonts, latexsym, amsthm, amsmath, framed, esvect, parskip}
+\usepackage{amsmath, amssymb, framed, tcolorbox, mathrsfs, xcolor, graphicx}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\setbeamerfont{footnote}{size=\tiny}
+\addbibresource{ref.bib}
+\tcbuselibrary{theorems}
+\usepackage{listings}
+\definecolor{green}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+    frame=none,
+    language=Java,
+    showstringspaces=false,
+    columns=fullflexible,
+    basicstyle = \ttfamily\small,
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    morekeywords={function},
+    breakatwhitespace=true,
+    tabsize=4
+}
+
+% Beamer theme setting
+\definecolor{myteal}{cmyk}{0.5,0,0.15,0}
+\usecolortheme[named=myteal]{structure}
+\definecolor{my-yellow}{cmyk}{0,0.2,0.7,0,1.00}
+\definecolor{my-blue}{cmyk}{0.80, 0.13, 0.14, 0.04, 1.00}
+\definecolor{my-green}{cmyk}{0.4,0,0.4,0,1.00}
+\tcbset{
+defstyle/.style={fonttitle=\bfseries\upshape, colback=my-yellow!5,colframe=my-yellow!80!black},
+theostyle/.style={fonttitle=\bfseries\upshape, colback=my-blue!5,colframe=my-blue!80!black},
+corstyle/.style={fonttitle=\bfseries\upshape, colback=my-green!5,colframe=my-green!80!black},
+}
+\usetheme{Madrid}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+
+\title{Week 1 Report}
+\author{Ben Chen}
+\institute{Dept of Computer Science and Engineering, SUSTech}
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Cross-Core Interrupt Detection\cite{cross-core}}
+Motivation:
+\begin{itemize}[<+->]
+  \item To accelerate inter-process communication, Intel introduces user-triggered interrupt instruction in latest Xeon processor, which result 4 times faster than tradition interrupts.
+  \item Past attacks exploiting interrupts are infeasible.
+  \item The unpriviledged user interrupt raises a security concerns: it makes side-channel attacks like keystroke and web fingerprint attack eaiser to conduct.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cross-Core Interrupt Detection\cite{cross-core}}
+The interrupt can be sent to any cores including itself
+\begin{itemize}[<+->]
+  \item The interrupt is sent through shared bus $\rightarrow$ other processes' interrupts will lead to a higher latency in IPI
+  \item By sending a IPI to themselve, attacker process can know the interrupt behaviours (network, keyboard, etc.) by measuring the propagation of IPI and comparing with benchmark.
+  \item The author also measured the virtualized IPI, but with regular IPI.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cross-Core Interrupt Detection\cite{cross-core}}
+To conduct experiment, the author design a scenerio(covert channel) and victim process:
+\begin{itemize}[<+->]
+  \item If sender sends 1 to receiver, sender sends self-IPI (occupy the bus)
+  \item If sender sends 0, sender busy waiting (idle)
+  \item The receiver measures the latency of self-IPI
+  \item Researchers measured with native IPI and virtualized IPI, and measured the bit error ratio versus side-channel capacity.
+  \item Also tested attacks under other cores stressed (busy with IO), the results shows that the error ratio remains.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cross-Core Interrupt Detection\cite{cross-core}}
+  Case studies (real-world attack surfaces): \textbf{Keystroke}
+\begin{itemize}[<+->]
+  \item Keep running self-IPI and measure using a high precision timer with \texttt{rdtsc}
+  \item To reduce noise, dynamically adjust the base time
+  \item Not focusing on text recovering (since data processing needs complex analysis)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cross-Core Interrupt Detection\cite{cross-core}}
+  Case studies (real-world attack surfaces): \textbf{Web Fingerprint}
+\begin{itemize}[<+->]
+  \item Setup: for native, attacker has access to \texttt{rdtsc} but not \texttt{/proc/interrupts}; for VM, the attacker and victim run on the same host VM.
+  \item Evaluted on 100 websites in both close-world and open-world.
+  \item Also performed trace analyzing with CNN $\rightarrow$ knows what website the victim is viewing
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cross-Core Interrupt Detection\cite{cross-core}}
+Mitigation and other attacks using IPI
+\begin{itemize}[<+->]
+  \item Restricted timer $\Rightarrow$ useless since attacker can construct timer
+  \item Modify timer to be secret-independent
+  \item Introduces noise by IPI or so
+  \item General methods: detect abnormally frequent self-IPI
+  \item TLB, Prime+Probe, flush caches...
+  \item Move computing to TEE $\Rightarrow$ malicious host or guest
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Real-Time Side Channel Detection\cite{le-2021}}
+Previous mitigation:
+\begin{itemize}[<+->]
+    \item \texttt{fence} instruction $\Rightarrow$ will ensure the instruction is executed before \texttt{fence}, can be used to prevent speculative execution when detected.
+    \item Speculative Load Hardening (HLS), inserts constant instead of real data after trainning with instrcutions to predict the sensitive instruction.
+    \item This work is to detect rather than prevent.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Real-Time Side Channel Detection\cite{le-2021}}
+Real-time detection method on BOOM:
+\begin{itemize}[<+->]
+    \item Sampling the cache using HPC on BOOM, and focuing on TLB miss and branch predict miss rate.
+    \item Train multiple layer perceptron network with collected data set: normal and under spectre attack.
+    \item Perform real-time detection with the trained model, with 2\% overhead.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+\tiny
+\printbibliography
+\end{frame}
+\end{document}

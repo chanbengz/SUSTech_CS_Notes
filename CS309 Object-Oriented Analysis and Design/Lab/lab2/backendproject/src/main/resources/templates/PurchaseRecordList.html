@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Record List</title>
+</head>
+<body>
+<div>
+    <h2>Purchase Record List</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Money</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Operation</th>
+            <th>Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="record,it:${purchaseRecordList}">
+            <td th:text="${it.count}">1</td>
+            <td th:text="${record.username}">Yueming</td>
+            <td th:text="${record.date}">2018-9-10</td>
+            <td th:text="${record.money}">100</td>
+            <td th:switch="${record.type}">
+                <span th:case=0>expense</span>
+                <span th:case=1>income</span>
+            <td th:text="${record.description}">TaoBao</td>
+            <td>
+                <a href="./addPurchaseRecord.html" th:href="@{/findOneRecord{id}(id=${record.id})}">update</a>
+            </td>
+            <td>
+                <form th:action="@{/deleteOneRecord{id}(id=${record.id})}" method="get">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+<!--<form action="/insertOneRecord" method="get">-->
+<!--    <button type="submit">Add New</button>-->
+<!--</form>-->
+    <a href="./addPurchaseRecord.html", th:href="@{/insertOneRecord}">add New</a>
+    <p th:text="${msg}"> Here is to show message</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<h2>Register A User</h2>
+<form th:action="register" method="post">
+    <label for="nameId">Name:</label>
+    <input type="text" name="username" id="nameId" th:value="${username}"><br>
+    <label for="passwordId">Password:</label>
+    <input type="password" name="password" id="passwordId"><br>
+    <label for="confirmPasswordId">Confirm Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPasswordId"><br>
+    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="back" value="Back">
+    <input type="submit" name="clear" value="Clear">
+</form>
+<p th:text="${error_msg}">Error message is here</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h2>Please Login:</h2>
+    <form th:action="@{/login}" method="post">
+        <label for="nameId">Name:</label>
+        <input type="text" name="username" id="nameId" th:value="${username}">
+        <span th:text="${checkUsernameNull}">check Username</span><br>
+        <label for="passwordId">Password:</label>
+        <input type="password" name="password" id="passwordId">
+        <span th:text="${checkPasswordNull}">check Password</span><br>
+        <button type="submit">Login</button>
+    </form>
+<a href="./register.html" th:href="@{/register}">Register User</a>
+<p th:text="${msg}">Here for prompt wrong messages</p>
+</body>
+</html>
