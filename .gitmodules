@@ -10,3 +10,6 @@
 [submodule "CS305 Computer Networks/Project"]
 	path = CS305 Computer Networks/Project
 	url = https://github.com/chanbengz/CS305_Project_2023F.git
+[submodule "CS309 Object-Oriented Analysis and Design/Assignment"]
+	path = CS309 Object-Oriented Analysis and Design/Assignment
+	url = git@github.com:SUSTech-NINJA/Assignment.git
