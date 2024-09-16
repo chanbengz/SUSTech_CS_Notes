@@ -1,0 +1,36 @@
+<svg width="480" height="210" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>DFA Transistion Diagram</title>
+  <g stroke="null">
+   <ellipse stroke="black" ry="30" rx="30" cy="36" cx="249" fill="none"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="42" x="244">1</text>
+   <ellipse stroke="black" ry="30" rx="30" cy="106" cx="131" fill="none"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="112" x="126">0</text>
+   <ellipse stroke="black" ry="30" rx="30" cy="36" cx="385" fill="none"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="42" x="380">2</text>
+   <ellipse stroke="black" ry="24" rx="24" cy="36" cx="385" fill="none"/>
+   <ellipse stroke="black" ry="30" rx="30" cy="175" cx="249" fill="none"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="181" x="244">3</text>
+   <ellipse stroke="black" ry="24" rx="24" cy="175" cx="249" fill="none"/>
+   <polygon stroke="black" points="156.802001953125,90.69400024414062 223.197998046875,51.305999755859375 "/>
+   <polygon stroke="null" points="223.197998046875,51.305999755859375 213.76699829101562,51.087005615234375 218.86898803710938,59.68800354003906 " fill="black"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="62" x="175">b</text>
+   <polygon stroke="black" points="52,106 101,106 "/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="112" x="13">start</text>
+   <polygon stroke="null" points="101,106 93,101 93,111 " fill="black"/>
+   <polygon stroke="black" points="279,36 355,36 "/>
+   <polygon stroke="null" points="355,36 347,31 347,41 " fill="black"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="27" x="313">a</text>
+   <polygon stroke="black" points="385,5 385,6 "/>
+   <path stroke="black" d="m411.797,22.775a22.5,22.5 0 1 1 0,26.45" fill="none"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="42" x="458">a</text>
+   <polygon stroke="null" points="411.7969970703125,49.225006103515625 415.33001708984375,57.97300720214844 421.2080078125,49.88200378417969 " fill="black"/>
+   <polygon stroke="black" points="156.89700317382812,121.14300537109375 223.10299682617188,159.85699462890625 "/>
+   <polygon stroke="null" points="223.10299682617188,159.85699462890625 218.72000122070312,151.50201416015625 213.67300415039062,160.135009765625 " fill="black"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="162" x="176">a</text>
+   <path stroke="black" d="m274.797,161.775a22.5,22.5 0 1 1 0,26.45" fill="none"/>
+   <text stroke="null" font-size="20" font-family="Times New Roman" y="181" x="322">b</text>
+   <polygon stroke="null" points="275.7969970703125,188.22500610351562 279.3299865722656,196.97299194335938 285.2080078125,188.88198852539062 " fill="black"/>
+  </g>
+ </g>
+</svg>
