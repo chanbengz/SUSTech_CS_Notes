@@ -3,7 +3,7 @@ FLEX=flex
 
 all: flex
 
-lex:
+idcount:
 	$(FLEX) lex.l
 	$(CC) lex.yy.c -lfl -o idcount.out
 
