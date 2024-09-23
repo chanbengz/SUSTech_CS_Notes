@@ -3,7 +3,7 @@
 	url = https://github.com/chanbengz/SUSTech_CS109_Project.git
 [submodule "CS202 Computer Organization/Project"]
 	path = CS202 Computer Organization/Project
-	url = https://github.com/wLUOw/SUSTech_CS202_MineCPU
+	url = https://github.com/wLUOw/SUSTech_CS202_MineCPU.git
 [submodule "CS207 Digital Design/Project"]
 	path = CS207 Digital Design/Project
 	url = https://github.com/chanbengz/SUSTech_CS207_Project_Piano.git

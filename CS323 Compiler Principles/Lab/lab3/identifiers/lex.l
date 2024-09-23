@@ -4,42 +4,22 @@
 
     // global variables
     int identifiers = 0;
-    char* identifiers_list[100];
+    int lines = 1;
 %}
-keyword (if|else|while|char|int|float|struct|return)
+keyword (if|else|while|char|int|return)
 letter [a-zA-Z]
 letter_ {letter}|_
 digit [0-9]
 
 %%
 {keyword} { /* does nothing when seeing a keyword */ }
-{digit}({letter_}|{digit})* { /* invalid identifier */ }
+({digit}{letter_}|{digit}*) { /* invalid identifier */ }
 '{letter}* { /* string */ }
-x({letter_}|{digit})* { /* hex */ }
-{letter_}({letter_}|{digit})* { 
-    int found = 0; 
-    for (int i = 0; i < identifiers; i++) {
-        if (strcmp(identifiers_list[i], yytext) == 0) {
-            found = 1;
-            break;
-        }
-    }
-    if (!found) identifiers_list[identifiers++] = strdup(yytext);
-}
-\n { /* lines++; */ }
+{letter_}({letter_}|{digit})* { identifiers++; printf("line %d: %s\n", lines, yytext); }
+\n { lines++; }
 [\t\r ]+ { /* does nothing when seeing white spaces except new line */ }
 . { /* a final rule that matches when seeing any character but new line */ }
-<<EOF>> { 
-    if (identifiers) {
-        printf("Found %d unique IDs: ", identifiers);
-        for (int i = 0; i < identifiers; i++) {
-            printf("%s%s", identifiers_list[i], i == identifiers - 1 ? "\n" : ", ");
-        }
-    } else {
-        printf("No identifiers found.\n");
-    }
-    yyterminate(); 
-}
+<<EOF>> { printf("There are %d occurrences of valid identifiers\n", identifiers); yyterminate(); }
 
 %%
 int main(int argc, char **argv){
