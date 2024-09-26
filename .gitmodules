@@ -13,3 +13,6 @@
 [submodule "CS309 Object-Oriented Analysis and Design/Assignment"]
 	path = CS309 Object-Oriented Analysis and Design/Assignment
 	url = git@github.com:SUSTech-NINJA/Assignment.git
+[submodule "CS303 Artificial Intelligence/Project"]
+	path = CS303 Artificial Intelligence/Project
+	url = git@github.com:chanbengz/SUSTech_CS303_Project_2024F.git
