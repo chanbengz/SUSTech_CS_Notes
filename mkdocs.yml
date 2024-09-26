@@ -1,0 +1,109 @@
+site_name: SUSTech_CS_Notes
+site_url: https://csnotes.benx.dev
+site_author: Ben Chen
+site_description:
+  Course Notes for the Computer Science @SUSTech.
+
+repo_name: chanbengz/SUSTech_CS_Notes
+repo_url: https://github.com/chanbengz/SUSTech_CS_Notes
+
+copyright: Copyright &copy; 2023 - 2024 Ben Chen
+
+theme:
+  name: material
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+nav:
+  - Home: index.md
+  - Basis:
+    - CS109.md
+    - CS201.md
+    - CS202.md
+    - CS203.md
+    - CS207.md
+    - CS208.md
+    - CS307.md
+  - Core:
+    - CS302.md
+    - CS303.md
+    - CS307.md
+    - CS321.md
+  - Elective:
+    - CS104.md
+    - CS301.md
+    - CS309.md
+    - CS323.md
+    - CSE5014.md
+  - Other:
+    - SS149.md
+    - SWS.md
+  - Blog: https://blog.benx.dev
+
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.superfences
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
