@@ -11,6 +11,7 @@ copyright: Copyright &copy; 2023 - 2024 Ben Chen
 
 theme:
   name: material
+  favicon: assets/favicon.png
   features:
     - announce.dismiss
     - content.action.edit

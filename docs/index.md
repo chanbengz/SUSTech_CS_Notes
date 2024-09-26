@@ -15,24 +15,24 @@ The repo contains the following courses for now
 
 | Course | Instructor | Semester |
 | :-------------------- | :----------: | :--------: |
-| [CS104 Intro to Mathematical Logic](./CS104%20Intro%20to%20Mathematical%20Logic) | Mingxin He | Spring 2023 |
-| [CS109 Intro to Programming in Java](./CS109%20Intro%20to%20Programming%20in%20Java) | Zhuozhao Li | Fall 2022 |
-| [CS201 Discrete Math](./CS201%20Discrete%20Math) | Shan Chen | Fall 2023 |
-| [CS202 Computer Organization](./CS202%20Computer%20Organization) | Yuhui Bai | Spring 2024 |
-| [CS203 Data Structures and Algorithm Analysis](./CS203%20Data%20Structures%20and%20Algorithm%20Analysis) | Bo Tang | Fall 2023 |
-| [CS207 Digital Design](./CS207%20Digital%20Design) | Yuhui Bai | Fall 2023 |
-| [CS208 Algorithm Design and Analysis](./CS208%20Algorithm%20Design%20and%20Analysis) | Yuhui Shi | Spring 2024 |
-| [CS301 Embedded System and Microcomputer Principle](./EE411%20Information%20Theory%20and%20Coding) | Yuhui Bai | Fall 2024 |
-| [CS302 Operating System](./CS302%20Operating%20System) | Yinqian Zhang | Spring 2024 |
-| [CS303 Artificial Intelligence](./CS303%20Artificial%20Intelligence) | Ke Tang | Fall 2024 |
-| [CS305 Computer Networks](./CS305%20Computer%20Networks) | Ming Tang | Fall 2023 |
-| [CS307 Database System](./CS307%20Database%20System) | Ran Cheng | Fall 2023 |
-| [CS309 Object-Oriented Analysis and Design](./CS309%20Object-Oriented%20Analysis%20and%20Design) | Yuqun Zhang | Fall 2024 |
-| [CS321 Group Project](./CS321%20Group%20Project) | / | Fall 2024 |
-| [CS323 Compiler Principles](./CS323%20Compiler%20Principles) | Yepang Liu | Fall 2024 |
-| [CSE5014 Cryptography and Network Security](./CSE5014%20Cryptography%20and%20Network%20Security) | Qi Wang | Spring 2024 |
-| [SS149 Early Modern Western Philosophy](./SS149%20Early%20Modern%20Western%20Philosophy/) | Takaharu Oda | Spring 2024 |
-| [NUS SoC Summer Workshop](./NUS%20SWS%202024) | Hugh Anderson | Summer 2024 |
+| [CS104 Intro to Mathematical Logic](./CS104) | Mingxin He | Spring 2023 |
+| [CS109 Intro to Programming in Java](./CS109) | Zhuozhao Li | Fall 2022 |
+| [CS201 Discrete Math](./CS201) | Shan Chen | Fall 2023 |
+| [CS202 Computer Organization](./CS202) | Yuhui Bai | Spring 2024 |
+| [CS203 Data Structures and Algorithm Analysis](./CS203) | Bo Tang | Fall 2023 |
+| [CS207 Digital Design](./CS207) | Yuhui Bai | Fall 2023 |
+| [CS208 Algorithm Design and Analysis](./CS208) | Yuhui Shi | Spring 2024 |
+| [CS301 Embedded System and Microcomputer Principle](./EE411) | Yuhui Bai | Fall 2024 |
+| [CS302 Operating System](./CS302) | Yinqian Zhang | Spring 2024 |
+| [CS303 Artificial Intelligence](./CS303) | Ke Tang | Fall 2024 |
+| [CS305 Computer Networks](./CS305) | Ming Tang | Fall 2023 |
+| [CS307 Database System](./CS307) | Ran Cheng | Fall 2023 |
+| [CS309 Object-Oriented Analysis and Design](./CS309) | Yuqun Zhang | Fall 2024 |
+| [CS321 Group Project](./CS321) | / | Fall 2024 |
+| [CS323 Compiler Principles](./CS323) | Yepang Liu | Fall 2024 |
+| [CSE5014 Cryptography and Network Security](./CSE5014) | Qi Wang | Spring 2024 |
+| [SS149 Early Modern Western Philosophy](./SS149) | Takaharu Oda | Spring 2024 |
+| [NUS SoC Summer Workshop](./SWS) | Hugh Anderson | Summer 2024 |
 
 Basically the folders under each course are
 
@@ -62,6 +62,5 @@ It depends on you, trust yourself. As tips, you can preview the slides before th
 - Hacking is much appreciated, no matter if it's irrelevant to the courses. You will learn a lot from it. For example, it's encouraged to actually use linux and vim and so in your daily life and follow the [LFS](https://www.linuxfromscratch.org/).
 - Ask smart questions. Searching and solving problems by yourself is a basic skill for CS students. Questions only come up after you've tried everything, and you can express the issue clearly.
 - Pay more attention to art. It's not a joke. Art will not only enrich your taste, but also improve your creativity and organization aibility.
-
 
 
