@@ -19,21 +19,9 @@ theme:
     - content.action.view
     - content.code.annotate
     - content.code.copy
-    # - content.code.select
-    # - content.footnote.tooltips
-    # - content.tabs.link
     - content.tooltips
-    # - header.autohide
-    # - navigation.expand
     - navigation.footer
     - navigation.indexes
-    # - navigation.instant
-    # - navigation.instant.prefetch
-    # - navigation.instant.progress
-    # - navigation.prune
-    # - navigation.sections
-    # - navigation.tabs
-    # - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
     - search.highlight
@@ -66,27 +54,33 @@ theme:
 nav:
   - Home: index.md
   - Basis:
-    - CS109.md
-    - CS201.md
-    - CS202.md
-    - CS203.md
-    - CS207.md
-    - CS208.md
-    - CS307.md
+    - CS109 Java A: basis/CS109.md
+    - CS201 Discrete Math: basis/CS201.md
+    - CS202 Computer Organization: basis/CS202.md
+    - CS203 Data Structure and Algorithm Analysis: basis/CS203.md
+    - CS207 Digital Design: basis/CS207.md
+    - CS208 Algorithm Design and Analysis: basis/CS208.md
+    - CS307 Database System: basis/CS307.md
   - Core:
-    - CS302.md
-    - CS303.md
-    - CS307.md
-    - CS321.md
+    - core/CS302.md
+    - core/CS303.md
+    - core/CS307.md
+    - core/CS321.md
   - Elective:
-    - CS104.md
-    - CS301.md
-    - CS309.md
-    - CS323.md
-    - CSE5014.md
+    - elective/CS104.md
+    - elective/CS301.md
+    - elective/CS309.md
+    - elective/CS323.md
+    - elective/CSE5014.md
   - Other:
-    - SS149.md
-    - SWS.md
+    - other/SS149.md
+    - other/SWS.md
+  - Tools:
+    - tools/git.md
+    - tools/markdown.md
+    - tools/latex.md
+    - tools/linux.md
+    - tools/docker.md
   - Blog: https://blog.benx.dev
 
 
@@ -109,3 +103,27 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
+plugins:
+  - i18n:
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Basis: 专业基础课
+            Core: 专业核心课
+            Elective: 专业选修课
+            Other: 其他
+            Tools: 实用工具
+            CS109 Java A: CS109 计算机程序设计基础
+            CS201 Discrete Math: CS201 离散数学
+
+  - search:
+      lang:
+        - zh
+        - en
