@@ -35,7 +35,7 @@ The repo contains the following courses for now
 | [CS305 Computer Networks](./CS305%20Computer%20Networks) | Ming Tang | Fall 2023 |
 | [CS307 Database System](./CS307%20Database%20System) | Ran Cheng | Fall 2023 |
 | [CS309 Object-Oriented Analysis and Design](./CS309%20Object-Oriented%20Analysis%20and%20Design) | Yuqun Zhang | Fall 2024 |
-| [CS321 Group Project](./CS321%20Group%20Project) | / | Fall 2024 |
+| [CS321 Group Project](./CS321%20Group%20Project) | Fengwei Zhang | Fall 2024 |
 | [CS323 Compiler Principles](./CS323%20Compiler%20Principles) | Yepang Liu | Fall 2024 |
 | [CSE5014 Cryptography and Network Security](./CSE5014%20Cryptography%20and%20Network%20Security) | Qi Wang | Spring 2024 |
 | [SS149 Early Modern Western Philosophy](./SS149%20Early%20Modern%20Western%20Philosophy/) | Takaharu Oda | Spring 2024 |
@@ -69,4 +69,8 @@ It depends on you, trust yourself. As tips, you can preview the slides before th
 - Hacking is much appreciated, no matter if it's irrelevant to the courses. You will learn a lot from it. For example, it's encouraged to actually use linux and vim and so in your daily life and follow the [LFS](https://www.linuxfromscratch.org/).
 - Ask smart questions. Searching and solving problems by yourself is a basic skill for CS students. Questions only come up after you've tried everything, and you can express the issue clearly.
 - Pay more attention to art. It's not a joke. Art will not only enrich your taste, but also improve your creativity and organization aibility.
+
+## Contributing
+
+You're welcome to contribute to this repo. Please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
 

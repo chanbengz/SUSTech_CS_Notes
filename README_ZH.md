@@ -36,7 +36,7 @@
 | [CS305 计算机网络](./CS305%20Computer%20Networks)            | 唐茗          | 2023 秋季 |
 | [CS307 数据库](./CS307%20Database%20System)                  | 程然          | 2023 秋季 |
 | [CS309 面向对象分析与设计（OOAD）](./CS309%20Object-Oriented%20Analysis%20and%20Design) | 张煜群        | 2024 秋季 |
-| [CS321 创新实践](./CS321%20Group%20Project)                  | /             | 2024 秋季 |
+| [CS321 创新实践](./CS321%20Group%20Project)                  | 张锋巍        | 2024 秋季 |
 | [CS323 编译原理](./CS323%20Compiler%20Principles)            | 刘烨庞        | 2024 秋季 |
 | [CSE5014 密码学与网络安全](./CSE5014%20Cryptography%20and%20Network%20Security) | 王琦          | 2024 春季 |
 | [SS149 近代西方哲学](./SS149%20Early%20Modern%20Western%20Philosophy/) | 小田隆晴      | 2024 春季 |
@@ -70,4 +70,8 @@
 - 推荐多去探索计算机的世界，就算与课程无关。你将会从中学到很多东西。比如用Linux作为主力系统，并跟随 [LFS](https://www.linuxfromscratch.org/) 的教程配置自己的系统。
 - 问好问题。计算机学生最重要的一个素质是搜索和自己解决问题的能力。只有当你真的无法靠自己解决的时候，才能清楚表达问题。
 - 多关注艺术。不是开玩笑，艺术不仅仅是为了陶冶情操，更是为了提高代码质量，特别是当你成为一个大型项目的负责人的时候。而且艺术可能为你带来灵感。
+
+## 贡献
+
+非常欢迎你为本项目贡献! 请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md) 了解如何贡献。
 
