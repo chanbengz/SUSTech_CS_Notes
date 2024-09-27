@@ -1,5 +1,8 @@
 # Welcome to my notes
 
+!!!warning
+    This wiki is still under construction. Stay tuned.
+
 ## Intro
 
 This wiki aims to help to teach yourself the CS courses in SUSTech, and also severs as a backup for the course materials.
@@ -21,7 +24,7 @@ Mostly, assignments, notes and reports are written in Typst or $\LaTeX$.
 
 The notes can be viewed on my [blog](https://blog.benx.dev). ~~I haven't written any, though.~~
 
-## How to Learn with the repo
+## How to Learn with the wiki
 
 !!!note
     If you'd like to download folder(s) of specific course, [Downgit](https://downgit.benx.dev) is a suitable tool for you.

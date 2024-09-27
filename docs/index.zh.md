@@ -1,30 +1,33 @@
 # Welcome to my notes
 
-## Intro
+!!!warning
+    本wiki仍在建设中。敬请期待
 
-这是一份南科大计算机系的自学资料，也是我的课程资料备份。
+## 简介
+
+这是一份南科大计算机系的自学/复习资料，也是我的课程资料备份。
 
 妮可计系的课对零基础的同学来说过难，但对想认真学习计算机的同学来说又有点不够。但是，只要你有一定的自学能力，这些课程都是可以自学的。
 
 !!!note   
     由于本人对系统和安全比较感兴趣，我并不打算选人工智能相关的选修课，如智能机器人(CS401)，机器学习(CS405)等。 请参考其他同学的仓库，或者如果你愿意贡献，请直接提PR。
 
-## Structure
+## 结构
 
 本wiki按照培养方案的课程等级划分，分为基础课、核心课和选修课。
 
-- Basis: The basic courses for CS major, including the math courses, the programming courses and the data structure courses.
-- Core: The core courses for CS major, including the algorithm courses, the system courses and the software engineering courses.
-- Elective: The elective courses for CS major, including the computing theory, security and AI.
+- 基础课：数学、计算机底层原理、编程和数据结构课
+- 核心课：算法、系统和软件工程课
+- 选修课：计算机理论、安全和人工智能课
 
-Mostly, assignments, notes and reports are written in Typst or $\LaTeX$.
+大部份作业用 Typst 或 $\LaTeX$ 编写。~~Markdown你谁~~
 
-The notes can be viewed on my [blog](https://blog.benx.dev). ~~I haven't written any, though.~~
+课程笔记在我的[博客](https://blog.benx.dev)。 ~~摆了，目前什么都没写~~
 
-## How to Learn with the repo
+## 如何用这个wiki学习
 
 !!!note
-    If you'd like to download folder(s) of specific course, [Downgit](https://downgit.benx.dev) is a suitable tool for you.
+    如果想下载特定的课程或文件夹, 可以使用 [Downgit](https://downgit.benx.dev)
 
 TBD
 

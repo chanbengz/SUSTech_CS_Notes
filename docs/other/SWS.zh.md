@@ -12,12 +12,12 @@ There is one cluster for freshman, **X-cluster**, and two for sophomores, **Clou
 
 | Course | Instructor | Description |
 | --- | --- | --- |
-| [Artificial Intelligence of Things](./Artificial%20Intelligence%20of%20Things) | Dr. Tan Wee Kek | Edge computing and embedded computer (robotics) combined with algorithms |
-| [Cloud Computing with Big Data](./Cloud%20Computing%20with%20Big%20Data) | Dr. Richard T. B. Ma | Kubernetes, server and container |
-| [Visual Computing](./Visual%20Computing) | Dr. Terence Tim | Computer vision and pattern recognition |
-| [Defence of the Ancient](./Defence%20of%20the%20Ancient) | Dr. Hugh Anderson | Cybersecurity |
-| [Robotics](./Robotics) | Dr. Boyd Anderson | Building and programming robots |
-| [Deep Learning](./Deep%20Learning) | Dr. Colin Tan | Neural networks, integrated into Robotics |
+| Artificial Intelligence of Things | Dr. Tan Wee Kek | Edge computing and embedded computer (robotics) combined with algorithms |
+| Cloud Computing with Big Data | Dr. Richard T. B. Ma | Kubernetes, server and container |
+| Visual Computing | Dr. Terence Tim | Computer vision and pattern recognition |
+| Defence of the Ancient | Dr. Hugh Anderson | Cybersecurity |
+| Robotics | Dr. Boyd Anderson | Building and programming robots |
+| Deep Learning | Dr. Colin Tan | Neural networks, integrated into Robotics |
 
 I was involved in the course of **DOTA**.
 

@@ -62,19 +62,19 @@ nav:
     - CS208 Algorithm Design and Analysis: basis/CS208.md
     - CS307 Database System: basis/CS307.md
   - Core:
-    - core/CS302.md
-    - core/CS303.md
-    - core/CS307.md
-    - core/CS321.md
+    - CS302 Operating System: core/CS302.md
+    - CS303 Artificial Intelligence: core/CS303.md
+    - CS305 Computer Networks: core/CS305.md
+    - CS321 Group Projecg I: core/CS321.md
   - Elective:
-    - elective/CS104.md
-    - elective/CS301.md
-    - elective/CS309.md
-    - elective/CS323.md
-    - elective/CSE5014.md
+    - CS104 Mathematical Logic: elective/CS104.md
+    - CS301 Embedded System and Microcomputer Principle: elective/CS301.md
+    - CS309 Object-Oriented Analysis and Design: elective/CS309.md
+    - CS323 Compilers: elective/CS323.md
+    - CSE5014 Cryptography: elective/CSE5014.md
   - Other:
-    - other/SS149.md
-    - other/SWS.md
+    - SS149 Early Modern Western Philosophy: other/SS149.md
+    - NUS SOC Summer Workshop: other/SWS.md
   - Tools:
     - tools/git.md
     - tools/markdown.md
@@ -88,8 +88,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - admonition
   - pymdownx.details
   - pymdownx.critic
@@ -120,8 +120,21 @@ plugins:
             Elective: 专业选修课
             Other: 其他
             Tools: 实用工具
+            CS104 Mathematical Logic: CS104 数理逻辑导论
             CS109 Java A: CS109 计算机程序设计基础
             CS201 Discrete Math: CS201 离散数学
+            CS202 Computer Organization: CS202 计算机组成原理
+            CS203 Data Structure and Algorithm Analysis: CS203 数据结构与算法分析
+            CS207 Digital Design: CS207 数字逻辑
+            CS208 Algorithm Design and Analysis: CS208 算法设计与分析
+            CS301 Embedded System and Microcomputer Principle: CS301 嵌入式与微机原理
+            CS302 Operating System: CS302 操作系统
+            CS303 Artificial Intelligence: CS303 人工智能
+            CS305 Computer Networks: CS305 计算机网络
+            CS307 Database System: CS307 数据库
+            CS321 Group Projecg I: CS321 创新实践1
+            CSE5014 Cryptography: CSE5014 密码学与网络安全
+            NUS SOC Summer Workshop: NUS SOC 夏令营
 
   - search:
       lang:
