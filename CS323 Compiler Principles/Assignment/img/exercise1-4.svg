@@ -1,0 +1,39 @@
+<svg width="680" height="127" xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+ <g>
+  <title>Layer 1</title>
+  <ellipse id="svg_1" ry="30" rx="30" cy="94" cx="97" fill="none" stroke="black"/>
+  <text id="svg_2" font-size="20" font-family="Times New Roman" y="100" x="94">i</text>
+  <ellipse id="svg_3" ry="30" rx="30" cy="94" cx="217" fill="none" stroke="black"/>
+  <text id="svg_4" font-size="20" font-family="Times New Roman" y="100" x="212">1</text>
+  <ellipse id="svg_5" ry="30" rx="30" cy="94" cx="356" fill="none" stroke="black"/>
+  <text id="svg_6" font-size="20" font-family="Times New Roman" y="100" x="351">2</text>
+  <ellipse id="svg_7" ry="24" rx="24" cy="94" cx="356" fill="none" stroke="black"/>
+  <ellipse id="svg_8" ry="30" rx="30" cy="94" cx="643" fill="none" stroke="black"/>
+  <text id="svg_9" font-size="20" font-family="Times New Roman" y="100" x="638">4</text>
+  <ellipse id="svg_10" ry="24" rx="24" cy="94" cx="643" fill="none" stroke="black"/>
+  <ellipse id="svg_11" ry="30" rx="30" cy="94" cx="525" fill="none" stroke="black"/>
+  <text id="svg_12" font-size="20" font-family="Times New Roman" y="100" x="522">i</text>
+  <polygon id="svg_13" points="127,94 187,94 " stroke="black"/>
+  <polygon id="svg_14" points="187,94 179,89 179,99 " fill="black"/>
+  <text id="svg_15" font-size="20" font-family="Times New Roman" y="85" x="152">b</text>
+  <polygon id="svg_16" points="247,94 326,94 " stroke="black"/>
+  <polygon id="svg_17" points="326,94 318,89 318,99 " fill="black"/>
+  <text id="svg_18" font-size="20" font-family="Times New Roman" y="85" x="282">a</text>
+  <path id="svg_19" d="m629.775,67.203a22.5,22.5 0 1 1 26.45,0" fill="none" stroke="black"/>
+  <text id="svg_20" font-size="20" font-family="Times New Roman" y="18" x="638">b</text>
+  <polygon id="svg_21" points="656.2249755859375,67.2030029296875 664.9730224609375,63.66999816894531 656.8820190429688,57.79199981689453 " fill="black"/>
+  <path id="svg_22" d="m342.775,67.203a22.5,22.5 0 1 1 26.45,0" fill="none" stroke="black"/>
+  <text id="svg_23" font-size="20" font-family="Times New Roman" y="18" x="352">a</text>
+  <polygon id="svg_24" points="369.2250061035156,67.2030029296875 377.9729919433594,63.66999816894531 369.8819885253906,57.79199981689453 " fill="black"/>
+  <polygon id="svg_25" points="474,94 495,94 " stroke="black"/>
+  <text id="svg_26" font-size="20" font-family="Times New Roman" y="100" x="435">start</text>
+  <polygon id="svg_27" points="495,94 487,89 487,99 " fill="black"/>
+  <polygon id="svg_28" points="555,94 613,94 " stroke="black"/>
+  <polygon id="svg_29" points="613,94 605,89 605,99 " fill="black"/>
+  <text id="svg_30" font-size="20" font-family="Times New Roman" y="85" x="580">a</text>
+  <polygon id="svg_31" points="39,94 67,94 " stroke="black"/>
+  <text id="svg_32" font-size="20" font-family="Times New Roman" y="100" x="0">start</text>
+  <polygon id="svg_33" points="67,94 59,89 59,99 " fill="black"/>
+ </g>
+</svg>

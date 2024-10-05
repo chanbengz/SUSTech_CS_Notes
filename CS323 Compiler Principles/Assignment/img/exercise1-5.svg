@@ -1,0 +1,50 @@
+<svg width="540" height="260" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="black" fill="none" cx="168" cy="94" rx="30" ry="30" id="svg_1"/>
+  <text x="163" y="100" font-family="Times New Roman" font-size="20" id="svg_2">0</text>
+  <ellipse stroke="black" fill="none" cx="288" cy="94" rx="30" ry="30" id="svg_3"/>
+  <text x="283" y="100" font-family="Times New Roman" font-size="20" id="svg_4">1</text>
+  <ellipse stroke="black" fill="none" cx="411" cy="94" rx="30" ry="30" id="svg_5"/>
+  <text x="406" y="100" font-family="Times New Roman" font-size="20" id="svg_6">2</text>
+  <ellipse stroke="black" fill="none" cx="168" cy="225" rx="30" ry="30" id="svg_7"/>
+  <text x="163" y="231" font-family="Times New Roman" font-size="20" id="svg_8">3</text>
+  <ellipse stroke="black" fill="none" cx="411" cy="225" rx="30" ry="30" id="svg_9"/>
+  <text x="406" y="231" font-family="Times New Roman" font-size="20" id="svg_10">4</text>
+  <ellipse stroke="black" fill="none" cx="93" cy="158" rx="30" ry="30" id="svg_11"/>
+  <text x="90" y="164" font-family="Times New Roman" font-size="20" id="svg_12">i</text>
+  <ellipse stroke="black" fill="none" cx="505" cy="158" rx="30" ry="30" id="svg_13"/>
+  <text x="502" y="164" font-family="Times New Roman" font-size="20" id="svg_14">f</text>
+  <ellipse stroke="black" fill="none" cx="505" cy="158" rx="24" ry="24" id="svg_15"/>
+  <polygon stroke="black" points="198,94 258,94 " id="svg_16"/>
+  <polygon fill="black" points="258,94 250,89 250,99 " id="svg_17"/>
+  <text x="223" y="85" font-family="Times New Roman" font-size="20" id="svg_18">b</text>
+  <polygon stroke="black" points="318,94 381,94 " id="svg_19"/>
+  <polygon fill="black" points="381,94 373,89 373,99 " id="svg_20"/>
+  <text x="345" y="85" font-family="Times New Roman" font-size="20" id="svg_21">a</text>
+  <polygon stroke="black" points="198,225 381,225 " id="svg_25"/>
+  <polygon fill="black" points="381,225 373,220 373,230 " id="svg_26"/>
+  <text x="285" y="216" font-family="Times New Roman" font-size="20" id="svg_27">a</text>
+  <path stroke="black" fill="none" d="m397.775,198.203a22.5,22.5 0 1 1 26.45,0" id="svg_28"/>
+  <text x="406" y="149" font-family="Times New Roman" font-size="20" id="svg_29">b</text>
+  <polygon fill="black" points="424.2250061035156,198.2030029296875 432.9729919433594,194.6699981689453 424.8819885253906,188.79200744628906 " id="svg_30"/>
+  <polygon stroke="black" points="115.37300109863281,177.98599243164062 145.6269989013672,205.01400756835938 " id="svg_31"/>
+  <polygon fill="black" points="145.6269989013672,205.01400756835938 142.99200439453125,195.9550018310547 136.3300018310547,203.41299438476562 " id="svg_32"/>
+  <text x="116" y="212" font-family="Times New Roman" font-size="20" id="svg_33">ε</text>
+  <polygon stroke="black" points="115.82099914550781,138.5260009765625 145.1790008544922,113.4739990234375 " id="svg_34"/>
+  <polygon fill="black" points="145.1790008544922,113.4739990234375 135.84800720214844,114.86300659179688 142.33999633789062,122.47000122070312 " id="svg_35"/>
+  <text x="117" y="117" font-family="Times New Roman" font-size="20" id="svg_36">ε</text>
+  <polygon stroke="black" points="435.42999267578125,207.58700561523438 480.57000732421875,175.41299438476562 " id="svg_37"/>
+  <polygon fill="black" points="480.57000732421875,175.41299438476562 471.15399169921875,175.98399353027344 476.9580078125,184.1269989013672 " id="svg_38"/>
+  <text x="463" y="212" font-family="Times New Roman" font-size="20" id="svg_39">ε</text>
+  <polygon stroke="black" points="39,158 63,158 " id="svg_40"/>
+  <text x="0" y="164" font-family="Times New Roman" font-size="20" id="svg_41">start</text>
+  <polygon fill="black" points="63,158 55,153 55,163 " id="svg_42"/>
+  <path stroke="black" fill="none" d="m397.775,67.203a22.5,22.5 0 1 1 26.45,0" id="svg_43"/>
+  <text x="407" y="18" font-family="Times New Roman" font-size="20" id="svg_44">a</text>
+  <polygon fill="black" points="424.2250061035156,67.2030029296875 432.9729919433594,63.66999816894531 424.8819885253906,57.79199981689453 " id="svg_45"/>
+  <polygon stroke="black" points="435.7980041503906,110.88400268554688 480.2019958496094,141.11599731445312 " id="svg_46"/>
+  <polygon fill="black" points="480.2019958496094,141.11599731445312 476.40301513671875,132.4810028076172 470.7749938964844,140.7469940185547 " id="svg_47"/>
+ </g>
+
+</svg>

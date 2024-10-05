@@ -1,0 +1,28 @@
+<svg width="395" height="181" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <g>
+  <title>Layer 1</title>
+  <ellipse id="svg_1" ry="30" rx="30" cy="94" cx="230" fill="none" stroke="black"/>
+  <text id="svg_2" font-size="20" font-family="Times New Roman" y="100" x="223">C</text>
+  <ellipse id="svg_3" ry="30" rx="30" cy="94" cx="101" fill="none" stroke="black"/>
+  <text id="svg_4" font-size="20" font-family="Times New Roman" y="100" x="94">A</text>
+  <ellipse id="svg_5" ry="30" rx="30" cy="94" cx="360" fill="none" stroke="black"/>
+  <text id="svg_6" font-size="20" font-family="Times New Roman" y="100" x="354">E</text>
+  <polygon id="svg_7" points="39,94 71,94 " stroke="black"/>
+  <text id="svg_8" font-size="20" font-family="Times New Roman" y="100" x="0">start</text>
+  <polygon id="svg_9" points="71,94 63,89 63,99 " fill="black"/>
+  <polygon id="svg_10" points="131,94 200,94 " stroke="black"/>
+  <polygon id="svg_11" points="200,94 192,89 192,99 " fill="black"/>
+  <text id="svg_12" font-size="20" font-family="Times New Roman" y="85" x="161">b</text>
+  <polygon id="svg_13" points="260,94 330,94 " stroke="black"/>
+  <polygon id="svg_14" points="330,94 322,89 322,99 " fill="black"/>
+  <text id="svg_15" font-size="20" font-family="Times New Roman" y="85" x="291">a</text>
+  <path id="svg_16" d="m346.775,67.203a22.5,22.5 0 1 1 26.45,0" fill="none" stroke="black"/>
+  <text style="cursor: move;" id="svg_17" font-size="20" font-family="Times New Roman" y="18" x="346">a, b</text>
+  <polygon id="svg_18" points="373.2249755859375,67.2030029296875 381.9730224609375,63.66999816894531 373.88201904296875,57.79199981689453 " fill="black"/>
+  <path id="svg_19" d="m338.854,115.224a168.545,168.545 0 0 1 -216.708,0" fill="none" stroke="black"/>
+  <polygon id="svg_20" points="338.85400390625,115.2239990234375 329.5119934082031,116.53799438476562 335.9410095214844,124.19700622558594 " fill="black"/>
+  <text id="svg_21" font-size="20" font-family="Times New Roman" y="176" x="226">a</text>
+  <ellipse stroke="black" id="svg_22" ry="23.38889" rx="23.38889" cy="94.12963" cx="360.1" fill="none"/>
+ </g>
+
+</svg>
