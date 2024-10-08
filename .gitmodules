@@ -16,3 +16,6 @@
 [submodule "CS303 Artificial Intelligence/Project"]
 	path = CS303 Artificial Intelligence/Project
 	url = git@github.com:chanbengz/SUSTech_CS303_Project_2024F.git
+[submodule "CS323 Compiler Principles/Project"]
+	path = CS323 Compiler Principles/Project
+	url = git@github.com:chanbengz/SUSTech_CS323_Project_Incredibuild.git
