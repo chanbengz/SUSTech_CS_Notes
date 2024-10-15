@@ -20,7 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
-#include "lcd.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -92,50 +92,11 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   lcd_init();
-  uint8_t x = 0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  switch (x) {
-	  	  case 0: lcd_clear(WHITE); g_back_color = WHITE; break;
-	  	  case 1: lcd_clear(BLACK); g_back_color = BLACK; break;
-	  	  case 2: lcd_clear(BLUE); g_back_color = BLUE; break;
-	  	  case 3: lcd_clear(RED); g_back_color = RED; break;
-	  	  case 4: lcd_clear(MAGENTA); g_back_color = MAGENTA; break;
-	  	  case 5: lcd_clear(GREEN); g_back_color = GREEN; break;
-	  	  case 6: lcd_clear(CYAN); g_back_color = CYAN; break;
-	  	  case 7: lcd_clear(YELLOW); g_back_color = YELLOW; break;
-	  	  case 8: lcd_clear(BRRED); g_back_color = BRRED; break;
-	  	  case 9: lcd_clear(GRAY); g_back_color = GRAY; break;
-	  	  case 10: lcd_clear(LGRAY); g_back_color = LGRAY; break;
-	  	  case 11: lcd_clear(BROWN); g_back_color = BROWN; break;
-	  }//end of switch
-
-	  lcd_show_string(30, 40, 200, 24, 24, "Mini STM32 ^_^", RED);
-	  lcd_show_string(30, 70, 200, 16, 16, "TFTLCD TEST", RED);
-	  /* Code of showing address of GPIOA->CRL (represented in hexadecimal) BEGIN */
-	  // lcd_show_string(30, 90, 200, 16, 16, "addr = 0x", RED);
-	  lcd_show_string(30, 90, 100, 16, 16, "addr = 0x", RED);
-	  char hex[17] = "0123456789ABCDEF";
-	  int i = 7, n = (uint32_t) &GPIOA->CRL;
-	  char num[i + 2];
-	  while (i >= 0) {
-		  num[i--] = hex[n & 0xF];
-		  n = n >> 4;
-	  }
-	  lcd_show_string(102, 90, 60, 16, 16, num, RED);
-	  /* Code of showing address of GPIOA->CRL (represented in hexadecimal) END */
-
-	  lcd_draw_rectangle(30, 150, 210, 190, BLACK);
-	  lcd_fill(31, 151, 209, 189, YELLOW);
-
-	  x++;
-	  if (x == 12)
-	  	  x = 0;
-
-	  HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }
